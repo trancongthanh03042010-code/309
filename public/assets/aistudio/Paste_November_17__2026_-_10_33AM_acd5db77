@@ -1,0 +1,817 @@
+PHONE OS 4.0 — ULTIMATE iOS-STYLE SMARTPHONE EXPERIENCE
+TÀI LIỆU ĐẶC TẢ NÂNG CẤP LỚN — BẢN MỞ RỘNG TOÀN DIỆN
+Phiên bản tài liệu: 4.0
+Nền tảng mục tiêu: Web/PWA chạy trên Android, có lộ trình đóng gói Android Native bằng Capacitor hoặc ứng dụng native.
+Định hướng giao diện: iOS-inspired, cao cấp, đồng nhất, tinh tế; không sao chép nhãn hiệu/tài sản độc quyền của Apple.
+Mục tiêu: Biến PHONE OS thành một môi trường smartphone mô phỏng sâu, có hệ sinh thái ứng dụng liên kết, nội dung media dùng được qua dịch vụ chính thức, tương tác hệ thống phong phú và chất lượng hoàn thiện cao.
+
+======================================================================
+0. TUYÊN BỐ PHẠM VI VÀ NGUYÊN TẮC BẮT BUỘC
+======================================================================
+
+0.1. Đây là bản nâng cấp kế thừa PHONE OS 3.0.
+- Giữ nguyên toàn bộ hệ thống, dữ liệu, ứng dụng, AI World, mạng xã hội, tài khoản, sao lưu, đồng bộ, cài đặt, quyền, thông báo, widget, quản lý pin, mạng, âm thanh, hiển thị, bảo mật, kiến trúc và tiêu chí nghiệm thu đã có trong 3.0.
+- Không xóa, đổi tên làm mất dữ liệu, rút gọn hoặc thay thế tính năng cũ nếu không có yêu cầu cụ thể.
+- Mọi chức năng mới phải tích hợp vào hệ thống dùng chung, không tạo các app rời rạc chỉ có giao diện.
+- Có migration dữ liệu từ 3.0 lên 4.0; phải sao lưu trước migration và có khả năng khôi phục khi migration lỗi.
+- Tài liệu 3.0 là nền tảng kế thừa. Tài liệu 4.0 này bổ sung các yêu cầu mới, mở rộng chi tiết và đặt tiêu chuẩn nghiệm thu cao hơn.
+
+0.2. Định nghĩa “giống app thật”
+Một ứng dụng được xem là hoàn thiện khi có:
+- Giao diện đầy đủ, đúng ngữ cảnh và có nhận diện trực quan riêng.
+- Luồng thao tác thực tế từ trang chủ đến chi tiết, tìm kiếm, tạo nội dung, chỉnh sửa, lưu, chia sẻ và cài đặt.
+- Dữ liệu có nguồn rõ ràng: local, backend PHONE OS, API chính thức hoặc dữ liệu demo được gắn nhãn.
+- Trạng thái loading, skeleton, empty, offline, lỗi, thành công, xác nhận, quyền bị từ chối.
+- Tất cả nút, menu, tab, icon, gesture, popup đều có hành vi thực tế; không để nút trang trí.
+- Trạng thái và dữ liệu được giữ khi chuyển app, tải lại, đóng/mở lại trong giới hạn lưu trữ của nền tảng.
+- Tìm kiếm, lọc, sắp xếp, phân trang, lịch sử, yêu thích và cài đặt hoạt động khi phù hợp.
+- Có kiểm tra responsive, accessibility, hiệu năng và bảo mật.
+- Có liên kết với các app khác qua Share Sheet, Deep Link nội bộ, dữ liệu dùng chung và thông báo.
+
+0.3. Phân loại chức năng bắt buộc
+A. Nội bộ PHONE OS: triển khai đầy đủ bằng frontend, local database và/hoặc backend riêng.
+B. Dịch vụ Internet bên ngoài: chỉ hoạt động thật khi tích hợp API/SDK/website/embed chính thức, tài khoản và quyền sử dụng phù hợp.
+C. Phần cứng/hệ điều hành: cần Android native API, quyền runtime hoặc plugin tương ứng.
+D. Mô phỏng: dùng dữ liệu hư cấu, phải gắn nhãn “Mô phỏng”; không được trình bày như giao dịch, cuộc gọi, dữ liệu cảm biến hoặc dịch vụ thật.
+Mỗi tính năng phải ghi rõ loại A/B/C/D trong tài liệu kỹ thuật và màn hình trạng thái tích hợp.
+
+0.4. Không hứa hẹn bất khả thi
+- Không được tuyên bố toàn bộ ứng dụng bên thứ ba hoạt động 100% như app gốc nếu không có API/SDK/quyền hợp pháp.
+- YouTube phải phát nội dung thật qua trình phát nhúng/API chính thức hoặc mở ứng dụng/trang chính thức. Không tải lậu, bóc tách luồng video, vượt quảng cáo, giả lập Premium hoặc lưu video trái điều khoản.
+- Netflix, Disney+, các dịch vụ phim trả phí, Spotify và dịch vụ âm nhạc có thể giới hạn phát trong WebView/iframe. Khi không được phép nhúng, mở ứng dụng/trang chính thức bằng liên kết an toàn.
+- Không thu thập mật khẩu dịch vụ bên thứ ba trong PHONE OS. Dùng OAuth/luồng đăng nhập chính thức nếu nhà cung cấp hỗ trợ.
+- Tính năng nền, PiP, cast, AirPlay, điều khiển media hệ thống, cuộc gọi/SMS, Bluetooth, NFC, vị trí và thông báo native tùy thiết bị, Android version, trình duyệt và quyền.
+- Không dùng dữ liệu giả để làm người dùng tin rằng đang xem video, nghe nhạc, gọi điện hoặc giao dịch thật.
+
+0.5. Tiêu chuẩn chất lượng tổng thể
+- Giao diện cao cấp, nhất quán, không vỡ trên màn hình điện thoại nhỏ.
+- Tối ưu thao tác một tay, vùng chạm lớn, hỗ trợ safe-area, bàn phím ảo và xoay màn hình khi phù hợp.
+- Có light/dark mode, font scale, giảm chuyển động và tương phản cao.
+- Không có lỗi console nghiêm trọng, lỗi JavaScript làm sập toàn hệ thống, dữ liệu mất sau refresh hoặc điều hướng sai.
+- Không có nút chết, link chết, popup không đóng được, modal bị kẹt, thanh cuộn lồng gây khó sử dụng.
+- Mỗi app phải có bộ kiểm thử và tiêu chí nghiệm thu riêng.
+
+======================================================================
+1. THIẾT KẾ NGÔN NGỮ GIAO DIỆN — PREMIUM iOS-INSPIRED UI
+======================================================================
+
+1.1. Nguyên tắc thị giác
+- Phong cách smartphone cao cấp: bố cục sạch, phân cấp chữ rõ, khoảng trắng hợp lý, icon đồng bộ, bo góc tinh tế, hiệu ứng vật liệu kính có kiểm soát.
+- Không lạm dụng blur, gradient, shadow, glassmorphism hoặc animation.
+- Mỗi app có màu nhận diện riêng nhưng dùng chung hệ thống typography, spacing, radius, modal, button, list row, navigation và feedback.
+- Không sao chép logo, hình nền, font độc quyền, icon độc quyền hoặc giao diện thương hiệu bên thứ ba. Dùng thiết kế nguyên bản theo cảm hứng iOS.
+
+1.2. Design tokens
+- Xây dựng bảng màu semantic: background, surface, elevated surface, primary text, secondary text, separator, accent, success, warning, danger, disabled.
+- Có bộ token sáng/tối và tự đổi theo cài đặt.
+- Chuẩn hóa spacing, corner radius, elevation, typography scale, icon size, touch target, animation duration.
+- Không đặt màu trực tiếp tùy tiện trong từng component; tất cả lấy từ design tokens.
+- Hỗ trợ font hệ thống và font dễ đọc; tránh font tải ngoài làm chậm app.
+
+1.3. Bộ component dùng chung
+- Status Bar; Dynamic Island; Home Indicator; Navigation Bar; Tab Bar; Toolbar.
+- App Icon; App Card; List Row; Grouped List; Search Bar; Segmented Control.
+- Primary/Secondary/Tertiary Button; Icon Button; Floating Action Button.
+- Bottom Sheet; Alert Dialog; Confirmation Dialog; Context Menu; Popover.
+- Toast; Snackbar; Banner; Badge; Progress; Skeleton; Empty State; Error State.
+- Media Player; Slider; Switch; Checkbox; Radio; Date/Time Picker.
+- Avatar; Contact Cell; Message Bubble; Attachment Preview; Product Card.
+- Keyboard Avoidance Container; Safe Area Container; Pull-to-Refresh.
+Mỗi component phải có disabled, loading, pressed, focused, selected và error state phù hợp.
+
+1.4. Chuyển động
+- App mở/đóng, chuyển tab, mở modal, mở sheet, chuyển ảnh, kéo thông báo, mở Control Center có animation mượt.
+- Có giảm/tắt animation theo cài đặt Accessibility.
+- Animation không được khóa thao tác hoặc làm trễ phản hồi.
+- Không chạy animation nền liên tục khi app không hiển thị.
+
+1.5. Icon và hình ảnh
+- Dùng một bộ icon thống nhất, nét và tỷ lệ đồng đều.
+- Không dùng emoji làm icon chính của hệ điều hành.
+- App icon có lưới, padding, độ tương phản và kích thước nhất quán.
+- Ảnh có placeholder, lazy loading, xử lý ảnh lỗi và tối ưu kích thước.
+- Ảnh đại diện và ảnh sản phẩm không được kéo méo.
+
+======================================================================
+2. MÀN HÌNH KHỞI ĐỘNG, KHÓA VÀ MỞ KHÓA
+======================================================================
+
+2.1. Boot / Startup
+- Màn hình khởi động có logo PHONE OS, animation ngắn, trạng thái tải dữ liệu.
+- Kiểm tra phiên bản schema, session, cấu hình, dữ liệu local và trạng thái kết nối.
+- Nếu dữ liệu hỏng, chuyển sang Recovery Center thay vì màn hình trắng.
+- Không giả lập quy trình khởi động phần cứng Android thật nếu chỉ chạy web.
+
+2.2. Lock Screen
+- Đồng hồ lớn, ngày/thứ, thời tiết nếu có nguồn dữ liệu, thông báo nhóm, widget.
+- Hình nền tùy chỉnh, hiệu ứng chiều sâu nếu hiệu năng cho phép.
+- Hiển thị media đang phát và điều khiển cơ bản nếu quyền/nền tảng hỗ trợ.
+- Vuốt lên mở khóa; vuốt từ góc hoặc nút tắt mở Camera/đèn pin mô phỏng hoặc native khi có quyền.
+- Chạm thông báo mở đúng nội dung; vuốt thông báo để quản lý.
+- Tùy chọn ẩn nội dung nhạy cảm khi khóa.
+
+2.3. Bảo vệ
+- PIN nội bộ, mật khẩu, pattern mô phỏng.
+- Sinh trắc học chỉ được hiển thị khi tích hợp native biometric thật; nếu chưa có phải ghi “Chưa kết nối”.
+- Khóa app riêng, thời gian tự khóa, yêu cầu xác thực trước thao tác nhạy cảm.
+- Có luồng quên mã khôi phục an toàn; không tạo backdoor.
+
+2.4. Always-On Display
+- Chế độ AOD mô phỏng với đồng hồ, ngày, biểu tượng thông báo và media.
+- Giảm độ sáng/animation; tự tắt theo thời gian.
+- Ghi rõ AOD trong web app chỉ hoạt động khi màn hình/app còn được hệ điều hành cho phép; không thể ép màn hình điện thoại thật luôn sáng.
+
+======================================================================
+3. HOME SCREEN, APP LIBRARY VÀ LAUNCHER
+======================================================================
+
+3.1. Home Screen
+- Nhiều trang màn hình chính, vuốt ngang chuyển trang.
+- Dock cố định có thể tùy chỉnh số lượng app.
+- App icon có badge thông báo và trạng thái cập nhật.
+- Thêm/xóa/di chuyển app; kéo thả để đổi vị trí.
+- Tạo thư mục, đổi tên, kéo app vào/ra thư mục.
+- Chỉnh lưới icon, kích thước icon, tên app và khoảng cách.
+- Widget có nhiều kích thước; thêm, xóa, sắp xếp và cấu hình.
+- Lưu bố cục ngay sau thay đổi; có hoàn tác khi thao tác kéo nhầm.
+
+3.2. App Library / App Drawer
+- Danh sách tất cả app đã cài trong PHONE OS.
+- Tự nhóm theo danh mục nhưng cho phép chỉnh sửa.
+- Tìm app tức thì, sắp xếp theo tên/gần đây/danh mục.
+- App mới cài có nhãn “Mới”.
+- Ẩn/hiện app; app bị ẩn vẫn có thể tìm thấy nếu người dùng cho phép.
+
+3.3. Long Press Menu
+- Mở menu nhanh theo app: mở, thông tin app, gỡ/ẩn, sửa màn hình chính, widget, hành động nhanh.
+- Hỗ trợ kéo app và tạo thư mục.
+- Menu đóng khi chạm ngoài, Back hoặc chọn hành động.
+
+3.4. App Manager
+- Danh sách app, phiên bản, dung lượng PHONE OS, quyền, thông báo, dữ liệu, cache.
+- Mở, buộc dừng trong phạm vi app nội bộ, xóa cache, reset dữ liệu có xác nhận, gỡ app nội bộ.
+- Không tuyên bố gỡ app Android thật nếu chỉ quản lý app mô phỏng.
+- Hiển thị app hệ thống không thể gỡ và lý do.
+
+======================================================================
+4. CONTROL CENTER, NOTIFICATION CENTER VÀ DYNAMIC ISLAND
+======================================================================
+
+4.1. Control Center
+- Vuốt từ cạnh trên/góc màn hình để mở; có gesture thay thế bằng nút nếu trình duyệt chặn.
+- Các nút: Wi-Fi, Bluetooth, Airplane, dữ liệu di động mô phỏng, VPN mô phỏng, hotspot mô phỏng, đèn pin, xoay màn hình, tiết kiệm pin, DND, focus, ghi màn hình mô phỏng.
+- Thanh độ sáng/âm lượng chỉ điều khiển mô phỏng hoặc native nếu có quyền.
+- Module media có ảnh bìa, tên bài, play/pause, next/previous khi nguồn phát hỗ trợ.
+- Nhấn giữ ô để mở cài đặt chi tiết.
+- Không mô tả trạng thái mô phỏng là trạng thái phần cứng.
+
+4.2. Notification Center
+- Nhóm thông báo theo app và theo cuộc hội thoại.
+- Thông báo có icon, tiêu đề, nội dung, thời gian, hành động nhanh.
+- Vuốt xóa, đánh dấu đã đọc, tắt thông báo app, snooze nhắc việc.
+- Lịch sử thông báo, bộ lọc và tìm kiếm.
+- Ưu tiên, im lặng, thông báo nhạy cảm, tóm tắt thông báo.
+- DND/Focus áp dụng toàn hệ thống.
+- Thông báo nội bộ không được giả mạo notification của Android hoặc dịch vụ khác.
+
+4.3. Dynamic Island / Live Activities
+- Vùng tương tác ở cạnh trên, thích ứng kích thước màn hình.
+- Thu gọn: hiển thị trạng thái ngắn như phát nhạc, hẹn giờ, cuộc gọi mô phỏng, tải tệp, chỉ đường mô phỏng, đơn hàng mô phỏng.
+- Mở rộng: chạm/nhấn giữ để xem điều khiển hoặc tiến trình.
+- Hoạt động có trạng thái bắt đầu, đang chạy, tạm dừng, hoàn tất, thất bại.
+- Chỉ hiện dữ liệu từ tác vụ thật trong PHONE OS hoặc dữ liệu mô phỏng có nhãn.
+- Không tuyên bố đây là Dynamic Island hệ thống iOS thật; đây là thành phần UI của PHONE OS.
+
+4.4. Live Activities
+- Bộ đếm thời gian, phát media, ghi âm nội bộ, tải tệp, tác vụ đồng bộ, giao hàng mô phỏng, chuyến xe mô phỏng.
+- Tự cập nhật khi trạng thái thay đổi.
+- Tự biến mất khi kết thúc hoặc người dùng đóng.
+- Có giới hạn số hoạt động đồng thời để không che nội dung.
+
+======================================================================
+5. MULTITASKING, GESTURE VÀ CỬA SỔ NỔI
+======================================================================
+
+- Recent Apps dạng thẻ, hiển thị ảnh xem trước và tên app.
+- Vuốt ngang chuyển app gần đây; vuốt thẻ lên để đóng.
+- Chạm thẻ quay lại đúng trạng thái trước đó.
+- Lưu draft trước khi app bị đóng hoặc reload.
+- Floating Window cho app hỗ trợ; kéo, thu nhỏ, phóng to, đóng.
+- Picture-in-Picture cho video chỉ khi trình duyệt/SDK cho phép và nguồn phát cho phép.
+- Split View chỉ là bố cục nội bộ nếu không có native multi-window.
+- Gesture Back, Home, App Switcher, Pull-to-Refresh, swipe giữa tab.
+- Không dùng gesture xung đột với thao tác cuộn trang.
+- Có tùy chọn giảm độ nhạy hoặc tắt gesture.
+
+======================================================================
+6. BỘ ỨNG DỤNG GỐC PHẢI HOÀN THIỆN
+======================================================================
+
+Mọi app dưới đây phải có trang chủ, trang chi tiết, tìm kiếm, trạng thái rỗng, lỗi, cài đặt riêng, dữ liệu bền vững và tích hợp hệ thống.
+
+6.1. Phone / Điện thoại
+- Bàn phím số, nhập số, xóa từng số, dán số, gọi từ danh bạ.
+- Danh bạ yêu thích, lịch sử cuộc gọi, cuộc gọi nhỡ, cuộc gọi đi/đến.
+- Chi tiết cuộc gọi, thời lượng, thời gian, liên hệ, ghi chú.
+- Chặn số, danh sách chặn, báo cáo spam mô phỏng.
+- Màn hình cuộc gọi đến: tên/ảnh, chấp nhận, từ chối, im lặng.
+- Màn hình trong cuộc gọi: mute, speaker, keypad, hold mô phỏng, kết thúc.
+- Nếu chưa tích hợp Android Telecom/SIM/nhà mạng, toàn bộ cuộc gọi chỉ là mô phỏng hoặc cuộc gọi AI qua voice service; phải ghi rõ.
+
+6.2. Messages / Tin nhắn
+- Danh sách hội thoại, tìm kiếm, ghim, lưu trữ, đánh dấu chưa đọc.
+- Chat 1-1 và nhóm; văn bản, ảnh, video, file, vị trí, liên hệ.
+- Reply, reaction, forward, copy, edit/delete trong giới hạn chính sách.
+- Trạng thái gửi, đã gửi, đã nhận, đã đọc chỉ khi backend có dữ liệu xác nhận.
+- Tin nhắn nháp, gửi lại khi mạng khôi phục, tìm kiếm trong hội thoại.
+- SMS thật chỉ khi có ứng dụng Android native đủ quyền/role mặc định; bản web không đọc/gửi SMS thật.
+
+6.3. Contacts / Danh bạ
+- Tạo, sửa, xóa, nhập/xuất liên hệ.
+- Tên, nhiều số điện thoại, email, ảnh, công ty, chức danh, địa chỉ, ngày sinh, ghi chú.
+- Nhóm liên hệ, yêu thích, liên hệ gần đây, tìm kiếm và gộp trùng.
+- Hành động nhanh: gọi, nhắn tin, email, mở bản đồ.
+- Đồng bộ danh bạ thật chỉ sau khi xin quyền và có API phù hợp.
+
+6.4. Camera
+- Giao diện camera dọc/ngang, nút chụp, quay video, chuyển camera trước/sau, flash nếu hỗ trợ, zoom nếu hỗ trợ.
+- Chọn tỷ lệ, hẹn giờ, lưới căn chỉnh, focus/exposure nếu API hỗ trợ.
+- Bộ lọc, chế độ chân dung giả lập hoặc native nếu có.
+- Preview ảnh/video sau chụp, retake, lưu, chia sẻ.
+- Trình duyệt dùng getUserMedia khi được cấp quyền; không đảm bảo mọi tính năng camera native.
+
+6.5. Photos / Ảnh
+- Thư viện dạng lưới, album, video, yêu thích, gần đây, đã xóa.
+- Xem ảnh toàn màn hình, zoom, swipe, metadata, chia sẻ, tải về.
+- Chỉnh sửa: crop, rotate, exposure, brightness, contrast, saturation, filter, markup, text.
+- Tạo album, chọn nhiều, di chuyển, ẩn, xóa, khôi phục.
+- Đồng bộ Camera output và file media của các app.
+- Không tự truy cập toàn bộ thư viện Android nếu chưa được cấp quyền.
+
+6.6. Safari-style Browser / Trình duyệt
+- Tab, tab riêng tư mô phỏng, thanh địa chỉ/tìm kiếm, back/forward/reload.
+- Bookmark, Reading List, history, downloads, find-in-page.
+- Chặn popup độc hại, cảnh báo trang không an toàn ở mức khả năng trình duyệt.
+- Chia sẻ trang, mở trong trình duyệt ngoài, quản lý quyền website.
+- Không giả vờ có engine Safari; dùng engine WebView/browser thực tế của nền tảng.
+
+6.7. Maps / Bản đồ
+- Bản đồ tương tác, tìm địa điểm, danh mục, địa chỉ, đánh dấu yêu thích.
+- Trang địa điểm: ảnh, địa chỉ, giờ mở cửa, liên hệ, đánh giá nếu nguồn cung cấp.
+- Chỉ đường đi bộ/xe máy/ô tô khi nhà cung cấp hỗ trợ.
+- Lưu địa điểm, chia sẻ vị trí/địa điểm.
+- Vị trí hiện tại cần quyền location; nếu không có, cho nhập địa điểm thủ công.
+- Không giả lập GPS thật.
+
+6.8. Clock / Đồng hồ
+- Đồng hồ thế giới, nhiều múi giờ.
+- Báo thức tạo/sửa/xóa, lặp ngày, nhãn, âm báo, snooze.
+- Stopwatch lap, timer, preset.
+- Notification/reminder khi app được phép chạy; web background có giới hạn.
+- Ghi rõ báo thức nền có thể không đáng tin bằng ứng dụng đồng hồ native.
+
+6.9. Calendar / Lịch
+- Ngày/tuần/tháng/lịch trình.
+- Tạo sự kiện, lặp, khách mời, địa điểm, ghi chú, nhắc trước.
+- Kéo đổi thời gian nếu phù hợp, tìm kiếm, màu lịch.
+- Đồng bộ Google/Outlook chỉ qua OAuth/API chính thức.
+- Tạo event từ tin nhắn, email hoặc Maps khi người dùng chọn.
+
+6.10. Reminders / Nhắc nhở
+- Danh sách, checklist, ưu tiên, ngày giờ, lặp, tag.
+- Nhắc theo vị trí chỉ khi location permission và nền tảng hỗ trợ.
+- Hoàn thành, snooze, postpone, tìm kiếm, widget.
+- Chia sẻ nhắc việc và tạo từ nội dung app khác.
+
+6.11. Notes / Ghi chú
+- Ghi chú văn bản, checklist, tiêu đề, định dạng, ảnh, file, link.
+- Tìm kiếm toàn văn, ghim, thư mục, tag, khóa ghi chú nếu có bảo mật.
+- Auto-save, version history, khôi phục bản cũ.
+- Chia sẻ, in/xuất PDF hoặc TXT.
+- Draft không mất khi đổi app hoặc reload.
+
+6.12. Mail / Email
+- Inbox, Sent, Drafts, Archive, Spam, Trash, folders/labels.
+- Compose, To/CC/BCC, subject, rich text, attachment.
+- Reply, reply all, forward, search, filter, mark unread/star.
+- Tích hợp email thật qua OAuth/IMAP/SMTP hoặc nhà cung cấp hợp lệ; không tự lưu mật khẩu.
+- Nếu chưa kết nối tài khoản, hiển thị hộp thư demo có nhãn rõ.
+
+6.13. Files / Quản lý tệp
+- Duyệt tệp PHONE OS, thư mục, gần đây, tải xuống, yêu thích, thùng rác.
+- Tạo thư mục, đổi tên, di chuyển, sao chép, chia sẻ, xóa, khôi phục.
+- Preview ảnh, video, audio, PDF, TXT và định dạng được hỗ trợ.
+- Tìm kiếm, lọc theo loại/kích thước/ngày, sắp xếp.
+- Import/export qua file picker; quyền truy cập tùy browser/native.
+- Không tuyên bố quản lý toàn bộ bộ nhớ Android nếu không có quyền.
+
+6.14. Music / Nhạc
+- Thư viện audio được người dùng chọn hoặc dịch vụ có quyền.
+- Player, queue, shuffle, repeat, seek, tốc độ nếu phù hợp, lyrics nếu có nguồn hợp pháp.
+- Album, artist, playlist, favorites, recently played.
+- Điều khiển media trên Lock Screen/Control Center khi Media Session API hoặc native hỗ trợ.
+- Không cung cấp nhạc có bản quyền trái phép.
+
+6.15. Calculator / Máy tính
+- Cơ bản, khoa học, phần trăm, lịch sử phép tính.
+- Copy kết quả, xóa lịch sử, xử lý lỗi biểu thức.
+- Giao diện máy tính cầm tay, bàn phím lớn và phản hồi rõ.
+
+6.16. Weather / Thời tiết
+- Vị trí hiện tại hoặc địa điểm tìm kiếm.
+- Hiện tại, theo giờ, nhiều ngày, nhiệt độ cảm nhận, mưa, gió, độ ẩm.
+- Cảnh báo thời tiết nếu API có.
+- Nguồn và thời điểm cập nhật.
+- Không dùng dữ liệu giả mà ghi là thời tiết trực tiếp.
+
+6.17. Health / Sức khỏe
+- Mục tiêu vận động, nước, giấc ngủ tự nhập, nhật ký hoạt động, biểu đồ.
+- Dữ liệu cảm biến chỉ khi tích hợp native/Health Connect phù hợp.
+- Không chẩn đoán bệnh; ghi rõ nguồn và tính chất dữ liệu.
+
+6.18. Settings / Cài đặt
+- Tìm kiếm trong Settings.
+- Hồ sơ, mạng, Bluetooth, thông báo, âm thanh, hiển thị, wallpaper, accessibility, privacy, security, battery, storage, apps, accounts, backup, update, about.
+- Mỗi mục có mô tả, trạng thái, hành động và khả năng quay lại đúng trang.
+- Tùy chọn reset riêng từng module; reset toàn hệ thống cần xác nhận nhiều bước.
+
+======================================================================
+7. ỨNG DỤNG GIẢI TRÍ VÀ MEDIA — YÊU CẦU HOẠT ĐỘNG THẬT
+======================================================================
+
+7.1. YouTube — ưu tiên tích hợp thật
+Mục tiêu:
+- Người dùng có thể tìm và xem video YouTube thật trong phạm vi YouTube cho phép.
+- Không tạo giao diện giả với danh sách video không phát được.
+- Không tải video, tách audio, bỏ quảng cáo hoặc vượt cơ chế Premium/DRM.
+- Không thu thập mật khẩu Google.
+
+Phương án tích hợp:
+A. YouTube IFrame Player API / official embed:
+- Dùng trình phát nhúng chính thức với video ID hợp lệ.
+- Có play/pause, seek, volume, fullscreen và trạng thái player theo API.
+- Xử lý video bị giới hạn nhúng, video riêng tư, bị xóa, giới hạn độ tuổi hoặc không khả dụng.
+- Tuân thủ yêu cầu branding, attribution, autoplay, cookie/privacy và điều khoản YouTube.
+B. YouTube Data API:
+- Tìm kiếm video, lấy metadata, thumbnail, kênh, thời lượng và thông tin công khai theo quota/quyền API.
+- API key chỉ ở backend hoặc cơ chế bảo vệ phù hợp; không để secret trong frontend.
+- Hiển thị thông báo quota, lỗi API, giới hạn khu vực và yêu cầu đăng nhập.
+C. Fallback:
+- Nếu embed không chạy, nút “Mở trên YouTube” mở URL chính thức.
+- Không thay thế bằng video giả hoặc tự phát nội dung khác.
+
+Giao diện YouTube:
+- Trang Home: video đề xuất nếu API được phép, danh mục, Shorts/Subscriptions/History tùy khả năng API.
+- Search: gợi ý từ khóa, lịch sử tìm kiếm, bộ lọc.
+- Watch page: player, tiêu đề, kênh, mô tả, lượt xem/ngày đăng khi API cung cấp, nút like/share/save chỉ khi chức năng tương ứng được hỗ trợ.
+- Comments: chỉ hiển thị/đăng nếu API và quyền OAuth hiện hành cho phép; nếu không, mở YouTube chính thức.
+- Channel page: avatar, banner, tên, mô tả và video công khai theo API.
+- Library: lịch sử và playlist cục bộ; đồng bộ tài khoản YouTube chỉ qua OAuth và API được phép.
+- Mini Player: duy trì trong PHONE OS khi người dùng chuyển trang nếu player cho phép.
+- Picture-in-Picture/background playback: chỉ bật khi nền tảng, trình phát và quyền dịch vụ hỗ trợ; không hứa hẹn phát nền như YouTube Premium.
+- Shorts: chỉ tích hợp nếu API/nhúng chính thức cho phép; nếu không thì mở YouTube.
+- Không clone giao diện để đánh lừa người dùng rằng đây là app YouTube chính thức.
+
+7.2. Movies / Streaming Hub
+- Một trung tâm khám phá phim và series.
+- Danh sách phim, poster, thể loại, năm, mô tả, trailer, diễn viên và đánh giá từ nguồn được phép.
+- Watchlist, lịch sử mở, yêu thích, tìm kiếm, bộ lọc.
+- Tra cứu nơi xem hợp pháp bằng deep link tới dịch vụ có bản quyền.
+- Phát trailer qua nguồn chính thức.
+- Với Netflix/Disney+/Prime Video và dịch vụ khác: mở app/trang chính thức hoặc tích hợp player chỉ khi nhà cung cấp cho phép.
+- Không nhúng trái phép, không vượt DRM, không lưu phim hoặc chia sẻ tài khoản.
+- Nếu chưa có dịch vụ streaming được cấp quyền, đây là app khám phá phim chứ không phải kho phim phát trực tuyến.
+
+7.3. Music Streaming Hub
+- Tìm kiếm nghệ sĩ, album, bài hát, playlist.
+- Kết nối Spotify/Apple Music/YouTube Music bằng API/OAuth chính thức khi có quyền.
+- Nếu API chỉ cho metadata, không hiển thị nút Play giả.
+- Khi không phát được trong PHONE OS, mở app/trang dịch vụ.
+- Hỗ trợ thư viện nhạc cá nhân do người dùng nhập.
+- Queue, favorites, recent, playlist nội bộ.
+
+7.4. Podcast
+- Giữ toàn bộ tính năng Podcast 3.0.
+- Bổ sung nguồn RSS hợp pháp, tìm kiếm, subscribe, auto-download nếu feed cho phép, playback speed, chapter, sleep timer.
+- Kiểm tra URL media và dung lượng; xử lý tập bị gỡ.
+
+7.5. Video Player nội bộ
+- Phát video người dùng có quyền truy cập.
+- Subtitle, audio track, playback speed, seek, rotate, fullscreen, PiP nếu hỗ trợ.
+- Hỗ trợ định dạng browser/native giải mã được; báo lỗi định dạng không hỗ trợ.
+- Không bypass DRM hoặc codec license.
+
+======================================================================
+8. APP STORE / CỬA HÀNG ỨNG DỤNG NỘI BỘ
+======================================================================
+
+- Trang khám phá app nội bộ PHONE OS.
+- Danh mục, tìm kiếm, ảnh giới thiệu, mô tả, quyền cần dùng, phiên bản, dung lượng.
+- Cài đặt/gỡ/cập nhật app trong hệ sinh thái nội bộ.
+- Danh sách app đã cài, cập nhật chờ, lịch sử cài đặt.
+- Kiểm tra chữ ký/hash gói nếu có hệ thống package.
+- Không tuyên bố cài ứng dụng Android APK trực tiếp nếu không có native installer và quyền hệ thống.
+- Không phân phối APK không rõ nguồn.
+- Mỗi app có trang chi tiết và changelog.
+
+======================================================================
+9. ỨNG DỤNG ĐỜI SỐNG — MỞ RỘNG TỪ PHONE OS 3.0
+======================================================================
+
+Giữ nguyên các app Podcast, Shopping, Food Delivery, Banking mô phỏng, Ride mô phỏng, Office, Community, Smart Home, Health và các app 3.0. Bổ sung tiêu chuẩn:
+
+9.1. Shopping
+- Bộ lọc đa tiêu chí, biến thể, tồn kho, đánh giá, giỏ hàng, voucher, checkout.
+- Đơn hàng, tracking, đổi trả, hoàn tiền mô phỏng hoặc tích hợp thật.
+- Giá, phí và thanh toán phải gắn nhãn nguồn.
+- Giao dịch thật chỉ qua payment provider được cấp phép.
+
+9.2. Food Delivery
+- Nhà hàng, menu, topping, ghi chú, giỏ theo cửa hàng, địa chỉ, phí, trạng thái đơn.
+- Theo dõi tài xế trên bản đồ chỉ khi có dữ liệu thật; nếu mô phỏng phải ghi rõ.
+- Đánh giá, lịch sử, đặt lại món, hỗ trợ đơn hàng.
+
+9.3. Banking
+- Mặc định là ngân hàng demo với tiền giả lập.
+- Tài khoản, số dư, giao dịch, chuyển khoản demo, tiết kiệm demo, thống kê.
+- Hiển thị banner “TÀI KHOẢN MÔ PHỎNG — KHÔNG PHẢI NGÂN HÀNG THẬT”.
+- Không nhận tiền thật, không nhập số thẻ/OTP thật, không giả mạo ngân hàng.
+- Nếu tích hợp Open Banking hợp pháp, dùng nhà cung cấp được cấp phép và OAuth; không lưu thông tin đăng nhập ngân hàng.
+
+9.4. Ride Hailing
+- Đặt chuyến mô phỏng, điểm đón/đến, loại xe, giá ước tính demo, trạng thái chuyến, lịch sử.
+- Không gọi tài xế thật nếu chưa có đối tác vận tải và API.
+- Không trình bày vị trí xe mô phỏng như GPS thật.
+
+9.5. Office
+- Tạo/sửa tài liệu, bảng tính, trình chiếu trong phạm vi engine tích hợp.
+- Import/export DOCX/XLSX/PPTX/PDF khi thư viện hỗ trợ.
+- Auto-save, version history, share permissions.
+- Báo rõ định dạng chưa hỗ trợ; không làm hỏng tệp gốc.
+
+9.6. Community
+- Hồ sơ, bài đăng, ảnh/video, bình luận, reaction, share, follow, block, report.
+- Moderation, lọc spam, quyền riêng tư, xóa tài khoản và nội dung.
+- Realtime chỉ khi backend hỗ trợ.
+
+9.7. Smart Home
+- Thiết bị mẫu phải ghi “Mô phỏng”.
+- Thiết bị thật chỉ qua Matter/Home Assistant/vendor API và quyền phù hợp.
+- Trạng thái kết nối, điều khiển, automation, lịch sử và lỗi thiết bị.
+
+======================================================================
+10. AI WORLD, AI CHAT, VOICE, VIDEO VÀ NHÂN VẬT
+======================================================================
+
+Giữ toàn bộ hệ thống AI World 3.0: hồ sơ, ký ức, quan hệ, chủ động nhắn tin, voice call, video call, ảnh, album, lịch sinh hoạt, nhóm nhiều nhân vật, story/event engine, mạng xã hội anime, notification và ranh giới an toàn.
+
+Bổ sung:
+- Trang quản lý bộ nhớ AI: xem, sửa, xóa từng ký ức, tắt ghi nhớ, xuất dữ liệu.
+- Hiển thị rõ nhân vật là AI/ảo.
+- Tách lịch sử hội thoại, memory summary và dữ liệu hồ sơ.
+- Cho phép xóa hội thoại mà không xóa toàn bộ tài khoản.
+- Tắt chủ động nhắn tin, gọi, tạo ảnh, thông báo theo từng nhân vật.
+- Voice: chọn giọng, tốc độ, âm lượng, ngôn ngữ; xử lý quyền micro.
+- STT/TTS phải dùng dịch vụ thực hoặc hiển thị chưa kết nối.
+- Video call có avatar động hoặc video tạo sẵn được cấp phép; không giả mạo người thật đang gọi.
+- AI không tự nhận biết vị trí, camera, danh bạ hoặc hoạt động thiết bị khi chưa được cấp quyền.
+- Có giới hạn token, chi phí, tốc độ, timeout, retry và thông báo lỗi.
+- API key luôn nằm ở backend/secret manager, không nằm trong source frontend.
+
+======================================================================
+11. DYNAMIC POPUP VÀ HỆ THỐNG THÔNG BÁO TOÀN CỤC
+======================================================================
+
+11.1. Popup types
+- Alert dialog: xác nhận hoặc cảnh báo.
+- Action sheet: danh sách hành động.
+- Bottom sheet: chi tiết nhanh, tùy chọn.
+- Context menu: nhấn giữ nội dung.
+- Toast: phản hồi ngắn.
+- Banner: cảnh báo có thể hành động.
+- Permission prompt: giải thích trước khi xin quyền.
+- Media mini-player: điều khiển phát.
+- Incoming call overlay: cuộc gọi nội bộ/AI.
+- Download progress: tiến trình tải.
+- Error recovery dialog: thử lại, lưu log, quay về.
+- Update prompt: ghi chú và xác nhận cập nhật.
+- Onboarding sheet: hướng dẫn lần đầu.
+
+11.2. Quy tắc popup
+- Không chồng popup vô hạn.
+- Có nút đóng/Back/nhấn ngoài khi phù hợp.
+- Dialog nguy hiểm yêu cầu xác nhận rõ.
+- Không mất nội dung form khi popup đóng ngoài ý muốn.
+- Focus trap, bàn phím và screen reader phải hoạt động.
+- Popup không che nút hành động quan trọng.
+- Tất cả popup có nội dung, hành động và trạng thái rõ ràng.
+
+11.3. Dynamic UI
+- Dynamic Island cập nhật theo tác vụ.
+- Badge cập nhật theo số chưa đọc.
+- Widget cập nhật theo dữ liệu nguồn.
+- Live Activity phản ánh tiến trình.
+- Toast chỉ dùng cho thông tin ngắn; lỗi quan trọng phải có trang/chi tiết.
+- Tránh animation nhấp nháy gây khó chịu.
+
+======================================================================
+12. SHARE SHEET, DEEP LINK VÀ UNIVERSAL SEARCH
+======================================================================
+
+- Chia sẻ văn bản, ảnh, video, file, liên hệ, địa điểm, link và nội dung AI.
+- App nhận phải đọc đúng loại dữ liệu và hiển thị preview trước khi gửi.
+- Có copy, lưu Files, gửi Messages, Mail, Notes, Community và app tương thích.
+- Deep link mở đúng app và đúng item; nếu app chưa cài thì mở trang fallback.
+- Universal Search tìm app, contact, message, file, note, event, media, AI character, social post, setting.
+- Có quyền riêng tư, phạm vi tìm kiếm và lịch sử tìm kiếm.
+- Không đưa dữ liệu riêng tư vào index tìm kiếm nếu người dùng tắt.
+
+======================================================================
+13. TÀI KHOẢN, ĐỒNG BỘ, BACKUP VÀ MIGRATION
+======================================================================
+
+- Giữ hệ thống account 3.0.
+- Hỗ trợ session expiry, logout all devices, quản lý thiết bị, đổi email qua xác minh.
+- Backup toàn bộ cấu hình, dữ liệu app, bố cục launcher, media metadata và AI settings.
+- Backup có version, checksum, timestamp, schema version.
+- Preview trước restore; chọn khôi phục toàn bộ hoặc từng module nếu khả thi.
+- Migration 3.0 -> 4.0 phải có bản sao lưu tự động.
+- Migration chạy theo transaction hoặc checkpoint; lỗi phải rollback/khôi phục.
+- Không ghi đè dữ liệu mới hơn bằng bản backup cũ nếu chưa xác nhận.
+- Đồng bộ có conflict resolution và trạng thái rõ ràng.
+- Cho phép export dữ liệu người dùng và xóa dữ liệu theo chính sách.
+
+======================================================================
+14. BẢO MẬT, QUYỀN RIÊNG TƯ VÀ AN TOÀN
+======================================================================
+
+- Backend xác thực và phân quyền từng user; kiểm tra ownership mọi bản ghi.
+- Không lưu mật khẩu plaintext.
+- Không hardcode API key, OAuth secret, service role key trong frontend.
+- Dùng HTTPS; validate input; chống XSS, CSRF, injection, IDOR, replay và upload độc hại.
+- Rate limit login, AI, search, upload và các endpoint tốn phí.
+- Tách log kỹ thuật khỏi nội dung cá nhân; redact token, email nhạy cảm, số điện thoại và nội dung chat.
+- Xin quyền đúng thời điểm; có giải thích và đường dẫn cài đặt.
+- Không vượt quyết định từ chối quyền.
+- Dữ liệu tài chính, sức khỏe và vị trí cần quyền riêng tư cao.
+- Có export/delete account và chính sách lưu dữ liệu.
+- Dùng OAuth chính thức cho dịch vụ bên thứ ba.
+- Không giả mạo thông báo hệ thống, ngân hàng, nhà mạng hoặc người thật.
+
+======================================================================
+15. KIẾN TRÚC KỸ THUẬT VÀ CẤU TRÚC MODULE
+======================================================================
+
+15.1. Frontend
+- TypeScript, React hoặc framework tương đương.
+- Router nội bộ, app shell, design system, state management có cấu trúc.
+- Lazy-load từng app; không tải toàn bộ hệ thống ngay từ đầu.
+- IndexedDB cho dữ liệu local; LocalStorage chỉ cho cấu hình nhỏ.
+- Service Worker cho cache/offline có kiểm soát.
+- Error Boundary theo từng app.
+- Media adapter, notification adapter, permission adapter, storage adapter.
+- Không để một app crash làm sập launcher.
+
+15.2. Backend
+- Authentication, PostgreSQL, object storage, realtime, API/edge functions.
+- Row-level security hoặc kiểm tra quyền tương đương.
+- Migration schema, backup, monitoring, rate limit.
+- Webhook xác minh chữ ký nếu tích hợp dịch vụ ngoài.
+- Tách môi trường development/staging/production.
+
+15.3. Native Android
+- Capacitor hoặc native wrapper.
+- Plugin riêng cho camera, share, biometric, notifications, filesystem, haptics, status/navigation bar, media session và background task khi có thể.
+- Quyền runtime và manifest tối thiểu.
+- Không xin quyền không cần thiết.
+- Ghi rõ chức năng nào chỉ chạy native.
+- PWA/browser không thể thay thế hoàn toàn Android OS.
+
+15.4. Media service adapters
+- YouTube IFrame Player API và YouTube Data API theo điều khoản.
+- OAuth cho nhà cung cấp hỗ trợ.
+- Streaming provider adapter chỉ khi được cấp phép.
+- MediaSession API cho metadata/controls khi trình duyệt hỗ trợ.
+- Không proxy nội dung bản quyền hoặc bypass DRM.
+
+15.5. Quản lý lỗi
+- Error Boundary, global error handler, network retry có backoff.
+- Timeout, cancel request, request deduplication.
+- Log có correlation ID, không chứa bí mật.
+- Trang Error Center hiển thị mã lỗi, app, thời điểm, hành động đề xuất.
+- Có chế độ chẩn đoán và xuất log đã lọc.
+
+======================================================================
+16. TỐI ƯU HIỆU NĂNG VÀ TƯƠNG THÍCH
+======================================================================
+
+- Ưu tiên Android màn hình nhỏ và cấu hình trung bình.
+- Mục tiêu khởi chạy shell nhanh; tải app theo nhu cầu.
+- Ảnh responsive, WebP/AVIF nếu hỗ trợ, lazy loading.
+- Video không tự phát khi chưa có tương tác hoặc chưa được phép.
+- Virtualize danh sách dài.
+- Debounce search, cache dữ liệu, hủy request cũ.
+- Không chạy polling liên tục khi app ở nền.
+- Có offline mode cho nội dung đã lưu.
+- Không mất draft khi đổi app.
+- Kiểm tra bàn phím Android, safe area, notch, navigation bar.
+- Kiểm thử Chrome Android và WebView Android; nếu hỗ trợ iOS thì kiểm thử Safari iOS riêng.
+- Có chế độ tiết kiệm pin và giảm motion.
+- Theo dõi memory leak, event listener leak và media resource leak.
+
+======================================================================
+17. SỬA LỖI VÀ KIỂM THỬ HỒI QUY — ZERO KNOWN CRITICAL BUGS
+======================================================================
+
+17.1. Audit trước khi sửa
+- Đọc toàn bộ source code và cấu trúc project.
+- Lập danh sách màn hình, app, route, component, API, database, local storage và event listener.
+- Tìm lỗi runtime, lỗi type, lỗi console, promise rejection, memory leak.
+- Tìm nút không có handler, link sai, modal không đóng, state không đồng bộ.
+- Tìm dữ liệu bị ghi đè, ID trùng, race condition, lỗi timezone, lỗi format tiền/ngày.
+- Tìm lỗi responsive, tràn ngang, bàn phím che input, cuộn không hoạt động.
+- Không sửa bằng cách xóa tính năng để hết lỗi.
+
+17.2. Nhóm lỗi bắt buộc kiểm tra
+- App crash khi mở, chuyển app, quay lại hoặc refresh.
+- Mất dữ liệu khi reload/offline/đăng xuất.
+- Đăng nhập sai trạng thái, session không hết hạn đúng.
+- Thông báo mở sai app hoặc sai nội dung.
+- Badge không cập nhật.
+- Modal/popup kẹt, đóng sai, z-index sai.
+- Nút bấm không phản hồi hoặc gọi API nhiều lần.
+- Media player không dừng khi đổi nguồn; audio chồng nhau.
+- Video không xử lý lỗi embed, autoplay, fullscreen.
+- YouTube API quota/error không được xử lý.
+- Upload file lỗi, file quá lớn, định dạng độc hại.
+- Backup/restore không tương thích phiên bản.
+- Đồng bộ ghi đè dữ liệu mới.
+- Timezone, ngày tháng, lịch lặp và daylight saving sai.
+- Dữ liệu mô phỏng hiển thị nhầm thành dữ liệu thật.
+- Quyền bị từ chối nhưng app vẫn kẹt.
+- Mất mạng khiến form hoặc draft biến mất.
+
+17.3. Quy trình sửa
+- Tái hiện lỗi bằng bước cụ thể.
+- Ghi expected vs actual.
+- Xác định nguyên nhân gốc.
+- Viết test tái hiện lỗi.
+- Sửa tối thiểu, không phá module liên quan.
+- Chạy test cũ và test mới.
+- Kiểm tra lại trên Android thật.
+- Ghi changelog và lỗi còn tồn tại.
+
+17.4. Tiêu chuẩn phát hành
+- Không còn lỗi blocker/critical đã biết.
+- Lỗi major phải có phương án xử lý và ghi rõ.
+- Không tuyên bố “vá hết 100% lỗi” nếu chưa kiểm thử mọi môi trường; báo cáo chính xác phạm vi đã test.
+- Có bản backup trước release.
+- Có rollback plan.
+- Có release notes và version number.
+
+======================================================================
+18. KIỂM THỬ CHỨC NĂNG LIÊN ỨNG DỤNG
+======================================================================
+
+Các kịch bản bắt buộc:
+1. Chụp ảnh Camera -> Photos -> chỉnh sửa -> gửi Messages.
+2. Contacts -> gọi mô phỏng/AI hoặc tạo hội thoại.
+3. Maps -> chia sẻ địa điểm qua Messages.
+4. Mail -> mở file đính kèm trong Files.
+5. Browser -> tải tệp -> Files -> mở preview.
+6. Notes -> tạo Reminder.
+7. Calendar -> thông báo -> mở đúng sự kiện.
+8. YouTube -> mở video thật qua player chính thức -> lỗi embed -> fallback YouTube.
+9. Media Player -> chuyển app -> mini player/Control Center cập nhật nếu hỗ trợ.
+10. Tắt DND -> tất cả app tuân thủ.
+11. Dynamic Island -> hiển thị tiến trình tải -> hoàn tất -> tự đóng.
+12. Backup -> xóa dữ liệu thử -> restore -> kiểm tra toàn vẹn.
+13. Mất mạng khi gửi tin -> giữ draft -> có mạng -> gửi lại đúng một lần.
+14. Từ chối camera/micro/location -> app hiển thị fallback hợp lý.
+15. Đổi light/dark -> mọi app đổi đồng nhất.
+16. Thay font scale -> không vỡ layout.
+17. App lỗi -> launcher vẫn hoạt động.
+18. Đăng xuất -> dữ liệu tài khoản được bảo vệ, không lộ sang user khác.
+19. Migration 3.0 -> 4.0 -> kiểm tra dữ liệu cũ.
+20. Xóa tài khoản -> xử lý dữ liệu theo chính sách và xác nhận.
+
+======================================================================
+19. TIÊU CHÍ NGHIỆM THU CHO TỪNG APP
+======================================================================
+
+Một app chỉ được đánh dấu COMPLETE khi:
+- Có đủ màn hình và luồng chính đã mô tả.
+- Giao diện hoàn chỉnh, responsive, light/dark.
+- Tất cả nút và menu chính hoạt động.
+- Có loading, empty, error, offline, success state.
+- Có dữ liệu bền vững và migration.
+- Có search/filter/sort nếu phù hợp.
+- Có quyền và cài đặt riêng.
+- Có liên kết hệ thống phù hợp.
+- Có test chức năng, test hồi quy và test Android.
+- Có mô tả tích hợp bên ngoài nếu cần.
+- Không còn nút giả hoặc dữ liệu giả không gắn nhãn.
+- Có báo cáo phần nào đang hoạt động thật, phần nào mô phỏng, phần nào chưa kết nối.
+
+Không dùng trạng thái “100% hoàn hảo” như một tuyên bố kỹ thuật. Thay vào đó, dùng checklist kiểm thử và báo cáo rõ ràng.
+
+======================================================================
+20. LỘ TRÌNH TRIỂN KHAI — KHÔNG ĐƯỢC BỎ MODULE
+======================================================================
+
+Giai đoạn A — Audit và bảo toàn 3.0
+- Kiểm kê source, dữ liệu, routes, app và API.
+- Backup.
+- Test baseline.
+- Migration plan.
+
+Giai đoạn B — Core OS Shell
+- Lock Screen, Home Screen, App Library, Control Center, Notification Center.
+- Dynamic Island, Live Activities, Recent Apps, gestures.
+- Design system, popup system, app manager.
+
+Giai đoạn C — Native App Suite
+- Phone, Messages, Contacts, Camera, Photos, Browser, Maps, Clock, Calendar, Reminders, Notes, Mail, Files, Music, Calculator, Weather, Health, Settings.
+
+Giai đoạn D — Real Media
+- YouTube official embed/API.
+- Movie discovery và streaming provider links.
+- Music provider integrations.
+- Podcast RSS và media player.
+- Kiểm thử quyền, quota, playback và fallback.
+
+Giai đoạn E — Lifestyle + AI
+- Giữ các app 3.0.
+- Hoàn thiện AI World, social, shopping, food, banking demo, ride demo, office, smart home.
+
+Giai đoạn F — Backend, security, sync
+- Account, database, realtime, storage, backup, restore, sync, audit logs.
+- OAuth và secrets management.
+
+Giai đoạn G — QA, optimization, release
+- Kiểm thử toàn bộ checklist.
+- Vá lỗi.
+- Android build/PWA install.
+- Release notes, rollback và hướng dẫn sử dụng.
+
+Các giai đoạn là thứ tự triển khai; mục tiêu cuối cùng vẫn bao gồm toàn bộ module. Không được giao một bản demo rồi tuyên bố đã hoàn thành 4.0.
+
+======================================================================
+21. CHỈ THỊ BẮT BUỘC CHO AI CODING AGENT
+======================================================================
+
+Hãy đọc toàn bộ source code hiện tại và tài liệu PHONE OS 3.0 trước khi thay đổi.
+
+Nhiệm vụ:
+1. Nâng cấp dự án hiện tại lên PHONE OS 4.0 theo tài liệu này.
+2. Giữ nguyên tất cả tính năng 3.0 và dữ liệu người dùng.
+3. Không dựng lại project từ đầu nếu có thể nâng cấp an toàn.
+4. Không xóa module cũ để giảm độ phức tạp.
+5. Không làm giao diện tĩnh hoặc prototype giả.
+6. Mọi nút, icon, popup, menu, tab và gesture phải có hành vi cụ thể.
+7. Không dùng dữ liệu demo mà không gắn nhãn.
+8. Tích hợp YouTube bằng API/Player chính thức; nếu không có API key/quota hoặc video không cho nhúng, phải có fallback mở YouTube chính thức.
+9. Với dịch vụ phim/nhạc không cho nhúng, mở app/trang chính thức; không bypass DRM.
+10. Không đưa API key vào frontend.
+11. Không tự nhận chức năng native đã hoạt động nếu chưa có plugin và test trên Android.
+12. Tạo adapter cho dịch vụ chưa kết nối, có trạng thái “Chưa kết nối” và hướng dẫn cấu hình.
+13. Xây dựng design system dùng chung, không thiết kế mỗi app một kiểu.
+14. Tất cả app phải có loading/empty/error/offline/success state.
+15. Lưu dữ liệu bền vững, backup và migration an toàn.
+16. Chạy test sau mỗi module; không chờ đến cuối mới test.
+17. Không tự ý thay đổi schema gây mất dữ liệu.
+18. Báo cáo file đã tạo/sửa, chức năng hoàn thành, chức năng mô phỏng, chức năng cần API/native, lỗi còn lại.
+19. Cung cấp source code đầy đủ, hướng dẫn chạy trên Android phone, cấu hình API, build PWA/APK và backup/restore.
+20. Không tuyên bố hoàn tất nếu checklist nghiệm thu chưa đạt.
+
+Đầu ra bắt buộc:
+- Source code đầy đủ, có cấu trúc rõ.
+- Bản build chạy được hoặc hướng dẫn chạy chính xác.
+- Danh sách tính năng đã hoàn thành theo module.
+- Danh sách tính năng đang mô phỏng.
+- Danh sách API/SDK/native permission cần cấu hình.
+- Báo cáo kiểm thử và lỗi còn tồn tại.
+- Hướng dẫn cài đặt/cập nhật trên Android.
+- Hướng dẫn sao lưu và khôi phục.
+- Release notes PHONE OS 4.0.
+
+======================================================================
+22. ĐỊNH NGHĨA HOÀN THÀNH PHONE OS 4.0
+======================================================================
+
+PHONE OS 4.0 chỉ được xem là phát hành khi:
+- Toàn bộ chức năng 3.0 vẫn tồn tại.
+- Core OS shell hoàn thiện và nhất quán.
+- Bộ app gốc có luồng sử dụng đầy đủ.
+- YouTube phát nội dung thật qua phương thức chính thức trong phạm vi cho phép, hoặc fallback hoạt động.
+- Dịch vụ streaming khác có trạng thái tích hợp trung thực.
+- Popup, Dynamic Island, widget, thông báo và multitasking hoạt động.
+- Tất cả dữ liệu được lưu và backup/restore kiểm thử.
+- Migration 3.0 -> 4.0 thành công trên bản sao dữ liệu thử nghiệm.
+- Không có lỗi critical đã biết.
+- Đã kiểm thử trên Android phone mục tiêu.
+- Có báo cáo rõ ràng về giới hạn web/PWA/native và dịch vụ bên ngoài.
+- Không có tính năng giả mạo dịch vụ thật.
+
+KẾT THÚC — PHONE OS 4.0
+TÀI LIỆU ĐẶC TẢ NÂNG CẤP LỚN

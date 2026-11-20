@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --os-bg: #F5F5F7;
+    --os-surface: #FFFFFF;
+    --os-surface-elevated: #F2F2F7;
+    --os-primary: #007AFF;
+    --os-secondary: #E5E5EA;
+    --os-accent: #5856D6;
+    --os-success: #34C759;
+    --os-warning: #FF9500;
+    --os-danger: #FF3B30;
+    --os-disabled: #AEAEB2;
+    --os-text: #1C1C1E;
+    --os-muted: #6E6E73;
+    --os-border: rgba(60, 60, 67, 0.12);
+    --os-radius-card: 16px;
+    --os-radius-control: 12px;
+  }
+
+  .dark {
+    --os-bg: #000000;
+    --os-surface: #1C1C1E;
+    --os-surface-elevated: #2C2C2E;
+    --os-primary: #0A84FF;
+    --os-secondary: #2C2C2E;
+    --os-accent: #7D7AFF;
+    --os-success: #30D158;
+    --os-warning: #FF9F0A;
+    --os-danger: #FF453A;
+    --os-disabled: #636366;
+    --os-text: #F5F5F7;
+    --os-muted: #98989F;
+    --os-border: rgba(255, 255, 255, 0.11);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Be Vietnam Pro", "SF Pro Text", sans-serif;
+    background-color: var(--os-bg);
+    color: var(--os-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-display {
+    font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Be Vietnam Pro", sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Custom sleek smartphone scrollbars */
+.os-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.os-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.os-scroll::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.35);
+  border-radius: 9999px;
+}
+
+.os-scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+.os-scroll-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Accessibility & Power Saver Overrides */
+.os-reduce-motion *,
+.os-reduce-motion *::before,
+.os-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.os-no-motion *,
+.os-no-motion *::before,
+.os-no-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.os-high-contrast {
+  filter: contrast(1.16);
+}
+
+.os-bold-text body,
+.os-bold-text p,
+.os-bold-text span,
+.os-bold-text button,
+.os-bold-text input {
+  font-weight: 600 !important;
+}
+
+/* DokiChat Ultimate 3.0 Liquid Glass & Soft Anime Aesthetics */
+.doki-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+}
+
+.dark .doki-glass {
+  background: rgba(22, 20, 34, 0.74);
+  border: 1px solid rgba(167, 139, 250, 0.16);
+}
+
+.doki-soft-surface {
+  background: linear-gradient(155deg, #fdfbff 0%, #f5f0ff 55%, #fdf2f8 100%);
+}
+
+.dark .doki-soft-surface {
+  background: linear-gradient(155deg, #0b0a12 0%, #141122 55%, #16101c 100%);
+}
+
+@keyframes dokiFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doki-animate-in {
+  animation: dokiFadeSlide 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes dokiFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.03);
+  }
+}
+
+.doki-float {
+  animation: dokiFloat 2.8s ease-in-out infinite;
+}
+

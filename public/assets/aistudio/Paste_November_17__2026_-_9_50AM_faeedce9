@@ -1,0 +1,935 @@
+PHONE OS 3.0 – REAL SMARTPHONE + LIVING AI WORLD TÀI LIỆU ĐẶC TẢ NÂNG
+CẤP CHI TIẾT PHIÊN BẢN: 3.0 MỤC TIÊU: BỔ SUNG HỆ SINH THÁI ỨNG DỤNG ĐỜI
+THỰC, HỆ ĐIỀU HÀNH ĐIỆN THOẠI VÀ THẾ GIỚI AI ANIME SỐNG ĐỘNG
+
+============================================================ 0. NGUYÊN
+TẮC TRIỂN KHAI
+============================================================
+
+Đây là tài liệu nâng cấp cho dự án PHONE OS hiện có. Không được xóa,
+thay thế hoặc làm đơn giản hóa các chức năng đã có trong bản trước. Tất
+cả nội dung dưới đây là phần bổ sung và mở rộng.
+
+PHONE OS phải được xây dựng như một hệ điều hành smartphone mô phỏng
+hoàn chỉnh. Người dùng có thể bật máy, mở khóa, sử dụng ứng dụng, nhận
+thông báo, quản lý dữ liệu, thay đổi cài đặt và tương tác với các nhân
+vật AI anime trong cùng một môi trường thống nhất.
+
+Yêu cầu bắt buộc: - Không làm giao diện demo chỉ có nút bấm trang trí. -
+Mỗi nút, công tắc, mục cài đặt và thao tác phải có hành vi cụ thể. - Các
+ứng dụng phải dùng chung hệ thống tài khoản, thời gian, danh bạ, thông
+báo, tệp, ảnh, quyền truy cập và dữ liệu liên quan. - Dữ liệu người dùng
+phải được lưu bền vững, không tự mất khi tải lại trang hoặc đóng ứng
+dụng. - Các chức năng cần máy chủ hoặc API phải có lớp tích hợp rõ ràng;
+nếu chưa kết nối dịch vụ thật thì ghi rõ là mô phỏng, không giả vờ đã
+thực hiện giao dịch thật. - Giao diện ưu tiên điện thoại Android, thao
+tác một tay, vùng chạm đủ lớn, cuộn mượt và không tràn màn hình. - Có
+trạng thái tải, trạng thái rỗng, lỗi, thành công, xác nhận thao tác và
+khả năng khôi phục khi phù hợp. - Tất cả dữ liệu mẫu phải có thể thay
+thế bằng dữ liệu thực sau này.
+
+Phân loại chức năng: A. Chức năng nội bộ: có thể hoạt động hoàn chỉnh
+trong ứng dụng bằng dữ liệu cục bộ hoặc máy chủ riêng. B. Chức năng kết
+nối dịch vụ: cần API, tài khoản hoặc nhà cung cấp bên ngoài. C. Chức
+năng phụ thuộc thiết bị: cần quyền và API hệ điều hành; trong trình
+duyệt chỉ mô phỏng được một phần. Không được tuyên bố chức năng B hoặc C
+là thật nếu chưa tích hợp và kiểm thử.
+
+============================================================ 1. HỆ THỐNG
+PIN VÀ NĂNG LƯỢNG – BATTERY SYSTEM
+============================================================
+
+1.1. Biểu tượng pin - Hiển thị phần trăm pin trên thanh trạng thái. -
+Biểu tượng pin có mức đầy tương ứng. - Có trạng thái đang sạc, sạc nhanh
+mô phỏng, pin yếu và pin đầy. - Khi pin dưới ngưỡng do người dùng đặt,
+hiển thị cảnh báo. - Cho phép bật/tắt hiển thị phần trăm pin.
+
+1.2. Trang Battery - Hiển thị mức pin hiện tại. - Biểu đồ mức pin theo
+thời gian mô phỏng. - Danh sách ứng dụng tiêu thụ pin nhiều nhất. -
+Thống kê thời gian màn hình bật và thời gian hoạt động nền theo dữ liệu
+mô phỏng. - Hiển thị trạng thái sạc và nguồn điện. - Cho phép người dùng
+đặt ngưỡng cảnh báo pin yếu.
+
+1.3. Chế độ tiết kiệm pin - Công tắc bật/tắt. - Khi bật: giảm hoạt ảnh,
+giảm tác vụ nền mô phỏng, hạn chế đồng bộ định kỳ và giảm hiệu ứng trang
+trí. - Không được tự ý xóa dữ liệu hoặc chặn các chức năng quan trọng. -
+Hiển thị biểu tượng trạng thái trên thanh trạng thái. - Cho phép cấu
+hình tự bật khi pin xuống một tỷ lệ nhất định.
+
+1.4. Lưu ý kỹ thuật Trong web app, mức pin thật chỉ đọc được nếu trình
+duyệt và thiết bị hỗ trợ Battery Status API; API này không phổ biến và
+có thể bị chặn. Nếu không có quyền truy cập, dùng pin mô phỏng có nhãn
+rõ ràng. Không được giả lập mức pin rồi trình bày như dữ liệu phần cứng
+thật.
+
+============================================================ 2. HỆ THỐNG
+KẾT NỐI – NETWORK & CONNECTIVITY
+============================================================
+
+2.1. Trung tâm kết nối nhanh Có các ô: - Wi-Fi. - Dữ liệu di động mô
+phỏng. - Bluetooth. - Chế độ máy bay. - Điểm phát sóng cá nhân mô
+phỏng. - VPN mô phỏng. - NFC mô phỏng. - Chia sẻ kết nối.
+
+Mỗi ô có trạng thái bật/tắt, biểu tượng và mô tả. Khi nhấn giữ, mở trang
+cài đặt chi tiết tương ứng.
+
+2.2. Wi-Fi - Danh sách mạng Wi-Fi mô phỏng. - Hiển thị tên mạng, trạng
+thái đã lưu, bảo mật và cường độ tín hiệu giả lập. - Cho phép kết
+nối/ngắt kết nối trong môi trường mô phỏng. - Có màn hình nhập mật
+khẩu. - Có mạng đã lưu và tùy chọn quên mạng. - Không hiển thị mật khẩu
+đã lưu dưới dạng văn bản thuần.
+
+2.3. Bluetooth - Công tắc Bluetooth. - Danh sách thiết bị đã ghép đôi. -
+Tìm thiết bị mô phỏng. - Ghép đôi, ngắt kết nối, đổi tên và quên thiết
+bị. - Các thiết bị mẫu: tai nghe, loa, đồng hồ thông minh, bàn phím.
+
+2.4. Chế độ máy bay - Khi bật, thay đổi trạng thái kết nối mô phỏng. -
+Có thể cho phép bật lại Wi-Fi hoặc Bluetooth riêng nếu thiết kế yêu
+cầu. - Hiển thị trạng thái dễ nhận biết.
+
+2.5. Trạng thái mạng - Hiển thị đang trực tuyến, mất kết nối hoặc kết
+nối không ổn định. - Khi mất mạng, ứng dụng cần có thông báo phù hợp và
+không làm mất nội dung đang nhập. - Các tác vụ gửi tin nhắn, tải ảnh
+hoặc đồng bộ phải có hàng đợi khi ngoại tuyến nếu phù hợp.
+
+2.6. Lưu ý Web app không thể tự bật/tắt Wi-Fi, Bluetooth, dữ liệu di
+động hoặc VPN hệ thống trên Android thông thường. Đây là bảng điều khiển
+mô phỏng trừ khi được đóng gói native và có quyền/API phù hợp.
+
+============================================================ 3. ÂM
+THANH, RUNG VÀ PHẢN HỒI – SOUND & HAPTICS
+============================================================
+
+3.1. Trang âm thanh - Âm lượng chuông. - Âm lượng thông báo. - Âm lượng
+media. - Âm lượng cuộc gọi. - Âm lượng báo thức. - Công tắc âm thanh hệ
+thống. - Công tắc âm thanh bàn phím. - Công tắc âm thanh khi chụp ảnh. -
+Công tắc rung khi chạm.
+
+3.2. Hồ sơ âm thanh - Bình thường. - Im lặng. - Chỉ rung. - Không làm
+phiền. - Tùy chỉnh theo người dùng.
+
+3.3. Nhạc chuông và âm báo - Danh sách nhạc chuông. - Nghe thử trước khi
+chọn. - Chọn âm báo tin nhắn. - Chọn âm báo thông báo. - Chọn nhạc
+chuông riêng cho từng liên hệ nếu có hỗ trợ.
+
+3.4. Rung - Rung khi có cuộc gọi. - Rung khi có tin nhắn. - Rung khi
+nhấn nút. - Cường độ rung mô phỏng. - Mẫu rung tùy chỉnh.
+
+3.5. Quy tắc Tôn trọng chế độ im lặng và Không làm phiền ở mọi ứng dụng.
+Không được để một ứng dụng tự phát âm thanh khi người dùng đã tắt âm
+thanh hệ thống, trừ trường hợp người dùng chủ động cho phép.
+
+============================================================ 4. MÀN HÌNH
+VÀ HIỂN THỊ – DISPLAY SYSTEM
+============================================================
+
+4.1. Cài đặt hiển thị - Độ sáng mô phỏng. - Tự động khóa màn hình. -
+Kích thước chữ. - Độ đậm chữ. - Thu phóng giao diện. - Chế độ
+sáng/tối/tự động. - Tần suất hoạt ảnh: đầy đủ, giảm, tắt. - Hình nền màn
+hình khóa. - Hình nền màn hình chính. - Hiệu ứng chuyển màn hình.
+
+4.2. Hình nền - Chọn ảnh từ thư viện. - Chọn hình nền có sẵn. - Cắt và
+căn chỉnh ảnh. - Xem trước trên màn hình khóa và màn hình chính. - Hỗ
+trợ hình nền tĩnh; hình nền động chỉ triển khai khi hiệu năng cho
+phép. - Lưu cấu hình hình nền riêng.
+
+4.3. Widget - Thêm, xóa, di chuyển và thay đổi kích thước widget. -
+Widget đồng hồ, lịch, thời tiết, pin, ghi chú, nhạc, lịch trình và AI
+nhân vật. - Widget phải hiển thị dữ liệu thực từ ứng dụng tương ứng
+trong PHONE OS. - Chạm widget mở đúng màn hình hoặc ứng dụng liên
+quan. - Có trạng thái dữ liệu cũ, đang tải và lỗi.
+
+4.4. Khả năng tiếp cận - Cỡ chữ lớn. - Tương phản cao. - Giảm chuyển
+động. - Nhãn cho biểu tượng. - Hỗ trợ điều hướng bằng bàn phím khi chạy
+trên thiết bị phù hợp. - Không dùng màu sắc làm cách duy nhất để truyền
+đạt trạng thái.
+
+============================================================ 5. BÀN PHÍM
+ẢO VÀ NHẬP LIỆU – KEYBOARD SYSTEM
+============================================================
+
+5.1. Bàn phím - Bố cục QWERTY. - Hỗ trợ tiếng Việt có dấu thông qua bàn
+phím thiết bị hoặc bộ nhập liệu tích hợp. - Chuyển đổi chữ, số, ký hiệu
+và emoji. - Phím viết hoa, xóa, xuống dòng và gửi. - Gợi ý từ và tự sửa
+nếu có thể triển khai. - Chọn giao diện sáng/tối. - Chọn chiều cao bàn
+phím trong phạm vi hỗ trợ.
+
+5.2. Clipboard - Lịch sử nội dung sao chép trong phạm vi phiên hoặc theo
+chính sách bảo mật. - Ghim nội dung thường dùng. - Xóa từng mục và xóa
+toàn bộ. - Không tự động lưu mật khẩu hoặc dữ liệu nhạy cảm vào
+clipboard history.
+
+5.3. Nhập liệu giọng nói - Nút micro trên bàn phím. - Chuyển giọng nói
+thành văn bản khi có quyền và dịch vụ nhận dạng giọng nói. - Hiển thị
+trạng thái đang nghe. - Cho phép người dùng xem lại và sửa văn bản trước
+khi gửi. - Nếu không có dịch vụ nhận dạng, hiển thị chức năng chưa khả
+dụng thay vì giả vờ đã nhận dạng.
+
+============================================================ 6. QUẢN LÝ
+QUYỀN ỨNG DỤNG – PERMISSION MANAGER
+============================================================
+
+6.1. Danh sách quyền - Camera. - Micro. - Ảnh và video. - Tệp. - Vị
+trí. - Danh bạ. - Thông báo. - Lịch. - Bluetooth hoặc thiết bị gần đó
+nếu nền tảng hỗ trợ.
+
+6.2. Trang quyền của từng ứng dụng - Hiển thị ứng dụng đang xin quyền
+gì. - Trạng thái: cho phép, từ chối, chỉ cho phép khi dùng hoặc chưa
+hỏi. - Nút thay đổi quyền. - Giải thích vì sao ứng dụng cần quyền. -
+Hiển thị lần truy cập gần nhất nếu hệ thống có dữ liệu.
+
+6.3. Luồng xin quyền - Chỉ xin quyền khi người dùng thực hiện hành động
+cần quyền. - Giải thích trước khi hiển thị hộp thoại quyền. - Không xin
+toàn bộ quyền ngay khi mở ứng dụng lần đầu. - Nếu người dùng từ chối,
+ứng dụng phải có trạng thái thay thế hợp lý. - Không được vượt qua quyết
+định từ chối của người dùng.
+
+6.4. Phân biệt quyền mô phỏng và quyền thiết bị Giao diện quản lý quyền
+nội bộ của PHONE OS không đồng nghĩa với quyền Android thật. Nếu chạy
+trong trình duyệt, quyền thật vẫn do trình duyệt và Android quản lý.
+
+============================================================ 7. QUẢN LÝ
+BỘ NHỚ – STORAGE MANAGER
+============================================================
+
+7.1. Tổng quan dung lượng - Tổng dung lượng mô phỏng. - Dung lượng đã
+dùng. - Dung lượng còn trống. - Thanh phân loại theo ứng dụng, ảnh,
+video, âm thanh, tài liệu, dữ liệu hệ thống và bộ nhớ đệm.
+
+7.2. Chi tiết ứng dụng - Tên ứng dụng. - Dung lượng ứng dụng. - Dữ liệu
+người dùng. - Bộ nhớ đệm. - Nút xóa bộ nhớ đệm. - Nút quản lý dữ liệu. -
+Nút gỡ cài đặt nếu ứng dụng cho phép.
+
+7.3. Dọn dẹp - Tìm tệp lớn. - Tìm tệp trùng lặp nếu có thể xác định an
+toàn. - Tìm tệp tải xuống cũ. - Xem trước trước khi xóa. - Chuyển vào
+thùng rác trước khi xóa vĩnh viễn. - Không tự động xóa dữ liệu quan
+trọng.
+
+7.4. Giới hạn Nếu không có quyền truy cập toàn bộ bộ nhớ Android, chỉ
+thống kê dữ liệu thuộc PHONE OS. Không được tuyên bố đang quét toàn bộ
+điện thoại thật.
+
+============================================================ 8. SAO LƯU,
+KHÔI PHỤC VÀ ĐỒNG BỘ
+============================================================
+
+8.1. Sao lưu - Sao lưu hồ sơ người dùng. - Cài đặt hệ thống. - Bố cục
+màn hình chính. - Danh bạ nội bộ. - Tin nhắn và lịch sử AI nếu người
+dùng đồng ý. - Ảnh/tệp do người dùng tạo trong PHONE OS. - Dữ liệu từng
+ứng dụng. - Danh sách ứng dụng đã cài trong môi trường mô phỏng.
+
+8.2. Định dạng sao lưu - Tệp sao lưu có phiên bản schema. - Có thời gian
+tạo và thông tin phiên bản PHONE OS. - Có kiểm tra tính toàn vẹn. - Có
+thể xuất tệp về thiết bị khi nền tảng hỗ trợ. - Có thể nhập lại và xem
+trước dữ liệu trước khi khôi phục.
+
+8.3. Khôi phục - Chọn tệp sao lưu. - Kiểm tra định dạng và phiên bản. -
+Hiển thị dữ liệu sẽ được khôi phục. - Cảnh báo dữ liệu hiện tại có thể
+bị ghi đè. - Yêu cầu xác nhận. - Có cơ chế rollback nếu quá trình khôi
+phục thất bại.
+
+8.4. Đồng bộ đám mây - Đồng bộ theo tài khoản. - Trạng thái lần đồng bộ
+cuối. - Đồng bộ ngay. - Chọn loại dữ liệu được đồng bộ. - Xử lý xung đột
+dữ liệu. - Không đồng bộ dữ liệu nhạy cảm nếu chưa có sự đồng ý rõ ràng.
+
+============================================================ 9. CẬP NHẬT
+HỆ ĐIỀU HÀNH – SYSTEM UPDATE
+============================================================
+
+9.1. Trang cập nhật - Phiên bản hiện tại. - Mã bản dựng. - Ngày phát
+hành. - Nhật ký thay đổi. - Kiểm tra cập nhật. - Tải gói cập nhật nếu có
+máy chủ phát hành. - Tiến trình tải và cài đặt. - Yêu cầu khởi động lại
+khi cần.
+
+9.2. Quy tắc cập nhật - Không làm mất dữ liệu người dùng. - Có sao lưu
+trước cập nhật lớn. - Kiểm tra tương thích dữ liệu. - Có cơ chế
+migration database. - Có thông báo lỗi rõ ràng. - Không hiển thị cập
+nhật giả nếu chưa có phiên bản mới trên máy chủ.
+
+9.3. Lịch sử phiên bản - Phiên bản. - Ngày cập nhật. - Tính năng mới. -
+Sửa lỗi. - Vấn đề đã biết.
+
+============================================================ 10. TRUNG
+TÂM LỖI VÀ KHÔI PHỤC – CRASH & ERROR CENTER
+============================================================
+
+-   Ghi nhận lỗi ứng dụng nội bộ.
+-   Ghi thời gian, ứng dụng và mã lỗi.
+-   Hiển thị thông báo dễ hiểu cho người dùng.
+-   Có nút thử lại.
+-   Có nút tải lại ứng dụng khi an toàn.
+-   Lưu bản nháp trước khi thao tác có nguy cơ mất dữ liệu.
+-   Cho phép gửi báo cáo lỗi nếu người dùng đồng ý.
+-   Không ghi mật khẩu, token, nội dung riêng tư hoặc dữ liệu nhạy cảm
+    vào log.
+-   Có trang trạng thái dịch vụ nếu backend gặp sự cố.
+-   Một ứng dụng lỗi không được làm sập toàn bộ PHONE OS.
+
+============================================================ 11. ỨNG
+DỤNG PODCAST
+============================================================
+
+11.1. Trang chủ - Nội dung nổi bật. - Podcast đang theo dõi. - Tập mới
+phát hành. - Chủ đề: giải trí, đời sống, học tập, công nghệ, kể
+chuyện. - Tìm kiếm chương trình và tập.
+
+11.2. Trang chương trình - Ảnh bìa. - Tên chương trình. - Mô tả. - Người
+dẫn. - Danh sách tập. - Nút theo dõi/bỏ theo dõi. - Thông báo khi có tập
+mới.
+
+11.3. Trình phát - Phát/tạm dừng. - Tua tới/lùi. - Thanh tiến trình. -
+Tốc độ phát. - Hẹn giờ ngủ. - Danh sách phát. - Tiếp tục nghe từ vị trí
+cũ. - Phát nền trong phạm vi nền tảng hỗ trợ. - Tải tập để nghe ngoại
+tuyến nếu nội dung và quyền sử dụng cho phép.
+
+11.4. Dữ liệu - Lịch sử nghe. - Tập đã tải. - Chương trình đã theo
+dõi. - Tập yêu thích. - Đồng bộ tiến độ nghe giữa thiết bị nếu có tài
+khoản.
+
+============================================================ 12. ỨNG
+DỤNG MUA SẮM – SHOPPING
+============================================================
+
+12.1. Trang chủ - Banner. - Danh mục. - Sản phẩm đề xuất. - Sản phẩm
+mới. - Sản phẩm giảm giá. - Tìm kiếm và bộ lọc.
+
+12.2. Trang sản phẩm - Hình ảnh. - Tên và mô tả. - Giá mô phỏng hoặc giá
+lấy từ dịch vụ thật. - Phân loại, màu sắc, kích thước. - Tình trạng
+hàng. - Đánh giá và nhận xét. - Sản phẩm liên quan. - Nút thêm giỏ hàng
+và mua ngay.
+
+12.3. Giỏ hàng - Danh sách sản phẩm. - Thay đổi số lượng. - Xóa sản
+phẩm. - Mã giảm giá mô phỏng. - Phí vận chuyển mô phỏng. - Tổng tiền. -
+Xác nhận đơn.
+
+12.4. Đơn hàng - Chờ xác nhận. - Đang chuẩn bị. - Đang giao. - Đã
+giao. - Đã hủy. - Hoàn trả. - Chi tiết từng đơn và lịch sử trạng thái.
+
+12.5. Thanh toán - Chỉ mô phỏng giao dịch trong game/app nếu chưa tích
+hợp cổng thanh toán. - Không thu thập thông tin thẻ thật trong giao diện
+mô phỏng. - Nếu tích hợp thật, dùng nhà cung cấp thanh toán uy tín và
+không tự lưu dữ liệu thẻ.
+
+============================================================ 13. ỨNG
+DỤNG ĐẶT ĐỒ ĂN – FOOD DELIVERY
+============================================================
+
+-   Trang khám phá nhà hàng.
+-   Tìm kiếm món ăn và nhà hàng.
+-   Bộ lọc theo loại món, giá, đánh giá và thời gian giao dự kiến.
+-   Trang nhà hàng có ảnh, giờ hoạt động, địa chỉ và thực đơn.
+-   Tùy chọn món, kích cỡ, topping và ghi chú.
+-   Giỏ hàng theo nhà hàng.
+-   Địa chỉ giao hàng mô phỏng.
+-   Phương thức thanh toán mô phỏng.
+-   Theo dõi tiến trình: đã nhận đơn, đang chuẩn bị, tài xế lấy hàng,
+    đang giao, hoàn tất.
+-   Hồ sơ tài xế mô phỏng.
+-   Đánh giá món ăn và dịch vụ.
+-   Lịch sử đặt món và đặt lại.
+-   Hủy đơn theo điều kiện trạng thái.
+-   Thông báo thay đổi trạng thái đơn.
+-   Không tạo giao dịch hoặc đơn hàng ngoài đời nếu chưa kết nối dịch vụ
+    thực.
+
+============================================================ 14. ỨNG
+DỤNG NGÂN HÀNG MÔ PHỎNG – BANKING
+============================================================
+
+14.1. Tổng quan - Tên ngân hàng giả lập. - Số dư tài khoản ảo. - Tài
+khoản thanh toán. - Danh sách giao dịch. - Biểu đồ thu/chi. - Thông báo
+biến động số dư mô phỏng.
+
+14.2. Chuyển tiền mô phỏng - Chọn người nhận từ danh bạ hoặc nhập tài
+khoản giả lập. - Nhập số tiền. - Nội dung chuyển tiền. - Màn hình xác
+nhận. - PIN giao dịch mô phỏng. - Biên nhận giao dịch. - Trạng thái
+thành công/thất bại. - Chặn số tiền âm, số tiền vượt số dư và dữ liệu
+không hợp lệ.
+
+14.3. Hóa đơn - Danh sách hóa đơn điện, nước, internet và dịch vụ. -
+Ngày đến hạn. - Trạng thái đã thanh toán/chưa thanh toán. - Thanh toán
+mô phỏng. - Lịch sử hóa đơn.
+
+14.4. Bảo mật - Không dùng dữ liệu ngân hàng thật. - Không yêu cầu mật
+khẩu ngân hàng thật. - Không hiển thị đây là ngân hàng thật. - Không kết
+nối chuyển tiền thật nếu chưa có đối tác được cấp phép và quy trình bảo
+mật phù hợp.
+
+============================================================ 15. ỨNG
+DỤNG ĐẶT XE – RIDE
+============================================================
+
+-   Chọn điểm đón và điểm đến.
+-   Gợi ý địa điểm.
+-   Chọn loại xe mô phỏng.
+-   Hiển thị giá ước tính.
+-   Đặt chuyến.
+-   Hiển thị tài xế, xe và thời gian đón giả lập.
+-   Mô phỏng trạng thái tài xế di chuyển trên bản đồ.
+-   Hủy chuyến theo điều kiện.
+-   Hoàn tất chuyến và đánh giá.
+-   Lịch sử chuyến đi.
+-   Địa điểm yêu thích: nhà, trường học, nơi làm việc.
+-   Nếu dùng bản đồ thật, tuân thủ điều khoản API và giới hạn sử dụng.
+-   Không tuyên bố có tài xế thật nếu chỉ là dữ liệu mô phỏng.
+
+============================================================ 16. ỨNG
+DỤNG OFFICE VÀ TÀI LIỆU
+============================================================
+
+16.1. Trang tài liệu - Tệp gần đây. - Tệp đã ghim. - Tệp chia sẻ. - Thư
+mục. - Tìm kiếm. - Sắp xếp theo tên, loại và ngày sửa.
+
+16.2. Trình đọc PDF - Mở tài liệu. - Phóng to/thu nhỏ. - Chuyển trang. -
+Tìm nội dung. - Đánh dấu trang. - Ghi chú. - Chia sẻ hoặc tải xuống khi
+được phép.
+
+16.3. Trình soạn thảo - Tạo tài liệu văn bản. - Định dạng tiêu đề, đoạn,
+danh sách và bảng cơ bản. - Tự lưu bản nháp. - Đổi tên và quản lý phiên
+bản. - Xuất tệp nếu nền tảng hỗ trợ.
+
+16.4. Bảng tính - Bảng ô cơ bản. - Nhập dữ liệu. - Công thức phổ biến. -
+Tổng hợp và định dạng số. - Lưu và xuất dữ liệu.
+
+16.5. Trình chiếu - Tạo slide. - Thêm tiêu đề, văn bản và hình ảnh. -
+Sắp xếp slide. - Xem trình chiếu. - Lưu bản nháp.
+
+Không cần giả lập mọi tính năng của bộ Office chuyên nghiệp ở giai đoạn
+đầu; phải có luồng tạo, mở, sửa, lưu và xuất tài liệu hoạt động ổn định.
+
+============================================================ 17. ỨNG
+DỤNG CỘNG ĐỒNG – COMMUNITY
+============================================================
+
+-   Danh sách cộng đồng/chủ đề.
+-   Tạo bài đăng.
+-   Đăng văn bản, ảnh và liên kết.
+-   Bình luận, trả lời bình luận.
+-   Thích, lưu và chia sẻ bài.
+-   Theo dõi thành viên.
+-   Nhóm công khai và riêng tư.
+-   Tìm kiếm bài đăng.
+-   Báo cáo nội dung.
+-   Chặn người dùng.
+-   Bộ lọc nội dung.
+-   Trang hồ sơ thành viên.
+-   Thông báo khi có phản hồi.
+-   Phân trang hoặc tải thêm nội dung.
+-   Có công cụ kiểm duyệt và chống spam nếu có backend.
+
+============================================================ 18. ỨNG
+DỤNG SMART HOME MÔ PHỎNG
+============================================================
+
+-   Danh sách phòng: phòng khách, phòng ngủ, bếp, phòng làm việc.
+-   Thiết bị: đèn, quạt, máy lạnh, TV, rèm cửa, camera, ổ cắm.
+-   Bật/tắt thiết bị.
+-   Điều chỉnh độ sáng và nhiệt độ mô phỏng.
+-   Tạo cảnh: đi ngủ, ra ngoài, thư giãn, làm việc.
+-   Lịch tự động.
+-   Trạng thái thiết bị trực tuyến/ngoại tuyến.
+-   Lịch sử hoạt động.
+-   Camera chỉ hiển thị nguồn video thật khi người dùng kết nối thiết bị
+    hợp lệ; nếu không thì dùng bản mô phỏng được gắn nhãn.
+
+============================================================ 19. HỆ
+THỐNG MỞ KHÓA VÀ BẢO VỆ THIẾT BỊ
+============================================================
+
+-   PIN nội bộ.
+-   Mật khẩu nội bộ.
+-   Mẫu khóa mô phỏng nếu cần.
+-   Tự khóa sau khoảng thời gian.
+-   Khóa ngay từ trung tâm điều khiển.
+-   Màn hình nhập sai có giới hạn thử.
+-   Khôi phục quyền truy cập bằng tài khoản đã xác minh.
+-   Có chế độ khách hoặc hồ sơ phụ nếu phù hợp.
+-   Sinh trắc học chỉ được gọi là mô phỏng nếu chưa dùng Android
+    Biometric Prompt/native API.
+-   Không lưu PIN/mật khẩu dưới dạng văn bản thuần.
+-   Không cho phép màn hình khóa giả mạo được xem là bảo mật cấp hệ điều
+    hành thật.
+
+============================================================ 20. WIDGET
+VÀ MÀN HÌNH CHÍNH NÂNG CAO
+============================================================
+
+20.1. Widget - Đồng hồ. - Lịch hôm nay. - Thời tiết. - Pin. - Nhạc đang
+phát. - Ghi chú nhanh. - Công việc cần làm. - Tin nhắn chưa đọc. - Nhân
+vật AI yêu thích. - Trạng thái quan hệ với nhân vật. - Sự kiện AI sắp
+diễn ra.
+
+20.2. Tùy biến - Kéo thả icon. - Tạo thư mục. - Đổi tên thư mục. - Đổi
+vị trí dock. - Chọn số cột biểu tượng. - Chọn hình nền. - Chọn bộ
+icon. - Thêm/xóa widget. - Khôi phục bố cục mặc định.
+
+20.3. Quy tắc tương tác Widget phải mở đúng ứng dụng hoặc đúng trang chi
+tiết. Dữ liệu widget phải được lấy từ cùng nguồn dữ liệu với ứng dụng,
+tránh mỗi nơi hiển thị một con số khác nhau.
+
+============================================================ 21. ĐA
+NHIỆM VÀ CỬ CHỈ HỆ THỐNG
+============================================================
+
+-   Màn hình ứng dụng gần đây.
+-   Thẻ xem trước từng ứng dụng.
+-   Chuyển ứng dụng gần nhất.
+-   Đóng từng ứng dụng.
+-   Đóng tất cả ứng dụng mô phỏng.
+-   Giữ trạng thái ứng dụng khi chuyển qua lại.
+-   Cử chỉ vuốt về Home.
+-   Cử chỉ quay lại.
+-   Thanh điều hướng hoặc vùng gesture.
+-   Picture-in-Picture cho trình phát media hoặc cuộc gọi AI nếu khả
+    thi.
+-   Chia đôi màn hình mô phỏng.
+-   Không tuyên bố đa nhiệm native thực nếu ứng dụng chỉ đang mô phỏng
+    các màn hình trong một web app.
+
+============================================================ 22. CHỤP
+MÀN HÌNH VÀ QUAY MÀN HÌNH
+============================================================
+
+-   Chụp màn hình giao diện PHONE OS khi nền tảng cho phép.
+-   Xem trước ảnh chụp.
+-   Lưu vào thư viện nội bộ hoặc tải xuống.
+-   Chia sẻ ảnh.
+-   Quay màn hình trong phạm vi quyền và API được hỗ trợ.
+-   Có bộ đếm trước khi quay.
+-   Hiển thị trạng thái đang ghi.
+-   Dừng và lưu bản ghi.
+-   Xin quyền rõ ràng.
+-   Không quay nội dung ngoài phạm vi ứng dụng hoặc ghi âm trái phép.
+
+============================================================ 23. CHẾ ĐỘ
+TẬP TRUNG, NGỦ VÀ KHÔNG LÀM PHIỀN
+============================================================
+
+-   Không làm phiền.
+-   Tập trung học tập.
+-   Tập trung làm việc.
+-   Chế độ ngủ.
+-   Lịch tự động bật/tắt.
+-   Cho phép ngoại lệ từ liên hệ quan trọng.
+-   Cho phép ngoại lệ từ báo thức.
+-   Tắt thông báo ứng dụng được chọn.
+-   Hiển thị biểu tượng trạng thái.
+-   Đồng bộ trạng thái tới mọi ứng dụng PHONE OS.
+-   Nhân vật AI cần tôn trọng khung giờ yên lặng, trừ sự kiện người dùng
+    chủ động cho phép.
+
+============================================================ 24. HỆ
+THỐNG THỜI GIAN VÀ THẾ GIỚI SỐNG
+============================================================
+
+24.1. Đồng hồ hệ thống - Một nguồn thời gian chuẩn dùng chung. - Hỗ trợ
+múi giờ. - Ngày, giờ, thứ và định dạng 12/24 giờ. - Không để mỗi ứng
+dụng tự tạo thời gian riêng không nhất quán. - Có thể có thời gian mô
+phỏng trong chế độ game, nhưng phải tách rõ với thời gian thật của thiết
+bị.
+
+24.2. Sự kiện theo thời gian - Tin nhắn đến theo lịch. - Lịch nhắc việc
+kích hoạt đúng lúc. - Báo thức hoạt động theo cài đặt. - Nhân vật AI có
+khung giờ hoạt động. - Bài đăng xã hội có thời gian xuất bản. - Sự kiện
+sinh nhật, kỷ niệm và ngày đặc biệt. - Trạng thái “đang hoạt động”,
+“đang ngủ”, “đang bận” của nhân vật dựa trên lịch.
+
+24.3. Hàng đợi sự kiện - Mỗi sự kiện có ID duy nhất. - Có thời gian tạo
+và thời gian dự kiến chạy. - Có trạng thái chờ, đang chạy, hoàn tất,
+thất bại hoặc đã hủy. - Tránh chạy trùng một sự kiện. - Có thể thử lại
+khi lỗi. - Có giới hạn số sự kiện nền để tránh tiêu tốn tài nguyên.
+
+24.4. Khi người dùng ngoại tuyến - Lưu sự kiện cần xử lý. - Khi trực
+tuyến trở lại, đồng bộ theo thứ tự hợp lý. - Không gửi lặp tin nhắn hoặc
+tạo lặp thông báo. - Hiển thị thời gian thực tế sự kiện đã xảy ra nếu có
+độ trễ.
+
+============================================================ 25. HỆ
+THỐNG AI ANIME SỐNG ĐỘNG – LIVING AI WORLD
+============================================================
+
+Đây là lớp trải nghiệm cốt lõi tạo nên bản sắc PHONE OS. Nhân vật AI
+không chỉ trả lời khi người dùng mở khung chat; họ có hồ sơ, lịch sinh
+hoạt, ký ức, mối quan hệ, hoạt động xã hội và khả năng chủ động tương
+tác có kiểm soát.
+
+25.1. Hồ sơ nhân vật Mỗi nhân vật cần có: - ID cố định. - Tên hiển
+thị. - Ảnh đại diện. - Ảnh bìa. - Tuổi nhân vật hư cấu nếu có. - Đại
+từ/xưng hô. - Tính cách. - Sở thích. - Điều không thích. - Giọng nói. -
+Phong cách nhắn tin. - Tiểu sử. - Nghề nghiệp hoặc vai trò. - Lịch sinh
+hoạt. - Quan hệ với người chơi. - Quan hệ với các nhân vật khác. - Trạng
+thái hiện tại. - Bộ nhớ và các sự kiện quan trọng.
+
+25.2. Tính cách nhất quán - Nhân vật phải duy trì cách nói và hành vi
+đặc trưng. - Không tự ý đổi tên, giới tính hư cấu, quá khứ hoặc tính
+cách nền. - Phản ứng phải dựa trên bối cảnh, quan hệ và ký ức phù hợp. -
+Khi thiếu dữ liệu, không tự bịa ra sự kiện quá khứ quan trọng. - Có thể
+phát triển nhân vật theo thời gian nhưng cần lưu thay đổi.
+
+25.3. Hệ thống bộ nhớ AI Chia bộ nhớ thành: A. Hồ sơ dài hạn: sở thích
+người chơi, cách xưng hô, thông tin được người chơi cho phép lưu. B. Ký
+ức sự kiện: lần đầu gặp, cuộc trò chuyện quan trọng, lời hứa, sinh nhật,
+mâu thuẫn. C. Ngữ cảnh ngắn hạn: nội dung gần đây trong cuộc trò chuyện.
+D. Quan hệ: mức thân thiết, tin tưởng, trạng thái quan hệ và lịch sử
+thay đổi.
+
+-   Có trang xem ký ức mà nhân vật đang lưu.
+-   Cho phép người dùng sửa hoặc xóa ký ức.
+-   Cho phép tắt bộ nhớ.
+-   Không lưu thông tin nhạy cảm nếu không cần thiết và không có cơ sở
+    phù hợp.
+-   Có cơ chế tóm tắt hội thoại dài để tiết kiệm token nhưng phải giữ
+    các sự kiện quan trọng.
+-   Không được tuyên bố AI nhớ mọi thứ nếu hệ thống chỉ lưu một phần ngữ
+    cảnh.
+
+25.4. Relationship System Các chỉ số có thể gồm: - Affection: tình
+cảm. - Trust: tin tưởng. - Familiarity: độ thân quen. - Respect: tôn
+trọng. - Jealousy: ghen tuông, chỉ dùng khi phù hợp với tính cách. -
+Conflict: mức mâu thuẫn. - Relationship Stage: người lạ, quen biết, bạn
+bè, thân thiết, tình yêu hoặc trạng thái tùy cốt truyện.
+
+Quy tắc: - Chỉ số thay đổi theo hành động và sự kiện có ý nghĩa. - Không
+tăng/giảm vô lý sau mỗi tin nhắn. - Mỗi thay đổi quan trọng có lý do nội
+bộ và có thể truy vết. - Quan hệ không được ép buộc người chơi; có lựa
+chọn từ chối hoặc đặt ranh giới. - Có thể có nhiều kết cục dựa trên lịch
+sử tương tác.
+
+25.5. AI chủ động nhắn tin - Nhân vật có thể chủ động gửi tin nhắn theo
+lịch và trạng thái. - Chủ đề có thể là hỏi thăm, chia sẻ chuyện trong
+ngày, gửi lời mời, nhắc lịch hoặc phản hồi sự kiện. - Tần suất có giới
+hạn để tránh spam. - Có cài đặt bật/tắt tin nhắn chủ động. - Có giờ yên
+lặng. - Có thể đặt mức độ chủ động: thấp, vừa, cao. - Tin nhắn chủ động
+phải có ngữ cảnh hợp lý, không giả vờ biết vị trí hoặc hoạt động thật
+của người dùng nếu không được cấp dữ liệu. - Không tạo thông báo gây
+hiểu nhầm là người thật đang liên hệ.
+
+25.6. AI gọi điện - Giao diện cuộc gọi đến. - Chấp nhận, từ chối, im
+lặng. - Màn hình cuộc gọi. - Bộ đếm thời gian. - Tắt/bật micro. - Loa
+ngoài mô phỏng. - Kết thúc cuộc gọi. - Lịch sử cuộc gọi. - Tạo hội thoại
+giọng nói bằng dịch vụ speech-to-text và text-to-speech nếu có. - Nếu
+chưa có voice API, phải ghi rõ cuộc gọi đang ở chế độ mô phỏng hoặc chỉ
+có văn bản.
+
+25.7. AI video call - Màn hình video call theo phong cách smartphone. -
+Avatar động hoặc hình minh họa nhân vật. - Hiệu ứng đang kết nối. - Nút
+bật/tắt camera và micro. - Kết thúc cuộc gọi. - Có thể dùng avatar hoạt
+họa hoặc video được cấp phép. - Không giả lập video trực tiếp của nhân
+vật như thể là camera thật. - Nếu dùng mô hình tạo video/ảnh, cần quản
+lý chi phí, giới hạn và thời gian tạo.
+
+25.8. AI Photo & Album - Nhân vật có thể gửi ảnh minh họa theo ngữ
+cảnh. - Ảnh được lưu vào hội thoại và thư viện nếu người dùng chọn. -
+Album theo nhân vật. - Phân loại ảnh: selfie, đời thường, sự kiện, du
+lịch, kỷ niệm. - Có thông tin thời gian và chú thích hư cấu. - Có tùy
+chọn tạo ảnh mới nếu dịch vụ hình ảnh được tích hợp. - Phải tuân thủ
+chính sách nội dung và quyền sử dụng hình ảnh.
+
+25.9. Lịch sinh hoạt AI - Thức dậy. - Học tập/làm việc. - Ăn uống. -
+Nghỉ ngơi. - Sở thích. - Gặp bạn bè. - Đi ngủ. - Lịch có thể thay đổi
+theo sự kiện cốt truyện. - Người dùng có thể xem lịch ở mức phù hợp. -
+Không cần mô phỏng từng phút; ưu tiên sự nhất quán và hợp lý.
+
+25.10. Multi-character Interaction - Tạo nhóm chat nhiều nhân vật. -
+Nhân vật có thể trả lời lẫn nhau. - Có lượt nói và trạng thái đang
+nhập. - Mỗi nhân vật giữ giọng điệu riêng. - Nhân vật có thể có quan hệ,
+hiểu lầm hoặc quan điểm khác nhau. - Không để nhiều nhân vật cùng phát
+một câu trả lời giống nhau. - Có chế độ người dùng điều phối và chế độ
+hội thoại tự nhiên. - Giới hạn số nhân vật hoạt động đồng thời để kiểm
+soát chi phí.
+
+25.11. Story & Event Engine - Cốt truyện theo chương. - Sự kiện ngẫu
+nhiên có điều kiện. - Sinh nhật. - Lễ hội. - Kỷ niệm. - Cuộc hẹn. - Mâu
+thuẫn. - Hòa giải. - Nhiệm vụ tương tác. - Lựa chọn có ảnh hưởng tới
+quan hệ. - Lịch sử sự kiện đã xem. - Không lặp sự kiện quá thường
+xuyên. - Có thể bỏ qua hoặc tạm dừng nội dung.
+
+25.12. Ranh giới và an toàn - Người dùng có thể tắt tương tác chủ
+động. - Có thể chặn nhân vật hoặc xóa cuộc trò chuyện. - Có thể đặt giới
+hạn nội dung. - Nhân vật AI phải được nhận diện rõ là nhân vật ảo. -
+Không tạo áp lực, đe dọa hoặc thao túng người dùng để giữ họ ở lại ứng
+dụng. - Không gửi thông báo liên tục nhằm gây lệ thuộc. - Cho phép người
+dùng kiểm soát thời gian sử dụng và thông báo.
+
+============================================================ 26. MẠNG XÃ
+HỘI ANIME – SOCIAL NETWORK LIÊN KẾT AI
+============================================================
+
+26.1. Bảng tin - Bài đăng của nhân vật AI. - Bài đăng của tài khoản
+người dùng nếu có. - Ảnh, video hoặc văn bản. - Thời gian đăng. - Lượt
+thích, bình luận, chia sẻ. - Theo dõi/bỏ theo dõi. - Làm mới bảng tin. -
+Bộ lọc nội dung. - Báo cáo và ẩn bài.
+
+26.2. Tương tác nhân vật - Nhân vật AI có thể bình luận bài của nhau. -
+Có thể thích bài đăng. - Có thể trả lời bình luận. - Nội dung phải phù
+hợp tính cách và sự kiện đã xảy ra. - Có lịch đăng để tránh bảng tin cập
+nhật hỗn loạn. - Có giới hạn hoạt động tự động.
+
+26.3. Trang cá nhân - Avatar. - Ảnh bìa. - Tiểu sử. - Bài đăng. - Ảnh. -
+Người theo dõi. - Đang theo dõi. - Trạng thái hoạt động. - Nút nhắn tin.
+
+26.4. Tin ngắn/Story - Ảnh hoặc nội dung ngắn. - Thời hạn hiển thị tùy
+thiết kế. - Danh sách người xem mô phỏng. - Phản hồi story. - Lưu vào kỷ
+niệm nếu nhân vật hoặc người dùng cho phép.
+
+============================================================ 27. HỆ
+THỐNG AI NOTIFICATION VÀ SỰ KIỆN
+============================================================
+
+-   Tin nhắn mới.
+-   Cuộc gọi đến.
+-   Bài đăng mới.
+-   Bình luận.
+-   Sinh nhật.
+-   Lời mời sự kiện.
+-   Nhắc lịch.
+-   Ảnh mới.
+-   Cập nhật quan hệ.
+-   Cảnh báo hệ thống.
+-   Tóm tắt hoạt động trong ngày.
+
+Quy tắc: - Mỗi thông báo có nguồn, thời gian, loại, nội dung và hành
+động mở. - Chạm thông báo mở đúng ứng dụng và đúng nội dung. - Có nhóm
+thông báo theo ứng dụng. - Có đánh dấu đã đọc. - Có xóa từng thông báo
+và xóa nhóm. - Có cài đặt mức ưu tiên. - Tôn trọng Không làm phiền. -
+Không tạo thông báo giả mạo ứng dụng hệ thống.
+
+============================================================ 28. CHIA SẺ
+LIÊN ỨNG DỤNG VÀ UNIVERSAL SEARCH
+============================================================
+
+28.1. Chia sẻ - Chia sẻ ảnh từ Photos sang Messages. - Chia sẻ liên hệ
+từ Contacts sang Messages. - Chia sẻ địa điểm từ Maps sang Messages. -
+Chia sẻ tài liệu từ Files sang Mail. - Chia sẻ bài đăng sang
+Community. - Chia sẻ nội dung AI vào Notes. - Hiển thị bảng chọn ứng
+dụng nhận. - Kiểm tra quyền và loại tệp.
+
+28.2. Tìm kiếm toàn hệ thống - Tìm ứng dụng. - Tìm liên hệ. - Tìm tin
+nhắn. - Tìm ghi chú. - Tìm tệp. - Tìm sự kiện lịch. - Tìm nhân vật AI. -
+Tìm bài đăng. - Bộ lọc theo loại kết quả. - Hiển thị kết quả gần đây. -
+Tôn trọng quyền riêng tư và phạm vi dữ liệu được phép tìm.
+
+============================================================ 29. TÍCH
+HỢP SỨC KHỎE VÀ HOẠT ĐỘNG
+============================================================
+
+-   Bảng tổng quan sức khỏe mô phỏng.
+-   Mục tiêu vận động.
+-   Nhật ký vận động do người dùng nhập.
+-   Nhắc uống nước.
+-   Nhắc nghỉ giải lao.
+-   Nhật ký giấc ngủ tự khai báo.
+-   Biểu đồ tiến độ.
+-   Cài đặt quyền riêng tư.
+-   Không tự suy luận chẩn đoán y tế.
+-   Không trình bày dữ liệu mô phỏng như dữ liệu cảm biến thật.
+-   Nếu tích hợp dữ liệu thiết bị, cần xin quyền và ghi rõ nguồn dữ
+    liệu.
+
+============================================================ 30. HỆ
+THỐNG TÀI KHOẢN VÀ HỒ SƠ NGƯỜI DÙNG
+============================================================
+
+-   Đăng ký và đăng nhập.
+-   Hồ sơ cá nhân.
+-   Avatar.
+-   Tên hiển thị.
+-   Ngôn ngữ.
+-   Múi giờ.
+-   Cài đặt riêng tư.
+-   Thiết bị đăng nhập.
+-   Đăng xuất.
+-   Đổi mật khẩu qua quy trình an toàn.
+-   Xóa tài khoản và dữ liệu theo chính sách rõ ràng.
+-   Đồng bộ nhiều thiết bị.
+-   Trạng thái đồng bộ.
+-   Không lưu mật khẩu dạng văn bản thuần.
+-   Dùng cơ chế xác thực an toàn từ nhà cung cấp hoặc backend.
+
+============================================================ 31. KIẾN
+TRÚC DỮ LIỆU VÀ LIÊN KẾT ỨNG DỤNG
+============================================================
+
+Thiết kế dữ liệu theo module nhưng dùng chung các bảng/dịch vụ nền tảng.
+
+Các nhóm dữ liệu tối thiểu: - users: tài khoản. - user_profiles: hồ
+sơ. - devices: thiết bị đăng nhập. - os_settings: cài đặt hệ điều
+hành. - home_layouts: bố cục màn hình chính. - installed_apps: ứng dụng
+trong môi trường mô phỏng. - notifications: thông báo. -
+notification_preferences: tùy chọn thông báo. - contacts: danh bạ. -
+conversations: cuộc trò chuyện. - messages: tin nhắn. - ai_characters:
+hồ sơ nhân vật. - ai_memories: ký ức AI. - ai_relationships: quan hệ. -
+ai_schedules: lịch sinh hoạt. - ai_events: sự kiện AI. - social_posts:
+bài đăng. - social_comments: bình luận. - media_assets: ảnh và tệp. -
+files: tệp người dùng. - calendar_events: lịch. - reminders: nhắc
+việc. - shopping_products: sản phẩm. - shopping_orders: đơn hàng mô
+phỏng. - food_orders: đơn đồ ăn mô phỏng. - ride_trips: chuyến đi mô
+phỏng. - banking_accounts_demo: tài khoản ngân hàng giả lập. -
+banking_transactions_demo: giao dịch giả lập. - backups: lịch sử sao
+lưu. - sync_jobs: tác vụ đồng bộ. - system_logs: log hệ thống đã lọc dữ
+liệu nhạy cảm. - scheduled_jobs: sự kiện chạy theo thời gian.
+
+Mọi bản ghi cần có ID ổn định, thời gian tạo/cập nhật và quan hệ dữ liệu
+phù hợp. Cần chỉ mục cho các truy vấn thường dùng. Có chính sách xóa dữ
+liệu và xử lý dữ liệu mồ côi.
+
+============================================================ 32. KIẾN
+TRÚC KỸ THUẬT ĐỀ XUẤT
+============================================================
+
+Frontend: - React hoặc framework tương đương. - TypeScript. -
+CSS/Tailwind hoặc hệ thống style nhất quán. - Router nội bộ cho ứng dụng
+và màn hình. - State management có cấu trúc. - Component dùng chung cho
+status bar, navigation, modal, toast, notification và app shell. -
+IndexedDB cho dữ liệu cục bộ dung lượng lớn. - LocalStorage chỉ dùng cho
+cấu hình nhỏ, không dùng làm cơ sở dữ liệu chính.
+
+Backend: - Dịch vụ xác thực. - PostgreSQL hoặc cơ sở dữ liệu tương
+đương. - Storage cho ảnh và tệp. - Realtime cho chat và trạng thái. -
+API/Edge Functions cho tác vụ máy chủ. - Phân quyền theo người dùng. -
+Kiểm tra dữ liệu đầu vào. - Rate limit cho AI và các API tốn phí. - Log
+và giám sát lỗi.
+
+AI: - Lớp adapter để thay đổi nhà cung cấp mô hình. - Không ghi API key
+vào mã frontend. - Gọi AI qua backend. - Có giới hạn token và chi phí. -
+Có bộ nhớ và tóm tắt ngữ cảnh. - Có cache phù hợp. - Có xử lý lỗi,
+timeout và thử lại. - Tách text AI, TTS, STT và tạo ảnh thành các dịch
+vụ riêng.
+
+PWA/Android: - PWA có thể cài như ứng dụng web nếu trình duyệt hỗ trợ. -
+Capacitor có thể đóng gói web app thành ứng dụng Android và mở rộng một
+số API native. - Các tính năng hệ thống sâu cần plugin native và quyền
+Android. - Không mặc định PWA có thể thay đổi cài đặt hệ thống, đọc SMS,
+điều khiển cuộc gọi thật hoặc chạy nền vô hạn.
+
+============================================================ 33. QUY TẮC
+THIẾT KẾ GIAO DIỆN
+============================================================
+
+-   Mọi ứng dụng có cùng ngôn ngữ thiết kế PHONE OS.
+-   Mỗi app có màu nhấn riêng nhưng không phá vỡ hệ thống chung.
+-   Thanh trạng thái và điều hướng nhất quán.
+-   Có tiêu đề, nút quay lại và hành động chính rõ ràng.
+-   Có khoảng cách, kích thước chữ và vùng chạm nhất quán.
+-   Ưu tiên giao diện dọc trên Android.
+-   Hỗ trợ màn hình nhỏ.
+-   Có dark mode và light mode.
+-   Có skeleton loading, empty state và error state.
+-   Modal không vượt khỏi chiều cao màn hình.
+-   Không để bàn phím che nút gửi hoặc nội dung nhập.
+-   Có phản hồi khi nhấn, tải, lưu và hoàn tất.
+-   Tránh hoạt ảnh quá nặng.
+-   Hình ảnh phải có kích thước tối ưu và placeholder.
+
+============================================================ 34. BẢO MẬT
+VÀ QUYỀN RIÊNG TƯ
+============================================================
+
+-   Phân quyền dữ liệu theo tài khoản.
+-   Không để người dùng truy cập dữ liệu người khác bằng cách sửa ID.
+-   Không đưa API key bí mật vào frontend.
+-   Mã hóa kết nối.
+-   Kiểm tra quyền trước khi đọc/ghi dữ liệu.
+-   Có chính sách lưu và xóa dữ liệu.
+-   Không log nội dung riêng tư không cần thiết.
+-   Có xác nhận trước hành động phá hủy dữ liệu.
+-   Chống spam và giới hạn tốc độ.
+-   Kiểm tra tệp tải lên.
+-   Có cơ chế báo cáo và chặn trong cộng đồng.
+-   Có cài đặt quyền riêng tư cho AI memory.
+-   Dữ liệu mô phỏng tài chính không được nhầm với tài khoản thật.
+
+============================================================ 35. HIỆU
+NĂNG VÀ ĐỘ ỔN ĐỊNH
+============================================================
+
+-   Chỉ tải module ứng dụng khi cần.
+-   Tối ưu ảnh và video.
+-   Phân trang danh sách dài.
+-   Không chạy vòng lặp nền liên tục khi không cần.
+-   Giới hạn số tác vụ AI đồng thời.
+-   Lưu nháp trước khi chuyển ứng dụng.
+-   Khôi phục trạng thái sau khi tải lại.
+-   Có xử lý mất mạng.
+-   Có retry có kiểm soát.
+-   Tránh gửi yêu cầu API lặp.
+-   Có kiểm tra bộ nhớ và dung lượng cache.
+-   Kiểm thử trên màn hình Android nhỏ và thiết bị cấu hình trung bình.
+
+============================================================ 36. LỘ
+TRÌNH TRIỂN KHAI
+============================================================
+
+Giai đoạn 1 – Nền tảng hệ điều hành - Battery, Network, Sound,
+Display. - Permission Manager. - Storage Manager. - Lock screen và Home
+widgets. - Recent Apps, gesture và notification. - Settings đầy đủ.
+
+Giai đoạn 2 – Ứng dụng đời sống - Podcast. - Shopping. - Food
+Delivery. - Banking mô phỏng. - Ride mô phỏng. - Office. - Community. -
+Smart Home mô phỏng.
+
+Giai đoạn 3 – Liên kết hệ sinh thái - Universal Search. - Share Sheet. -
+Đồng bộ. - Backup/Restore. - System Update. - Error Center. - Widget dữ
+liệu thật từ app.
+
+Giai đoạn 4 – Living AI World - Hồ sơ nhân vật. - AI memory. -
+Relationship System. - AI chủ động nhắn tin. - AI voice call. - AI video
+call. - AI Photo & Album. - Lịch sinh hoạt. - Multi-character
+Interaction. - Story & Event Engine.
+
+Giai đoạn 5 – Hoàn thiện - Kiểm thử liên ứng dụng. - Kiểm thử mất
+mạng. - Kiểm thử lưu/khôi phục. - Kiểm thử quyền riêng tư. - Tối ưu
+Android. - Hoàn thiện hướng dẫn cài đặt và sử dụng.
+
+Lưu ý: Lộ trình chia giai đoạn để dễ xây dựng và kiểm thử. Không được
+hiểu là có thể bỏ các module còn lại khỏi mục tiêu cuối cùng.
+
+============================================================ 37. TIÊU
+CHÍ NGHIỆM THU
+============================================================
+
+Một module chỉ được xem là hoàn thành khi: - Mở được từ đúng vị trí. -
+Giao diện hoàn chỉnh trên điện thoại. - Các nút và thao tác chính hoạt
+động. - Có trạng thái tải, rỗng, lỗi và thành công. - Dữ liệu được lưu
+và tải lại chính xác. - Không làm hỏng dữ liệu module khác. - Có xử lý
+mất mạng nếu cần backend. - Có kiểm tra quyền. - Có thông báo phù hợp. -
+Có thể kiểm thử bằng các bước tái hiện cụ thể.
+
+Kiểm thử liên ứng dụng bắt buộc: 1. Chụp ảnh trong Camera và lưu vào
+Photos. 2. Chọn ảnh trong Photos và gửi qua Messages. 3. Chọn liên hệ
+trong Contacts và tạo cuộc trò chuyện. 4. Tạo Reminder từ nội dung Notes
+nếu hỗ trợ. 5. Chia sẻ địa điểm Maps qua Messages. 6. Mở tệp đính kèm từ
+Mail trong Files. 7. Nhấn thông báo và mở đúng nội dung. 8. Nhân vật AI
+gửi ảnh và ảnh xuất hiện trong hội thoại/thư viện theo lựa chọn. 9. Nhân
+vật AI đăng bài và bài xuất hiện trong Social. 10. Sự kiện AI cập nhật
+quan hệ và lịch sử sự kiện. 11. Bật Không làm phiền và kiểm tra mọi ứng
+dụng tuân thủ. 12. Sao lưu, xóa dữ liệu thử nghiệm và khôi phục thành
+công.
+
+============================================================ 38. CHỈ THỊ
+CHO AI CODING AGENT
+============================================================
+
+Hãy đọc toàn bộ tài liệu PHONE OS trước khi sửa mã nguồn.
+
+Nhiệm vụ: - Giữ nguyên toàn bộ chức năng đã tồn tại. - Tích hợp các
+module nâng cấp theo kiến trúc nhất quán. - Không tạo một trang tĩnh chỉ
+để minh họa. - Không dùng nút giả hoặc dữ liệu giả mà không gắn nhãn. -
+Không tự ý bỏ qua module vì cho rằng quá phức tạp. - Nếu một tính năng
+cần API hoặc quyền native, hãy xây dựng giao diện, lớp adapter, trạng
+thái chưa kết nối và hướng dẫn tích hợp; không giả vờ đã hoạt động
+thật. - Ưu tiên hoàn thành từng module theo tiêu chí nghiệm thu. - Sau
+mỗi giai đoạn, chạy kiểm thử và sửa lỗi trước khi chuyển tiếp. - Kiểm
+tra responsive trên Android. - Không để lỗi JavaScript làm sập toàn bộ
+ứng dụng. - Tạo dữ liệu mẫu hợp lý để người dùng có thể trải nghiệm
+ngay. - Cung cấp cấu trúc thư mục rõ ràng. - Ghi rõ file nào được tạo
+hoặc sửa. - Cung cấp hướng dẫn chạy, build, sao lưu và khôi phục. -
+Không ghi API key thật vào source code. - Không xóa hoặc ghi đè dữ liệu
+người dùng khi cập nhật.
+
+Đầu ra bắt buộc: 1. Mã nguồn đầy đủ. 2. Danh sách module đã hoàn thành.
+3. Danh sách module chưa kết nối dịch vụ thật. 4. Hướng dẫn cấu hình
+API. 5. Hướng dẫn chạy trên điện thoại Android. 6. Kết quả kiểm thử và
+lỗi còn tồn tại. 7. Hướng dẫn sao lưu và khôi phục dữ liệu.
+
+KẾT THÚC TÀI LIỆU PHONE OS 3.0

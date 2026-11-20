@@ -1,0 +1,655 @@
+PHONE OS — BẢN CẬP NHẬT NÂNG CẤP TOÀN DIỆN
+DOKICHAT • HIKARI BANKING • HOME SCREEN • ĐIỀU HƯỚNG VÀ LƯU TRẠNG THÁI
+Phiên bản đề xuất: UPDATE 2.X — PREMIUM EXPERIENCE & STATE SYNC
+Phạm vi: Nâng cấp trên source ZIP Phone OS được cung cấp ngày 19/11/2026.
+
+============================================================
+I. NGUYÊN TẮC BẮT BUỘC
+============================================================
+
+1. Đây là bản nâng cấp, không phải bản làm lại hoặc bản demo.
+2. Giữ nguyên toàn bộ tính năng đang hoạt động của Phone OS, DokiChat và Hikari Banking. Không được tự ý xóa, thay thế bằng giao diện giả hoặc làm mất chức năng cũ.
+3. “Thu gọn” nghĩa là tối ưu bố cục, phân cấp thông tin, khoảng cách, kích thước thành phần và cách mở tính năng nâng cao; tuyệt đối không đồng nghĩa với cắt bỏ tính năng.
+4. Không tạo dữ liệu minh họa giả cho những nghiệp vụ vốn đã có API/backend. Mọi thao tác tài chính phải cập nhật qua đúng luồng dữ liệu hiện tại và đồng bộ lại từ máy chủ.
+5. Tương thích màn hình điện thoại Android, ưu tiên thao tác một tay, vùng chạm đủ lớn, không tràn ngang, không che nội dung bởi tai thỏ/thanh trạng thái/thanh điều hướng.
+6. Giữ phong cách hình ảnh đồng nhất với Phone OS. Không để từng màn hình có một hệ thống màu, bo góc, font, icon và khoảng cách khác nhau.
+7. Không phá vỡ dữ liệu người dùng hiện có: nhân vật, hội thoại, tin nhắn, hồ sơ, tài khoản, thẻ, giao dịch, số dư và cài đặt phải được migrate an toàn nếu thay đổi cấu trúc dữ liệu.
+8. Tất cả thao tác cần có trạng thái loading, thành công, thất bại và thông báo rõ ràng. Chống bấm nhiều lần gây tạo giao dịch hoặc gửi tin nhắn trùng.
+
+============================================================
+II. DOKICHAT — THU GỌN GIAO DIỆN NHƯNG GIỮ 100% TÍNH NĂNG
+============================================================
+
+A. MỤC TIÊU THIẾT KẾ
+
+- Làm DokiChat gọn, sạch, cao cấp, dễ nhìn và dễ thao tác hơn.
+- Ưu tiên nội dung hội thoại và nhân vật; giảm các khối trang trí quá lớn, khoảng trắng dư thừa và các nút phụ chiếm diện tích.
+- Không xóa bất kỳ tab, tính năng, dữ liệu hay công cụ chat hiện có.
+- Các tính năng ít dùng được đưa vào menu phụ, drawer, bottom sheet hoặc trang chi tiết; người dùng vẫn truy cập được đầy đủ.
+- Giữ thanh điều hướng chính nhất quán, icon dễ hiểu, nhãn ngắn gọn.
+- Tối ưu chiều cao màn hình để người dùng nhìn thấy nhiều hội thoại/nhân vật hơn mà không phải cuộn quá nhiều.
+
+B. BỐ CỤC DOKICHAT
+
+1. Thanh tiêu đề:
+- Logo/tên DokiChat gọn ở góc trên.
+- Các nút tìm kiếm, thông báo và hồ sơ dùng icon đồng nhất.
+- Không để tiêu đề chiếm quá nhiều chiều cao.
+- Badge thông báo hiển thị số chưa đọc; giới hạn hiển thị 99+.
+- Các nút có vùng chạm tối thiểu hợp lý, không đặt sát mép gây bấm nhầm.
+
+2. Thanh tab:
+- Giữ toàn bộ tab hiện có: Trang chủ, Tin nhắn, Khám phá, Nhân vật của tôi, Nhóm, Ký ức/Nhật ký và các khu vực đang tồn tại trong source.
+- Tối ưu thành thanh tab gọn, có trạng thái active rõ ràng.
+- Trên màn hình nhỏ, không để nhãn tab đè lên nhau; có thể dùng icon + nhãn ngắn hoặc cuộn ngang nếu cần.
+- Không tự động chuyển về tab Trang chủ khi mở/đóng hồ sơ nhân vật, hội thoại, drawer hoặc màn hình con.
+- Ghi nhớ tab đang chọn theo phiên sử dụng và khôi phục đúng tab khi quay lại DokiChat.
+
+3. Danh sách hội thoại:
+- Mỗi dòng gồm avatar, tên nhân vật, nội dung tin nhắn cuối, thời gian và badge chưa đọc.
+- Tên nhân vật nổi bật hơn nội dung phụ.
+- Nội dung cuối tối đa 1–2 dòng, tự cắt bằng dấu ba chấm.
+- Avatar cùng kích thước, bo góc đồng nhất.
+- Có thao tác ghim, đánh dấu chưa đọc, ẩn/lưu trữ và xóa nếu các chức năng này đã được hỗ trợ; thao tác nguy hiểm phải có xác nhận.
+- Không làm mất tìm kiếm, lọc, sắp xếp hoặc lịch sử hội thoại.
+- Có trạng thái rỗng đẹp, skeleton khi tải và thông báo lỗi có nút thử lại.
+
+4. Màn hình hội thoại:
+- Ưu tiên vùng tin nhắn, composer và nội dung nhân vật.
+- Thanh tiêu đề chat gọn: avatar, tên, trạng thái và nút mở hồ sơ.
+- Các thao tác gọi thoại/video, tìm trong hội thoại, ghim, thông tin chat và cài đặt cuộc trò chuyện được gom vào menu chức năng.
+- Không loại bỏ gửi ảnh, video, file, GIF, emoji, voice, phản hồi, chỉnh sửa/xóa tin nhắn, trích dẫn, ghim hoặc các chức năng đang có.
+- Composer cố định phía dưới nhưng phải tự điều chỉnh khi bàn phím Android mở.
+- Không để nút gửi, nút đính kèm hoặc ô nhập bị bàn phím che.
+- Tin nhắn dài phải xuống dòng đúng; ảnh/video không tràn màn hình.
+- Cuộn về tin nhắn mới nhất phải ổn định; khi xem tin cũ không tự kéo xuống trừ khi người dùng yêu cầu.
+- Khi gửi tin nhắn, hiển thị trạng thái gửi/đã gửi/thất bại nếu hệ thống hỗ trợ.
+- Chống gửi lặp khi người dùng bấm nút gửi liên tục.
+
+C. KHÓA KHU VỰC CÀI ĐẶT AI
+
+Yêu cầu:
+- Khóa khu vực cấu hình AI để người dùng thông thường không thể tự ý thay đổi cấu hình hệ thống.
+- Không khóa chức năng trò chuyện với AI. Người dùng vẫn nhắn tin, gọi AI, tạo hội thoại và sử dụng các tính năng AI bình thường.
+- Không xóa cấu hình AI, provider, model, API endpoint, prompt hệ thống hoặc dữ liệu cấu hình hiện có.
+- Không hiển thị các trường kỹ thuật nhạy cảm như API key, secret, token hoặc thông tin kết nối cho tài khoản không có quyền quản trị.
+- Nếu người dùng mở khu vực cài đặt AI, hiển thị màn hình khóa gọn, giải thích “Khu vực cấu hình AI được bảo vệ”.
+- Chỉ tài khoản/quyền quản trị hợp lệ mới được mở khóa và chỉnh sửa.
+- Nếu dự án chưa có hệ thống quyền quản trị, thiết kế cơ chế khóa phía server; không chỉ ẩn nút ở frontend.
+- Không hardcode mật khẩu quản trị trong mã frontend, localStorage hoặc file JS công khai.
+- Kiểm tra quyền tại backend cho mọi API đọc/ghi cấu hình AI.
+- Người dùng không có quyền chỉ được xem trạng thái AI ở mức an toàn, không xem secret.
+- Có log cho các lần thay đổi cấu hình: người thực hiện, thời điểm, trường được thay đổi; tuyệt đối không ghi API key/token vào log.
+- Nếu chưa thể triển khai xác thực quản trị an toàn, mặc định khóa hoàn toàn thao tác chỉnh sửa và chỉ cho phép quản trị qua cấu hình server.
+
+D. KHO NHÂN VẬT AI ANIME — MỞ RỘNG SỐ LƯỢNG LỚN
+
+Mục tiêu:
+Tạo một thư viện nhân vật anime phong phú, có cả nam và nữ, ngoại hình khác biệt rõ ràng. Không được tạo hàng loạt nhân vật chỉ đổi tên nhưng dùng chung ảnh, tính cách hoặc hồ sơ.
+
+1. Số lượng và phân loại:
+- Bổ sung nhiều nhân vật ngay từ dữ liệu khởi tạo; thiết kế hệ thống để mở rộng liên tục.
+- Có nhân vật nam, nữ và các nhóm nhân vật khác nếu hệ thống hỗ trợ.
+- Phân nhóm: học đường, đời thường, tình cảm, tổng tài, thần tượng, streamer, fantasy, hành động, phép thuật, thể thao, bạn thân, đồng nghiệp, hàng xóm, quý tộc, cyberpunk, slice of life và nhiều chủ đề khác.
+- Bộ lọc theo giới tính, thể loại, tính cách, độ tuổi nhân vật hư cấu, nghề nghiệp, độ nổi tiếng và trạng thái mới cập nhật.
+- Tìm kiếm theo tên, mô tả, tag và tính cách.
+- Có mục nổi bật, mới nhất, phổ biến, đề xuất và ngẫu nhiên.
+- Không giới hạn việc bổ sung nhân vật bằng cách sửa giao diện thủ công; dữ liệu nhân vật phải được quản lý theo cấu trúc có thể mở rộng.
+
+2. Quy chuẩn hình ảnh:
+- Phong cách anime chất lượng cao, đồng bộ về độ phân giải và chất lượng render.
+- Nhân vật nam: vóc dáng đẹp, cân đối, cơ thể săn chắc; những nhân vật được thiết kế theo hình tượng thể thao/nam tính có cơ bụng sáu múi rõ ràng, tự nhiên, không biến dạng giải phẫu.
+- Nhân vật nữ: ngoại hình đa dạng, đẹp, có phong cách riêng; không dùng một khuôn mặt cho tất cả.
+- Tạo sự đa dạng về tóc, màu mắt, trang phục, phụ kiện, biểu cảm, vóc dáng, màu sắc và bối cảnh.
+- Mỗi nhân vật phải có ảnh riêng, không trùng lặp ảnh nền hoặc ảnh đại diện với nhân vật khác.
+- Không dùng một ảnh duy nhất làm ảnh đại diện cho toàn bộ nhân vật.
+- Ảnh đại diện, ảnh hồ sơ, ảnh nền chat và ảnh thư viện phải có crop phù hợp riêng.
+- Có ảnh dự phòng khi ảnh lỗi; không để khung ảnh vỡ hoặc hiện icon tải ảnh lỗi.
+- Không dùng URL ảnh ngẫu nhiên có thể thay đổi theo lần tải. Lưu URL/asset ID ổn định theo từng nhân vật.
+- Nếu có hệ thống kiểm tra asset, phát hiện ảnh trùng bằng hash/perceptual hash trước khi đưa vào thư viện.
+- Tối ưu ảnh cho điện thoại, lazy-load ảnh ngoài màn hình và cache hợp lý.
+- Ảnh phải có quyền sử dụng phù hợp; không lấy ảnh riêng tư hoặc ảnh nhận diện người thật làm nhân vật AI.
+
+3. Chống trùng lặp nhân vật:
+- Mỗi nhân vật có character_id duy nhất.
+- Không tạo hai nhân vật khác ID nhưng dùng cùng bộ hồ sơ, cùng ảnh và cùng tính cách.
+- Trước khi thêm nhân vật, kiểm tra tên, ảnh, mô tả, tính cách và dữ liệu nhận diện trùng.
+- Có thể dùng chung một chủ đề hoặc archetype, nhưng phải khác biệt về ngoại hình, tiểu sử, cách nói, mục tiêu, sở thích và câu chuyện.
+- Tách riêng avatarUrl, profileImageUrl, chatWallpaperUrl và galleryImages.
+- Không để đổi ảnh đại diện của nhân vật A làm thay đổi nhân vật B.
+
+E. HỒ SƠ NHÂN VẬT AI — CHI TIẾT TỐI ĐA
+
+Mỗi hồ sơ nhân vật phải là một trang hoàn chỉnh, có phân khu rõ ràng, không dồn toàn bộ thông tin vào một đoạn văn dài.
+
+1. Phần đầu hồ sơ:
+- Ảnh đại diện chất lượng cao.
+- Ảnh bìa riêng, không trùng ảnh đại diện nếu có đủ asset.
+- Tên nhân vật và biệt danh.
+- Tag giới tính nhân vật, độ tuổi hư cấu, nghề nghiệp và thể loại.
+- Trạng thái hoạt động: đang online, bận, nghỉ hoặc trạng thái do hệ thống mô phỏng.
+- Mô tả ngắn 1–2 câu.
+- Nút bắt đầu trò chuyện, tiếp tục trò chuyện, gọi thoại/video nếu tính năng được hỗ trợ.
+- Nút yêu thích, theo dõi, chia sẻ và báo cáo nếu đã có trong hệ thống.
+
+2. Thông tin cơ bản:
+- Họ tên đầy đủ.
+- Tên thường gọi.
+- Ngày sinh hư cấu.
+- Tuổi nhân vật hư cấu.
+- Giới tính.
+- Chiều cao, vóc dáng và đặc điểm ngoại hình.
+- Màu tóc, kiểu tóc, màu mắt.
+- Trang phục thường ngày và phong cách thời trang.
+- Nghề nghiệp, học vấn hoặc vai trò trong thế giới nhân vật.
+- Nơi sống hư cấu và bối cảnh hiện tại.
+- Ngôn ngữ sử dụng.
+- Cung hoàng đạo nếu phù hợp với hồ sơ.
+
+3. Tính cách và tâm lý:
+- Tính cách chính.
+- Tính cách phụ.
+- Ưu điểm, nhược điểm.
+- Điểm mạnh, điểm yếu.
+- Điều yêu thích và không thích.
+- Sở thích, thói quen.
+- Nỗi sợ, điều khiến nhân vật lo lắng.
+- Mục tiêu cá nhân.
+- Giá trị sống và nguyên tắc.
+- Cách phản ứng khi vui, buồn, giận, ghen, ngại, bất ngờ hoặc thất vọng.
+- Cách thể hiện sự quan tâm.
+- Ranh giới cá nhân và điều nhân vật không muốn.
+- Không được viết tính cách mâu thuẫn giữa hồ sơ và cách AI trả lời.
+
+4. Tiểu sử và cốt truyện:
+- Câu chuyện quá khứ.
+- Gia đình và các mối quan hệ quan trọng.
+- Sự kiện ảnh hưởng đến tính cách.
+- Công việc/học tập hiện tại.
+- Mục tiêu dài hạn.
+- Bí mật hoặc tình tiết khám phá dần nếu nhân vật có cốt truyện.
+- Bối cảnh thế giới và quy tắc trong câu chuyện.
+- Mốc thời gian và các sự kiện quan trọng.
+
+5. Phong cách giao tiếp:
+- Cách xưng hô với người dùng.
+- Cách gọi tên người dùng.
+- Giọng điệu: dịu dàng, lạnh lùng, hài hước, trưởng thành, năng động, ít nói...
+- Độ dài câu trả lời mặc định.
+- Cách dùng emoji.
+- Từ ngữ đặc trưng.
+- Tốc độ thân thiết trong quan hệ.
+- Những chủ đề yêu thích.
+- Khả năng ghi nhớ sự kiện quan trọng trong cuộc trò chuyện.
+- Nhất quán cách nói giữa các phiên chat.
+
+6. Quan hệ với người dùng:
+- Mức độ thân thiết.
+- Trạng thái quan hệ do câu chuyện mô phỏng.
+- Các cột mốc quan hệ.
+- Kỷ niệm đáng nhớ.
+- Những điều nhân vật đã biết về người dùng trong phạm vi dữ liệu được cho phép.
+- Không tự ý khẳng định biết thông tin cá nhân mà người dùng chưa cung cấp.
+- Có thể hiển thị thanh tiến triển quan hệ nếu hệ thống đang hỗ trợ; không để chỉ số tăng vô lý sau mỗi tin nhắn.
+
+7. Thư viện ảnh:
+- Ảnh chân dung.
+- Ảnh toàn thân.
+- Trang phục khác nhau.
+- Biểu cảm khác nhau.
+- Bối cảnh đời thường.
+- Ảnh theo sự kiện/cốt truyện.
+- Ảnh nền chat tùy chọn.
+- Mỗi ảnh có mô tả, thứ tự và asset ID riêng.
+- Không tự động trộn ảnh của nhân vật khác.
+
+8. Nội dung mở rộng:
+- Lịch sinh hoạt.
+- Lịch làm việc/học tập.
+- Địa điểm thường xuất hiện.
+- Bạn bè/nhân vật liên quan.
+- Sự kiện sắp diễn ra trong thế giới mô phỏng.
+- Những câu nói đặc trưng.
+- Gợi ý chủ đề để bắt đầu trò chuyện.
+- Cốt truyện hoặc kịch bản có thể lựa chọn.
+
+F. DỮ LIỆU NHÂN VẬT VÀ TÍNH NHẤT QUÁN AI
+
+- Duy trì character_id ổn định.
+- Tách dữ liệu hồ sơ công khai, dữ liệu tính cách, dữ liệu prompt và dữ liệu quan hệ.
+- Không nhét toàn bộ hồ sơ dài vào mọi request nếu có cơ chế context/memory phù hợp; chọn phần liên quan để đưa vào ngữ cảnh AI.
+- Không làm mất ký ức/hội thoại cũ khi cập nhật hồ sơ.
+- Thay đổi ảnh không được tạo nhân vật mới.
+- Thay đổi tên hiển thị phải cập nhật nhất quán tại danh sách chat, tiêu đề chat, hồ sơ, thông báo và lịch sử có liên kết.
+- Nếu đổi tên nhân vật, giữ ID cũ để không đứt liên kết hội thoại.
+- Có dữ liệu mẫu phong phú nhưng phải được lưu như dữ liệu nhân vật thực của hệ thống, không chỉ hardcode vào một màn hình.
+
+G. TIÊU CHÍ HOÀN THÀNH DOKICHAT
+
+- Giao diện gọn hơn nhưng tất cả chức năng cũ vẫn dùng được.
+- Khu vực cấu hình AI bị khóa đúng quyền; chức năng chat AI vẫn hoạt động.
+- Thư viện có nhiều nhân vật nam/nữ, ảnh riêng và không trùng lặp.
+- Hồ sơ nhân vật hiển thị đầy đủ, phân mục rõ ràng.
+- Mở một nhân vật, quay lại, chọn nhân vật khác: vẫn ở đúng tab trước đó.
+- Không mất tin nhắn, ký ức, nhóm, cuộc gọi hoặc dữ liệu hiện có.
+- Không có lỗi giao diện trên màn hình Android nhỏ.
+
+============================================================
+III. HIKARI BANKING — SỬA GIAO DIỆN VÀ NÂNG CẤP QUẢN LÝ THẺ
+============================================================
+
+A. SỬA LỖI CHỮ Ở CHẾ ĐỘ SÁNG
+
+Hiện trạng cần sửa:
+Ở chế độ sáng, một số chữ bị chìm/ẩn trên nền; chuyển sang chế độ tối thì chữ mới hiển thị.
+
+Yêu cầu:
+1. Kiểm tra toàn bộ màn hình ngân hàng trong light theme:
+- Trang chủ ngân hàng.
+- Danh sách tài khoản.
+- Danh sách thẻ.
+- Chi tiết thẻ.
+- Chuyển tiền/thanh toán.
+- Lịch sử giao dịch.
+- Hóa đơn và bill.
+- Hồ sơ/bảo mật.
+- Modal, drawer, dropdown, toast, tooltip và màn hình xác nhận.
+
+2. Dùng hệ thống màu theo semantic token:
+- background: nền chính.
+- surface: nền thẻ nội dung.
+- surfaceElevated: nền modal/popover.
+- textPrimary: chữ chính.
+- textSecondary: chữ phụ.
+- textMuted: chữ chú thích.
+- border: đường viền.
+- success, warning, danger, info: màu trạng thái.
+
+3. Quy tắc tương phản:
+- Chữ chính phải đủ tương phản với nền ở cả sáng và tối.
+- Không dùng chữ trắng trên nền trắng hoặc chữ xám quá nhạt trên nền sáng.
+- Không dùng màu chữ cố định cho component nếu component có thể xuất hiện ở cả hai theme.
+- Text trên gradient thẻ phải có lớp phủ/đổ bóng hoặc vùng tương phản phù hợp.
+- Placeholder phải nhìn thấy nhưng nhạt hơn chữ nhập.
+- Disabled phải phân biệt rõ nhưng vẫn đọc được.
+- Icon, số dư, số thẻ, tên chủ thẻ và trạng thái không được biến mất ở light theme.
+
+4. Kiểm tra theme:
+- Đổi sáng/tối không làm mất nội dung.
+- Đóng mở modal không làm component quay về màu mặc định sai.
+- Tải lại trang phải khôi phục theme đã chọn.
+- Không chỉ sửa riêng trang chủ; phải sửa mọi component con và trạng thái hover/focus/disabled.
+
+B. ĐỒNG BỘ TÊN THẺ VỚI TÊN ĐÃ ĐỔI
+
+Lỗi hiện tại:
+Đổi tên trên thẻ nhưng tên không đồng bộ ở các khu vực liên quan.
+
+Yêu cầu:
+- Xác định nguồn dữ liệu chuẩn của thẻ/tài khoản.
+- Tách rõ cardholderName (tên chủ thẻ) và cardNickname (tên gợi nhớ do người dùng đặt), không ghi đè nhầm hai trường.
+- Khi người dùng đổi tên hiển thị trên thẻ, cập nhật đúng trường dữ liệu.
+- Sau khi lưu thành công, đồng bộ ngay ở:
+  + Mặt trước thẻ.
+  + Chi tiết thẻ.
+  + Danh sách thẻ.
+  + Màn hình chọn thẻ khi thanh toán.
+  + Trang quản lý tài khoản/thẻ.
+  + Các màn hình liên quan đang hiển thị cùng thẻ.
+- Nếu tên chủ thẻ là dữ liệu định danh, không cho sửa tùy tiện; chỉ cho đổi nickname. Nếu game cho phép đổi tên chủ thẻ, phải cập nhật theo quy tắc thống nhất và không làm sai dữ liệu chủ tài khoản.
+- Cập nhật optimistic UI có kiểm soát; nếu API thất bại thì rollback và thông báo lỗi.
+- Tránh lưu tên ở nhiều bản sao độc lập khiến dữ liệu lệch nhau.
+
+C. TÀI KHOẢN CHÍNH, THẺ CHÍNH VÀ THẺ PHỤ
+
+Mục tiêu:
+Người dùng có thể mở nhiều thẻ/tài khoản và chuyển đổi thẻ/tài khoản chính tương tự trải nghiệm quản lý ngân hàng.
+
+1. Phân biệt:
+- Tài khoản chính: tài khoản mặc định dùng cho các luồng tài chính nếu người dùng không chọn nguồn khác.
+- Tài khoản phụ: tài khoản bổ sung.
+- Thẻ chính: thẻ được đặt làm thẻ mặc định trong danh sách thẻ.
+- Thẻ phụ: các thẻ còn lại.
+- Không đồng nhất tài khoản với thẻ. Thẻ có thể liên kết với một tài khoản nguồn; số dư thuộc tài khoản, không tự tạo số dư riêng giả cho từng thẻ.
+
+2. Chức năng:
+- Đặt tài khoản làm tài khoản chính.
+- Đặt thẻ làm thẻ chính.
+- Chuyển đổi qua lại giữa các thẻ.
+- Hiển thị nhãn “Chính” rõ ràng trên thẻ/tài khoản mặc định.
+- Khi đặt thẻ khác làm thẻ chính, thẻ cũ tự trở về thẻ phụ.
+- Mỗi nhóm chỉ có một mục chính tại một thời điểm.
+- Không xóa thẻ cũ khi đổi thẻ chính.
+- Có thể xem chi tiết từng thẻ, tài khoản liên kết và trạng thái hoạt động.
+- Nếu thẻ bị khóa/hết hạn/không hợp lệ, không cho đặt làm phương thức thanh toán mặc định.
+- Có xác nhận nhẹ khi thay đổi mặc định nếu thao tác ảnh hưởng đến các luồng thanh toán sau này.
+
+3. Giao diện:
+- Danh sách thẻ dạng card gọn, cao cấp.
+- Thẻ chính có nhãn “Thẻ chính”.
+- Thẻ phụ có nhãn “Thẻ phụ”.
+- Có menu “Đặt làm thẻ chính”.
+- Có thể chọn thẻ từ danh sách dạng carousel hoặc danh sách cuộn.
+- Hiển thị bốn số cuối, tên hiển thị, loại thẻ, trạng thái và tài khoản liên kết.
+- Không hiển thị toàn bộ số thẻ hoặc dữ liệu bảo mật ở nơi không cần thiết.
+
+D. MỖI THẺ HIỂN THỊ SỐ DƯ
+
+Yêu cầu:
+- Trong danh sách tài khoản/thẻ, hiển thị số dư của tài khoản liên kết với thẻ.
+- Ghi rõ “Số dư tài khoản liên kết” để tránh hiểu nhầm thẻ có ví tiền riêng.
+- Nếu thẻ liên kết với tài khoản khác nhau, hiển thị đúng số dư của tài khoản tương ứng.
+- Nếu nhiều thẻ liên kết cùng một tài khoản, số dư phải giống nhau vì cùng một nguồn tiền.
+- Khi số dư thay đổi sau giao dịch, cập nhật đồng bộ trên toàn bộ thẻ liên kết.
+- Có nút ẩn/hiện số dư nếu hệ thống đang có chức năng bảo mật số dư.
+- Định dạng tiền Việt Nam nhất quán, có phân tách hàng nghìn và ký hiệu ₫.
+- Không hiển thị số dư cũ như thể là số dư mới; trong lúc tải phải có skeleton hoặc trạng thái đang cập nhật.
+
+E. CHỌN THẺ/TÀI KHOẢN KHI PAY TIỀN
+
+Mục tiêu:
+Khi thanh toán hoặc chuyển tiền, người dùng được chọn nguồn tiền thay vì luôn dùng một tài khoản cố định.
+
+1. Bước chọn nguồn:
+- Hiển thị thẻ/tài khoản mặc định đang được chọn.
+- Có nút “Đổi thẻ/tài khoản”.
+- Mở danh sách tất cả nguồn tiền hợp lệ.
+- Mỗi lựa chọn hiển thị tên thẻ, bốn số cuối, tài khoản liên kết, số dư hiện tại và trạng thái.
+- Có nhãn thẻ chính.
+- Cho phép chọn thẻ phụ nếu hợp lệ.
+- Nếu một thẻ không hoạt động, hiển thị lý do và khóa lựa chọn.
+
+2. Kiểm tra số dư:
+- Trước khi xác nhận giao dịch, kiểm tra số dư khả dụng của tài khoản liên kết với thẻ được chọn.
+- Số tiền giao dịch phải lớn hơn 0 và không vượt quá số dư khả dụng.
+- Nếu không đủ tiền: không cho thực hiện giao dịch; không tạo giao dịch thành công giả; không trừ tiền; không phát hành bill thành công.
+- Hiển thị thông báo rõ: “Số dư không đủ. Vui lòng chọn tài khoản khác hoặc giảm số tiền giao dịch.”
+- Hiển thị số dư hiện có và số tiền còn thiếu nếu phù hợp.
+- Cho phép quay lại đổi thẻ hoặc sửa số tiền.
+- Kiểm tra lại số dư ở backend ngay lúc xác nhận, không chỉ kiểm tra ở frontend.
+- Dùng transaction/database atomic để tránh hai giao dịch đồng thời cùng tiêu một số dư.
+- Nếu API thất bại hoặc số dư thay đổi trong lúc xác nhận, giao dịch phải thất bại an toàn và thông báo chính xác.
+- Chống double-submit bằng idempotency key hoặc cơ chế tương đương.
+
+3. Khi giao dịch thành công:
+- Trừ tiền đúng tài khoản nguồn đã chọn.
+- Ghi nhận sourceAccountId và sourceCardId trong giao dịch nếu mô hình dữ liệu hỗ trợ.
+- Cập nhật số dư trên trang chủ, danh sách tài khoản, danh sách thẻ và màn hình chi tiết.
+- Lịch sử giao dịch phải ghi rõ nguồn thanh toán.
+- Bill phải thể hiện phương thức thanh toán phù hợp, che số thẻ chỉ còn bốn số cuối.
+- Không tạo bill thành công nếu giao dịch chưa commit thành công.
+- Không trừ tiền hai lần khi người dùng tải lại hoặc bấm lại.
+
+F. ẨN MỤC “YÊU CẦU CHAR PAY TIỀN”
+
+- Ẩn mục “Yêu cầu char pay tiền” khỏi giao diện ngân hàng theo yêu cầu.
+- Không để mục này xuất hiện ở trang chủ, menu nhanh hoặc danh sách thao tác.
+- Không xóa dữ liệu giao dịch, lịch sử hoặc các chức năng nhận tiền/chuyển tiền khác.
+- Không làm hỏng luồng nhận tiền từ nhân vật nếu hệ thống vẫn cần hỗ trợ nhận tiền theo cách khác.
+- Nếu có route/API cũ dành riêng cho mục yêu cầu char pay tiền, chỉ ngừng hiển thị/không cho truy cập từ UI; không xóa dữ liệu nền khi chưa có yêu cầu riêng.
+- Kiểm tra không còn nút hoặc đường dẫn phụ dẫn đến màn hình này.
+
+G. KIỂM TRA NGHIỆP VỤ NGÂN HÀNG
+
+Các tình huống bắt buộc:
+1. Tài khoản A có đủ tiền: chọn thẻ liên kết A, thanh toán thành công, trừ đúng A.
+2. Tài khoản A không đủ tiền, tài khoản B đủ tiền: chọn thẻ A bị chặn; đổi sang thẻ B thì thanh toán được.
+3. Hai thẻ cùng liên kết tài khoản A: cả hai hiển thị cùng số dư.
+4. Đổi thẻ chính: nhãn chính đổi đúng, không đổi số dư hoặc xóa thẻ.
+5. Đổi nickname thẻ: mọi nơi hiển thị nickname mới.
+6. API đổi tên thất bại: dữ liệu cũ được khôi phục.
+7. Giao dịch bị từ chối: không trừ tiền, không tạo bill thành công.
+8. Hai giao dịch gần như đồng thời: không thể chi vượt số dư.
+9. Chuyển light/dark: tất cả chữ và số vẫn đọc được.
+10. Tải lại app: thẻ chính, tài khoản chính và theme được khôi phục đúng.
+
+============================================================
+IV. HOME SCREEN — VUỐT NGANG CHUYỂN TRANG ỨNG DỤNG
+============================================================
+
+A. MỤC TIÊU
+
+- Người dùng có thể vuốt ngang trực tiếp trên màn hình chính để chuyển qua các trang app.
+- Không cần bấm mũi tên cạnh thanh tìm kiếm.
+- Trải nghiệm chuyển trang tự nhiên như màn hình chính smartphone.
+- Giữ nguyên App Library, tìm kiếm ứng dụng, widget và các chức năng hiện tại.
+
+B. CÁCH HOẠT ĐỘNG
+
+1. Vuốt từ phải sang trái: chuyển sang trang kế tiếp.
+2. Vuốt từ trái sang phải: quay về trang trước.
+3. Không vượt quá trang đầu/trang cuối; không tạo trang rỗng ngoài ý muốn.
+4. Có animation chuyển trang mượt, thời lượng ngắn, không giật.
+5. Hỗ trợ touch trên Android và pointer/mouse khi chạy trên desktop.
+6. Chỉ kích hoạt swipe khi người dùng kéo ngang đủ ngưỡng; tránh nhận nhầm thao tác cuộn dọc thành chuyển trang.
+7. Nếu cử chỉ bắt đầu trên widget, nút, ô nhập hoặc thành phần có thao tác ngang riêng thì không chiếm gesture của thành phần đó.
+8. Không chặn thao tác cuộn dọc hoặc thao tác nhấn giữ icon.
+9. Có chỉ báo trang nhỏ, tinh tế, thể hiện trang hiện tại.
+10. Có thể giữ nút mũi tên trong chế độ hỗ trợ/desktop nếu cần, nhưng trên trải nghiệm điện thoại không bắt buộc dùng nút mũi tên để chuyển trang.
+
+C. TRẠNG THÁI TRANG
+
+- Lưu page hiện tại trong trạng thái Home Screen.
+- Khi mở một app từ trang 2 hoặc trang 3 rồi đóng app, phải quay về đúng trang đã mở app.
+- Không tự reset về trang 1 sau khi đóng app.
+- Khi người dùng chuyển sang App Library rồi quay lại, xử lý theo trạng thái trước đó hợp lý; không tự nhảy về trang đầu nếu không có hành động yêu cầu.
+- Khi tải lại ứng dụng, khôi phục trang gần nhất nếu dữ liệu lưu hợp lệ.
+- Nếu trang đã lưu không còn tồn tại do người dùng xóa/bố trí lại app, tự chuyển về trang hợp lệ gần nhất, không gây lỗi.
+- Không làm thay đổi vị trí app hoặc thứ tự icon chỉ vì người dùng mở/đóng app.
+
+D. TIÊU CHÍ KIỂM THỬ
+
+- Vuốt trái/phải hoạt động trên Android.
+- Vuốt dọc vẫn cuộn nội dung bình thường.
+- Nhấn icon vẫn mở app.
+- Mở app ở trang 2, thoát app, vẫn ở trang 2.
+- Mở app ở trang cuối, thoát app, vẫn ở trang cuối.
+- Không bị chuyển trang khi người dùng chỉ chạm nhẹ hoặc kéo dọc.
+
+============================================================
+V. ĐIỀU HƯỚNG DOKICHAT — GIỮ NGUYÊN TAB VÀ NHÂN VẬT ĐANG CHỌN
+============================================================
+
+A. LỖI CẦN SỬA
+
+- Khi thoát khỏi một nhân vật để chọn nhân vật khác, DokiChat tự nhảy về tab đầu tiên.
+- Khi đóng màn hình con hoặc mở lại app, tab đang dùng có thể bị reset.
+- Cần lưu đúng ngữ cảnh điều hướng thay vì luôn khởi tạo tab mặc định.
+
+B. QUY TẮC ĐIỀU HƯỚNG
+
+1. Khi đang ở tab Khám phá:
+- Mở hồ sơ nhân vật A.
+- Quay lại: vẫn ở Khám phá, giữ nguyên bộ lọc, từ khóa tìm kiếm và vị trí cuộn nếu có thể.
+- Mở nhân vật B: không tự chuyển về Trang chủ.
+
+2. Khi đang ở tab Nhân vật của tôi:
+- Mở hồ sơ nhân vật.
+- Quay lại: vẫn ở Nhân vật của tôi.
+- Danh sách và vị trí cuộn được giữ.
+
+3. Khi đang ở tab Tin nhắn:
+- Mở cuộc hội thoại A.
+- Quay lại danh sách: vẫn ở Tin nhắn.
+- Chọn cuộc hội thoại B: mở đúng hội thoại B, không nhảy tab.
+
+4. Khi đang ở tab Nhóm/Ký ức hoặc tab khác:
+- Mở trang chi tiết rồi quay lại phải giữ đúng tab nguồn.
+- Không được ép mọi thao tác back về tab đầu tiên.
+
+C. CÁCH TRIỂN KHAI
+
+- Dùng một nguồn trạng thái điều hướng thống nhất cho MessagesApp.
+- Tách activeTab khỏi activeView/selectedCharacter/selectedConversation.
+- Khi mở màn hình con, lưu tab nguồn và thông tin danh sách đang xem.
+- Khi quay lại, chỉ đóng màn hình con và khôi phục tab nguồn; không reset toàn bộ state.
+- Giữ selectedCharacterId và selectedConversationId đúng thời điểm.
+- Không dùng tên nhân vật làm khóa; dùng ID ổn định.
+- Giữ search query, filter, sort và scroll position khi điều kiện kỹ thuật cho phép.
+- Không tạo vòng lặp điều hướng khiến nút back mở lại màn hình vừa đóng.
+- Nút back Android và nút back trong UI phải có thứ tự ưu tiên nhất quán:
+  + Đóng modal/drawer đang mở.
+  + Quay khỏi màn hình hồ sơ/chat chi tiết.
+  + Quay về danh sách/tab trước đó.
+  + Chỉ thoát DokiChat khi người dùng thực sự yêu cầu.
+- Khi mở lại DokiChat từ Home Screen, khôi phục tab gần nhất theo chính sách lưu trạng thái.
+
+D. LƯU TRẠNG THÁI AN TOÀN
+
+- Có thể lưu activeTab, activeView, selectedCharacterId, selectedConversationId, search/filter và trang Home vào state/persistence phù hợp.
+- Không lưu dữ liệu nhạy cảm vào localStorage nếu không cần.
+- Nếu ID nhân vật/cuộc trò chuyện không còn tồn tại, fallback an toàn về tab nguồn.
+- Không khôi phục một màn hình chat đã bị xóa hoặc không còn quyền truy cập.
+- Không ghi đè state mới bằng dữ liệu cũ khi API refresh hoàn tất muộn.
+
+============================================================
+VI. ĐỊNH HƯỚNG TỔ CHỨC SOURCE VÀ PHẠM VI KỸ THUẬT
+============================================================
+
+Dựa trên cấu trúc source hiện có, ưu tiên sửa đúng các khu vực tương ứng, không tạo một app thay thế:
+
+DokiChat:
+- src/apps/MessagesApp.tsx
+- src/components/messages/DokiHomeView.tsx
+- src/components/messages/DiscoverCharactersView.tsx
+- src/components/messages/CharacterProfileView.tsx
+- src/components/messages/ChatSettingsAndMemoryDrawers.tsx
+- Các component danh sách hội thoại, nhân vật của tôi, hồ sơ người dùng và tiện ích liên quan.
+- src/types/os.ts hoặc nơi định nghĩa kiểu Character/Conversation hiện tại.
+- API/backend liên quan đến nhân vật, hội thoại và cấu hình AI nếu cần.
+
+Hikari Banking:
+- src/apps/BankingApp.tsx
+- src/components/banking/AccountsAndCardsView.tsx
+- src/components/banking/TransferFlowView.tsx
+- src/components/banking/BankingHomeView.tsx
+- src/components/banking/HikariBrand.tsx
+- src/components/banking/utils.ts
+- server/banking_engine.ts
+- server/db_banking.ts
+- server/routes_banking.ts
+- Các kiểu dữ liệu tài khoản, thẻ và giao dịch liên quan.
+
+Home Screen:
+- src/components/os/HomeScreen.tsx
+- Context/state điều hướng và mở/đóng app trong src/context hoặc khu vực OS hiện tại.
+
+Lưu ý:
+- Đây là danh sách điểm bắt đầu để định vị thay đổi theo source hiện tại, không phải yêu cầu viết lại toàn bộ file.
+- Trước khi sửa phải đọc luồng props, API, kiểu dữ liệu và nơi lưu state thực tế.
+- Không xóa component chỉ vì chưa thấy nó được dùng ở màn hình đang kiểm tra.
+- Không đổi tên API hoặc schema tùy tiện nếu không có migration tương thích.
+- Nếu cần thêm field mới, phải cập nhật type, validation, backend, database và frontend đồng bộ.
+- Có migration mặc định an toàn cho dữ liệu cũ.
+- Không để dữ liệu test/dev ghi đè dữ liệu thật của người dùng.
+
+============================================================
+VII. TIÊU CHUẨN UI/UX CHUNG
+============================================================
+
+1. Giao diện cao cấp, đồng nhất:
+- Dùng một hệ thống spacing, radius, typography và icon.
+- Card có phân cấp rõ, không lạm dụng viền và bóng.
+- Màu sắc theo theme, không hardcode gây lỗi light/dark.
+- Animation nhẹ, không làm chậm thao tác.
+- Không nhồi quá nhiều nút vào một hàng.
+
+2. Tối ưu điện thoại:
+- Responsive từ màn hình nhỏ.
+- Không tràn ngang.
+- Không có nút bị che bởi bàn phím.
+- Không có modal vượt quá chiều cao khả dụng.
+- Nội dung dài có cuộn độc lập.
+- Vùng chạm dễ bấm bằng ngón tay.
+- Không dùng hover làm cách tương tác duy nhất.
+
+3. Trạng thái giao diện:
+- Loading/skeleton.
+- Empty state.
+- Error state.
+- Success feedback.
+- Disabled state.
+- Offline/retry state nếu API hỗ trợ.
+- Không để màn hình trắng khi dữ liệu chưa tải.
+
+4. Hiệu năng:
+- Lazy-load ảnh nhân vật.
+- Giới hạn render danh sách lớn bằng pagination/virtualization nếu cần.
+- Không tải toàn bộ thư viện ảnh nhân vật ngay từ lần mở đầu.
+- Tránh gọi API lặp do effect hoặc state thay đổi không cần thiết.
+- Không làm giật animation khi cuộn danh sách.
+
+============================================================
+VIII. DANH SÁCH KIỂM THỬ BẮT BUỘC TRƯỚC KHI BÀN GIAO
+============================================================
+
+DOKICHAT
+[ ] Giao diện tin nhắn gọn hơn nhưng không mất tính năng.
+[ ] Tất cả tab cũ còn hoạt động.
+[ ] Cài đặt AI bị khóa với người dùng không có quyền.
+[ ] Chat AI vẫn hoạt động bình thường.
+[ ] Không lộ API key/token.
+[ ] Có nhiều nhân vật anime nam và nữ.
+[ ] Ảnh nhân vật không trùng nhau.
+[ ] Hồ sơ nhân vật có đủ các phân mục đã yêu cầu.
+[ ] Mỗi nhân vật có ID riêng và dữ liệu nhất quán.
+[ ] Mở hồ sơ rồi quay lại vẫn đúng tab cũ.
+[ ] Đổi nhân vật liên tục không bị nhảy về tab đầu.
+[ ] Tin nhắn, ký ức và hội thoại cũ không bị mất.
+
+HIKARI BANKING
+[ ] Light theme hiển thị đủ chữ ở mọi màn hình.
+[ ] Dark theme vẫn hoạt động như trước.
+[ ] Đổi tên thẻ đồng bộ ở mọi nơi.
+[ ] Phân biệt tên chủ thẻ và nickname.
+[ ] Có thể đặt tài khoản chính.
+[ ] Có thể đặt thẻ chính.
+[ ] Chuyển đổi thẻ chính/thẻ phụ không mất dữ liệu.
+[ ] Mỗi thẻ hiển thị đúng số dư tài khoản liên kết.
+[ ] Khi thanh toán có thể chọn thẻ/tài khoản nguồn.
+[ ] Không đủ số dư thì giao dịch bị chặn.
+[ ] Giao dịch thất bại không trừ tiền và không tạo bill thành công.
+[ ] Giao dịch thành công trừ đúng tài khoản.
+[ ] Chống bấm thanh toán nhiều lần.
+[ ] Mục “Yêu cầu char pay tiền” không còn hiển thị.
+[ ] Các chức năng ngân hàng khác vẫn hoạt động.
+
+HOME SCREEN
+[ ] Vuốt ngang để đổi trang ứng dụng.
+[ ] Vuốt dọc không bị nhận nhầm thành vuốt ngang.
+[ ] Không bắt buộc dùng nút mũi tên.
+[ ] Mở app ở trang bất kỳ rồi thoát vẫn ở đúng trang.
+[ ] Không tự thay đổi thứ tự icon.
+
+ĐIỀU HƯỚNG
+[ ] DokiChat nhớ tab gần nhất.
+[ ] Mở hồ sơ nhân vật không làm mất tab nguồn.
+[ ] Thoát nhân vật A để chọn B không nhảy tab.
+[ ] Quay lại hội thoại vẫn giữ danh sách và tab.
+[ ] Back Android hoạt động đúng thứ tự.
+[ ] Không có lỗi state khi tải dữ liệu chậm hoặc refresh.
+
+============================================================
+IX. ĐIỀU KIỆN BÀN GIAO
+============================================================
+
+1. Bàn giao source đầy đủ, không chỉ ảnh chụp giao diện.
+2. Không để nút giả hoặc chức năng chỉ hoạt động ở frontend.
+3. Các nghiệp vụ ngân hàng phải có kiểm tra backend và cập nhật dữ liệu nhất quán.
+4. Không xóa dữ liệu cũ, không reset tài khoản/thẻ/hội thoại khi cập nhật.
+5. Có ghi chú file đã sửa, file mới, schema/migration nếu có.
+6. Có hướng dẫn chạy và kiểm thử trên điện thoại Android.
+7. Có bản ZIP source hoàn chỉnh sau khi nâng cấp.
+8. Nếu một chức năng chưa thể hoàn thiện do thiếu API hoặc cấu hình, phải ghi rõ phần còn thiếu; không đánh dấu hoàn thành giả.
+9. Không được bỏ qua các lỗi đang tồn tại chỉ vì đã thay giao diện.
+10. Chỉ bàn giao khi toàn bộ checklist quan trọng đã được kiểm tra.
+
+KẾT QUẢ CUỐI CÙNG MONG MUỐN
+
+Phone OS có một DokiChat gọn, đẹp, hiện đại nhưng vẫn đầy đủ chức năng; hệ thống nhân vật anime phong phú, đa dạng nam/nữ, hình ảnh riêng biệt và hồ sơ sâu; khu vực cài đặt AI được bảo vệ đúng quyền.
+
+Hikari Banking có light theme dễ đọc, tên thẻ đồng bộ, quản lý tài khoản/thẻ chính và phụ, chọn nguồn tiền khi thanh toán, hiển thị số dư chính xác và chặn giao dịch khi không đủ tiền.
+
+Home Screen có thể vuốt ngang tự nhiên. Khi thoát app, thoát nhân vật hoặc quay lại danh sách, Phone OS phải giữ đúng trang và tab mà người dùng đang sử dụng, không tự nhảy về vị trí mặc định.
+
+ĐÂY LÀ BẢN NÂNG CẤP BẢO TOÀN TÍNH NĂNG CŨ + BỔ SUNG TÍNH NĂNG MỚI. KHÔNG ĐƯỢC RÚT GỌN BẰNG CÁCH XÓA TÍNH NĂNG.

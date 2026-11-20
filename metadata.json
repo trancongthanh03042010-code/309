@@ -1,0 +1,6 @@
+{
+  "name": "PHONE OS — Ultimate Smartphone Simulation",
+  "description": "Complete smartphone operating system simulation with integrated apps, persistent database, and AI Anime Character Ecosystem.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

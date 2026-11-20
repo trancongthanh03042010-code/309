@@ -1,0 +1,2199 @@
+PHONE OS – ULTIMATE SMARTPHONE SIMULATION
+
+MASTER PROJECT SPECIFICATION – VERSION 2.0
+
+TÊN DỰ ÁN: PHONE OS
+
+SLOGAN: YOUR PHONE. YOUR WORLD. YOUR ANIME LIFE.
+
+LOẠI SẢN PHẨM: COMPLETE SMARTPHONE OPERATING SYSTEM SIMULATION + AI ANIME CHARACTER ECOSYSTEM.
+
+MỤC TIÊU:
+Xây dựng một chiếc smartphone giả lập hoàn chỉnh bên trong một ứng dụng. Người dùng phải có cảm giác đang sử dụng một chiếc điện thoại thông minh thực tế, không phải đang sử dụng một website có vài giao diện ứng dụng.
+
+PHONE OS phải có:
+
+- Hệ điều hành giả lập hoàn chỉnh.
+- Màn hình khóa.
+- Màn hình chính.
+- Trung tâm điều khiển.
+- Trung tâm thông báo.
+- Đa nhiệm.
+- Hệ thống ứng dụng.
+- Cửa hàng ứng dụng.
+- Quản lý tài khoản.
+- Quản lý dữ liệu.
+- Hệ thống AI Anime.
+- Hệ thống giao tiếp.
+- Hệ thống mạng xã hội.
+- Các ứng dụng phục vụ đời sống hàng ngày.
+- Các ứng dụng giải trí, học tập, công việc, sức khỏe và tài chính.
+- Khả năng liên kết dữ liệu giữa tất cả ứng dụng.
+
+ĐỊNH HƯỚNG THIẾT KẾ:
+
+Sử dụng phong cách giao diện smartphone hiện đại, lấy cảm hứng từ iOS và Android nhưng xây dựng bộ nhận diện hoàn toàn riêng cho PHONE OS.
+
+Toàn bộ ứng dụng phải có sự đồng nhất về:
+
+- Icon.
+- Màu sắc.
+- Typography.
+- Bo góc.
+- Animation.
+- Điều hướng.
+- Thanh trạng thái.
+- Thanh công cụ.
+- Hệ thống thông báo.
+- Cách trình bày dữ liệu.
+
+Không sao chép logo, thương hiệu hoặc tài sản độc quyền của ứng dụng khác. Chỉ tham khảo chức năng và trải nghiệm sử dụng.
+
+==================================================
+PHẦN 1. KIẾN TRÚC HỆ ĐIỀU HÀNH
+
+1.1. BOOT SCREEN – KHỞI ĐỘNG
+
+Khi mở PHONE OS:
+
+- Hiển thị logo PHONE OS.
+- Animation khởi động.
+- Hiệu ứng ánh sáng.
+- Hiệu ứng âm thanh tùy chọn.
+- Kiểm tra trạng thái đăng nhập.
+- Kiểm tra dữ liệu đã lưu.
+- Khôi phục phiên làm việc.
+- Chuyển sang Lock Screen.
+
+Có thể bỏ qua animation khi người dùng đã sử dụng ứng dụng nhiều lần.
+
+1.2. LOCK SCREEN – MÀN HÌNH KHÓA
+
+Thiết kế màn hình khóa giống trải nghiệm điện thoại thật.
+
+Thành phần:
+
+- Đồng hồ lớn.
+- Thứ, ngày, tháng.
+- Thời tiết.
+- Hình nền.
+- Widget.
+- Pin.
+- Wi-Fi.
+- Trạng thái mạng.
+- Thông báo mới.
+- Dynamic Island giả lập.
+- Nút camera nhanh.
+- Nút đèn pin.
+- Thanh vuốt mở khóa.
+
+Tính năng:
+
+- Thay đổi hình nền.
+- Chọn kiểu đồng hồ.
+- Chọn font đồng hồ.
+- Chỉnh màu chữ.
+- Thêm widget.
+- Sắp xếp widget.
+- Chọn kiểu thông báo.
+- Ẩn nội dung nhạy cảm.
+- Bật/tắt thông báo trên màn hình khóa.
+- Chế độ Always On Display.
+
+Hỗ trợ các kiểu bảo mật:
+
+- Vuốt mở khóa.
+- PIN.
+- Mật khẩu.
+- Mô phỏng Face Unlock bằng xác thực ứng dụng nếu thiết bị hỗ trợ.
+
+Không giả lập Face ID sinh trắc học nếu không có API xác thực thực tế.
+
+1.3. HOME SCREEN – MÀN HÌNH CHÍNH
+
+Thiết kế theo phong cách smartphone cao cấp.
+
+Bố cục:
+
+- Status Bar.
+- Widget khu vực trên.
+- Lưới ứng dụng.
+- Thanh tìm kiếm.
+- Dock phía dưới.
+- Thanh điều hướng.
+
+Tính năng:
+
+- Nhiều trang Home Screen.
+- Vuốt trái/phải.
+- Kéo thả icon.
+- Di chuyển icon giữa các trang.
+- Tạo thư mục ứng dụng.
+- Đổi tên thư mục.
+- Thay đổi hình nền.
+- Thay đổi kích thước widget.
+- Ẩn ứng dụng.
+- Sắp xếp ứng dụng.
+- Nhấn giữ icon để mở Quick Actions.
+- Gỡ ứng dụng giả lập.
+- Thêm ứng dụng từ App Store.
+- Tìm kiếm ứng dụng.
+- Hiển thị badge thông báo.
+
+Dock mặc định:
+
+1. Phone.
+2. Messages.
+3. Browser.
+4. Camera.
+
+1.4. APP LIBRARY – THƯ VIỆN ỨNG DỤNG
+
+Hiển thị toàn bộ ứng dụng đã cài.
+
+Tính năng:
+
+- Tìm kiếm.
+- Phân loại tự động.
+- Ứng dụng gần đây.
+- Ứng dụng yêu thích.
+- Ứng dụng được sử dụng nhiều.
+- Thêm ứng dụng vào Home Screen.
+- Ẩn ứng dụng.
+- Gỡ ứng dụng.
+
+1.5. STATUS BAR
+
+Luôn hiển thị:
+
+- Giờ hiện tại.
+- Wi-Fi.
+- Trạng thái Internet.
+- Pin.
+- Phần trăm pin tùy chọn.
+- Chế độ im lặng.
+- Không làm phiền.
+- Chỉ báo cuộc gọi.
+- Chỉ báo micro/camera khi được phép.
+
+1.6. DYNAMIC ISLAND
+
+Tạo khu vực thông báo động ở đầu màn hình.
+
+Hiển thị:
+
+- Cuộc gọi đang diễn ra.
+- Đồng hồ đếm ngược.
+- Nhạc đang phát.
+- Ghi âm.
+- Tải xuống.
+- Tiến trình upload.
+- Sự kiện đang diễn ra.
+- Trạng thái AI đang tạo phản hồi.
+
+Chạm vào để mở rộng thông tin.
+
+1.7. CONTROL CENTER
+
+Các nút:
+
+- Wi-Fi.
+- Bluetooth.
+- Airplane Mode.
+- Mobile Data giả lập.
+- Flashlight.
+- Brightness.
+- Volume.
+- Dark Mode.
+- Battery Saver.
+- Do Not Disturb.
+- Screen Rotation.
+- Screen Recording.
+- Screen Capture.
+- Hotspot giả lập.
+- Settings.
+
+Những chức năng phụ thuộc phần cứng phải thông báo rõ nếu chỉ là mô phỏng.
+
+1.8. NOTIFICATION CENTER
+
+Hệ thống thông báo tập trung.
+
+Nhóm thông báo:
+
+- Messages.
+- Phone.
+- Social.
+- Email.
+- Calendar.
+- Reminders.
+- Downloads.
+- AI Characters.
+- App Store.
+- System Alerts.
+
+Tính năng:
+
+- Vuốt xóa thông báo.
+- Xóa toàn bộ.
+- Đánh dấu đã đọc.
+- Trả lời nhanh.
+- Mở ứng dụng tương ứng.
+- Tắt thông báo theo ứng dụng.
+- Gom nhóm thông báo.
+- Lịch sử thông báo.
+- Chế độ ưu tiên.
+- Chế độ không làm phiền.
+
+1.9. RECENT APPS – ĐA NHIỆM
+
+Giao diện chuyển đổi ứng dụng:
+
+- Hiển thị các ứng dụng vừa mở.
+- Thẻ xem trước.
+- Vuốt để đóng ứng dụng.
+- Chuyển nhanh giữa ứng dụng.
+- Đóng toàn bộ.
+- Khôi phục ứng dụng đang mở.
+- Giữ trạng thái khi chuyển ứng dụng.
+
+Không yêu cầu tất cả ứng dụng chạy nền liên tục. Phải có cơ chế lưu trạng thái và khôi phục.
+
+1.10. GLOBAL SEARCH
+
+Thanh tìm kiếm toàn hệ thống.
+
+Tìm được:
+
+- Ứng dụng.
+- Nhân vật.
+- Tin nhắn.
+- Danh bạ.
+- Ảnh.
+- Tệp.
+- Ghi chú.
+- Lịch.
+- Sự kiện.
+- Cài đặt.
+
+Có lịch sử tìm kiếm và gợi ý thông minh.
+
+==================================================
+PHẦN 2. HỆ THỐNG GIAO DIỆN CHUNG CHO MỌI APP
+
+Mọi ứng dụng phải tuân thủ một bộ thiết kế thống nhất nhưng không được dùng chung một giao diện rập khuôn.
+
+Mỗi app phải có:
+
+- Splash Screen riêng.
+- App Icon riêng.
+- Màu nhận diện riêng.
+- Trang chính riêng.
+- Thanh điều hướng riêng.
+- Các màn hình con.
+- Menu chức năng.
+- Trang cài đặt.
+- Empty State.
+- Loading State.
+- Error State.
+- Dialog xác nhận.
+- Toast thông báo.
+
+Các quy tắc:
+
+- Nút bấm phải có hành động.
+- Form phải lưu dữ liệu.
+- Dữ liệu phải được khôi phục.
+- Danh sách phải tìm kiếm được.
+- Các thao tác thêm, sửa, xóa phải hoạt động.
+- Có phân trang khi cần.
+- Có xử lý khi mất mạng.
+- Có thông báo lỗi dễ hiểu.
+- Không tạo màn hình chết.
+- Không tạo nút trang trí.
+
+==================================================
+PHẦN 3. PHONE – ỨNG DỤNG ĐIỆN THOẠI
+
+Mục tiêu: Mô phỏng một ứng dụng gọi điện thực tế.
+
+GIAO DIỆN CHÍNH:
+
+Các tab:
+
+1. Favorites.
+2. Recents.
+3. Contacts.
+4. Keypad.
+5. Voicemail.
+
+3.1. FAVORITES
+
+Hiển thị:
+
+- Danh bạ yêu thích.
+- Ảnh đại diện.
+- Tên.
+- Nút gọi nhanh.
+- Nút nhắn tin nhanh.
+- Sắp xếp danh sách.
+
+3.2. RECENTS
+
+Hiển thị:
+
+- Cuộc gọi đến.
+- Cuộc gọi đi.
+- Cuộc gọi nhỡ.
+- Cuộc gọi bị từ chối.
+- Cuộc gọi với nhân vật AI.
+- Thời gian.
+- Ngày.
+- Thời lượng.
+
+Có thể:
+
+- Xóa lịch sử.
+- Tìm kiếm.
+- Xem chi tiết.
+- Gọi lại.
+- Chặn liên hệ.
+
+3.3. KEYPAD
+
+Bàn phím số:
+0–9, *, #.
+
+Chức năng:
+
+- Nhập số.
+- Xóa số.
+- Gọi.
+- Thêm số vào danh bạ.
+- Hiển thị số vừa gọi.
+
+3.4. CALL SCREEN
+
+Khi gọi:
+
+- Ảnh đại diện.
+- Tên người gọi.
+- Số điện thoại hoặc mã liên hệ.
+- Thời gian cuộc gọi.
+- Mute.
+- Speaker.
+- Keypad.
+- Hold.
+- Add Call.
+- End Call.
+
+3.5. INCOMING CALL
+
+Khi có cuộc gọi đến:
+
+- Màn hình cuộc gọi đến.
+- Tên người gọi.
+- Ảnh.
+- Nút chấp nhận.
+- Nút từ chối.
+- Nút nhắc gọi lại.
+- Nút trả lời bằng tin nhắn.
+
+3.6. CALL SETTINGS
+
+- Nhạc chuông.
+- Rung.
+- Chặn số.
+- Danh sách bị chặn.
+- Lịch sử cuộc gọi.
+- Cài đặt hiển thị.
+
+TÍCH HỢP AI:
+Nhân vật AI có thể gọi điện cho người dùng thông qua hệ thống sự kiện.
+Người dùng có thể gọi lại.
+Cuộc gọi AI sử dụng Voice API thực tế khi đã cấu hình.
+
+Cuộc gọi điện thoại thật qua mạng di động chỉ được tích hợp nếu nền tảng có quyền và API phù hợp.
+
+==================================================
+PHẦN 4. MESSAGES – ỨNG DỤNG TIN NHẮN
+
+Đây là một trong những ứng dụng quan trọng nhất.
+
+4.1. CONVERSATION LIST
+
+Danh sách hội thoại:
+
+- Avatar.
+- Tên.
+- Tin nhắn gần nhất.
+- Thời gian.
+- Badge chưa đọc.
+- Trạng thái online.
+- Tin nhắn ghim.
+- Hội thoại nhóm.
+
+Tính năng:
+
+- Tìm kiếm.
+- Ghim hội thoại.
+- Ẩn hội thoại.
+- Lưu trữ.
+- Xóa.
+- Đánh dấu chưa đọc.
+- Tắt thông báo.
+- Chặn người gửi.
+
+4.2. CHAT SCREEN
+
+Giao diện:
+
+- Header.
+- Avatar.
+- Tên.
+- Online Status.
+- Typing Indicator.
+- Khu vực tin nhắn.
+- Composer.
+- Attachment Menu.
+
+Hỗ trợ:
+
+- Tin nhắn văn bản.
+- Emoji.
+- Sticker.
+- Ảnh.
+- Video.
+- File.
+- Voice Message.
+- Location Card.
+- Contact Card.
+- Reply.
+- Forward.
+- Reactions.
+- Edit Message.
+- Delete Message.
+- Copy Text.
+- Search in Conversation.
+- Pin Message.
+
+4.3. GROUP CHAT
+
+- Tạo nhóm.
+- Đặt tên.
+- Đổi ảnh nhóm.
+- Thêm thành viên.
+- Xóa thành viên.
+- Quản lý quyền.
+- Ghim tin nhắn.
+- Trả lời.
+- Nhắc tên thành viên.
+- Rời nhóm.
+- Xóa nhóm.
+
+4.4. CHAT SETTINGS
+
+- Hình nền riêng.
+- Màu bong bóng.
+- Âm thanh thông báo.
+- Tắt thông báo.
+- Chế độ lưu trữ.
+- Quyền riêng tư.
+- Tự động tải ảnh.
+- Cài đặt đọc tin.
+
+4.5. AI INTEGRATION
+
+Tất cả nhân vật AI được kết nối với Messages.
+
+Có thể:
+
+- Chat 1-1.
+- Group Chat.
+- Nhận tin nhắn chủ động.
+- Nhận ảnh.
+- Nhận voice message.
+- Gọi thoại.
+- Gọi video khi có hệ thống avatar phù hợp.
+- Xem hồ sơ nhân vật.
+- Xem ký ức.
+- Xem mức quan hệ.
+
+Tin nhắn phải được đồng bộ với Notification Center.
+
+==================================================
+PHẦN 5. CONTACTS – DANH BẠ
+
+Trang chính:
+
+- Thanh tìm kiếm.
+- Danh sách liên hệ.
+- Nhóm liên hệ.
+- Liên hệ yêu thích.
+- Liên hệ gần đây.
+
+Hồ sơ liên hệ:
+
+- Ảnh đại diện.
+- Tên.
+- Biệt danh.
+- Số điện thoại.
+- Email.
+- Ngày sinh.
+- Địa chỉ.
+- Ghi chú.
+- Công ty.
+- Chức vụ.
+- Website.
+- Các số điện thoại bổ sung.
+
+Tính năng:
+
+- Tạo liên hệ.
+- Sửa liên hệ.
+- Xóa liên hệ.
+- Gộp liên hệ.
+- Thêm yêu thích.
+- Nhập danh bạ.
+- Xuất danh bạ.
+- Tạo nhóm.
+- Chia sẻ liên hệ.
+
+AI Integration:
+Mỗi nhân vật AI có thể xuất hiện như một liên hệ riêng với avatar, hồ sơ và nút chat/call.
+
+==================================================
+PHẦN 6. CAMERA – MÁY ẢNH
+
+Giao diện camera phải giống ứng dụng camera điện thoại hiện đại.
+
+6.1. CAMERA SCREEN
+
+Các thành phần:
+
+- Khu vực preview camera.
+- Nút chụp.
+- Nút quay video.
+- Nút chuyển camera trước/sau.
+- Nút flash.
+- Zoom.
+- Bộ chọn chế độ.
+- Mở Gallery.
+- Cài đặt camera.
+
+6.2. CHẾ ĐỘ CHỤP
+
+- Photo.
+- Video.
+- Portrait.
+- Panorama.
+- Night Mode giả lập.
+- Macro nếu thiết bị hỗ trợ.
+- Selfie.
+- QR Scanner.
+
+6.3. CAMERA SETTINGS
+
+- Tỷ lệ ảnh.
+- Chất lượng.
+- Độ phân giải video.
+- Flash.
+- Timer.
+- Grid.
+- Âm thanh chụp.
+- Lưu vị trí nếu được cấp quyền.
+
+6.4. VIDEO RECORDING
+
+- Bắt đầu.
+- Tạm dừng.
+- Tiếp tục.
+- Kết thúc.
+- Bộ đếm thời gian.
+- Lưu video.
+- Xem trước.
+
+6.5. EDITOR
+
+- Crop.
+- Rotate.
+- Flip.
+- Brightness.
+- Contrast.
+- Saturation.
+- Filters.
+- Text.
+- Sticker.
+- Draw.
+- Undo.
+- Redo.
+- Save Copy.
+
+Yêu cầu:
+Sử dụng camera thiết bị thông qua quyền trình duyệt hoặc Android. Không dùng hình ảnh mẫu để giả vờ chụp ảnh thật.
+
+==================================================
+PHẦN 7. PHOTOS – THƯ VIỆN ẢNH
+
+7.1. MAIN GALLERY
+
+Các tab:
+
+- Photos.
+- Albums.
+- Favorites.
+- Videos.
+- Recently Deleted.
+
+7.2. PHOTO VIEWER
+
+- Xem toàn màn hình.
+- Phóng to.
+- Thu nhỏ.
+- Vuốt ảnh.
+- Xem thông tin.
+- Chỉnh sửa.
+- Chia sẻ.
+- Xóa.
+- Đặt hình nền.
+
+7.3. ALBUMS
+
+- Tạo album.
+- Đổi tên.
+- Thêm ảnh.
+- Xóa ảnh khỏi album.
+- Sắp xếp.
+- Album nhân vật AI.
+- Album tải xuống.
+- Album ảnh chụp.
+
+7.4. EDITOR
+
+- Crop.
+- Rotate.
+- Filter.
+- Brightness.
+- Contrast.
+- Saturation.
+- Blur.
+- Text.
+- Sticker.
+- Markup.
+
+7.5. SEARCH
+
+Tìm kiếm theo:
+
+- Tên tệp.
+- Ngày.
+- Album.
+- Loại ảnh.
+- Nhân vật.
+- Tag.
+
+7.6. RECENTLY DELETED
+
+- Khôi phục.
+- Xóa vĩnh viễn.
+- Thời gian tự động xóa.
+- Xác nhận trước khi xóa.
+
+==================================================
+PHẦN 8. BROWSER – TRÌNH DUYỆT WEB
+
+Xây dựng một trình duyệt thực tế bên trong PHONE OS.
+
+8.1. HOME PAGE
+
+- Thanh địa chỉ.
+- Thanh tìm kiếm.
+- Website yêu thích.
+- Lịch sử.
+- Website thường truy cập.
+- Trang đề xuất.
+- Quick Links.
+
+8.2. TAB MANAGEMENT
+
+- Mở tab.
+- Đóng tab.
+- Chuyển tab.
+- Tab riêng tư.
+- Khôi phục tab.
+- Tab Groups.
+- Đếm số tab.
+- Tìm kiếm tab.
+
+8.3. BROWSER FUNCTIONS
+
+- Truy cập URL.
+- Tìm kiếm Internet.
+- Back.
+- Forward.
+- Reload.
+- Stop Loading.
+- Bookmark.
+- Reading Mode nếu khả thi.
+- Download.
+- Share.
+- Find in Page.
+- Desktop Site.
+- Zoom.
+- Fullscreen.
+
+8.4. HISTORY
+
+- Lịch sử truy cập.
+- Tìm kiếm lịch sử.
+- Xóa từng mục.
+- Xóa theo khoảng thời gian.
+
+8.5. BOOKMARKS
+
+- Thêm.
+- Xóa.
+- Sửa.
+- Phân thư mục.
+- Sắp xếp.
+
+8.6. DOWNLOAD MANAGER
+
+- Danh sách tải xuống.
+- Tiến trình.
+- Dung lượng.
+- Mở tệp.
+- Chia sẻ.
+- Xóa.
+- Tải lại nếu hỗ trợ.
+
+8.7. PRIVACY
+
+- Incognito.
+- Xóa lịch sử.
+- Quản lý cookie trong phạm vi được phép.
+- Quản lý quyền website.
+- Chặn cửa sổ bật lên khi có thể.
+- Cài đặt tìm kiếm.
+
+LƯU Ý:
+WebView hoặc trình duyệt nhúng có giới hạn bảo mật và tương thích. Không được tự ý vượt qua chính sách bảo mật website.
+
+==================================================
+PHẦN 9. MAPS – BẢN ĐỒ
+
+Giao diện:
+
+- Bản đồ.
+- Thanh tìm kiếm.
+- Vị trí hiện tại nếu được cấp quyền.
+- Nút định vị.
+- Nút phóng to/thu nhỏ.
+- La bàn.
+- Danh mục địa điểm.
+
+Tính năng:
+
+- Tìm địa điểm.
+- Tìm nhà hàng.
+- Tìm quán cà phê.
+- Tìm cửa hàng.
+- Tìm bệnh viện.
+- Tìm ATM.
+- Tìm trạm xăng.
+- Xem thông tin địa điểm.
+- Lưu địa điểm.
+- Lịch sử tìm kiếm.
+- Tạo danh sách yêu thích.
+- Chỉ đường.
+- Lựa chọn đi bộ, xe đạp, ô tô nếu nhà cung cấp hỗ trợ.
+- Chia sẻ vị trí.
+
+Không được tự tạo chỉ đường hoặc thông tin vị trí sai lệch.
+
+==================================================
+PHẦN 10. MAIL – EMAIL
+
+Giao diện:
+
+- Inbox.
+- Sent.
+- Drafts.
+- Spam.
+- Trash.
+- Archive.
+- Starred.
+
+Tính năng:
+
+- Viết email.
+- Gửi email.
+- Nhận email.
+- Trả lời.
+- Trả lời tất cả.
+- Chuyển tiếp.
+- Đính kèm tệp.
+- Tải tệp.
+- Tìm kiếm.
+- Gắn nhãn.
+- Đánh dấu quan trọng.
+- Lưu bản nháp.
+- Xóa email.
+- Khôi phục email.
+- Chữ ký.
+- Quản lý nhiều tài khoản.
+
+Có thể kết nối Gmail hoặc dịch vụ email khác thông qua OAuth và API được cấp quyền.
+
+Không tạo hộp thư giả nhưng tuyên bố có thể gửi nhận email Internet thực tế.
+
+==================================================
+PHẦN 11. CALENDAR – LỊCH
+
+Các chế độ xem:
+
+- Day.
+- Week.
+- Month.
+- Year.
+- Agenda.
+
+Tính năng:
+
+- Tạo sự kiện.
+- Sửa sự kiện.
+- Xóa sự kiện.
+- Sự kiện cả ngày.
+- Đặt giờ bắt đầu.
+- Đặt giờ kết thúc.
+- Địa điểm.
+- Ghi chú.
+- Nhắc trước.
+- Lặp lại.
+- Chọn màu.
+- Nhiều lịch.
+- Tìm kiếm.
+- Chia sẻ lịch.
+- Mời người tham gia.
+- Xác nhận tham dự.
+
+AI Integration:
+
+- Sinh nhật nhân vật.
+- Kỷ niệm.
+- Cuộc hẹn với AI.
+- Sự kiện nhóm.
+- Nhắc lịch từ nhân vật.
+
+==================================================
+PHẦN 12. REMINDERS – NHẮC VIỆC
+
+Tạo danh sách:
+
+- Cá nhân.
+- Công việc.
+- Mua sắm.
+- Học tập.
+- Sự kiện.
+- Tùy chỉnh.
+
+Mỗi nhiệm vụ có:
+
+- Tiêu đề.
+- Mô tả.
+- Ngày.
+- Giờ.
+- Mức ưu tiên.
+- Danh sách.
+- Nhãn.
+- Lặp lại.
+- Trạng thái hoàn thành.
+
+Tính năng:
+
+- Đánh dấu hoàn thành.
+- Sửa.
+- Xóa.
+- Sắp xếp.
+- Lọc.
+- Tìm kiếm.
+- Nhắc theo giờ.
+- Nhắc theo ngày.
+- Đồng bộ Calendar.
+
+==================================================
+PHẦN 13. NOTES – GHI CHÚ
+
+Giao diện:
+
+- Danh sách ghi chú.
+- Tìm kiếm.
+- Ghim.
+- Thư mục.
+- Gần đây.
+- Đã xóa.
+
+Editor:
+
+- Văn bản.
+- Tiêu đề.
+- In đậm.
+- In nghiêng.
+- Gạch chân.
+- Danh sách.
+- Checkbox.
+- Hình ảnh.
+- Tệp đính kèm.
+- Bảng.
+- Đường kẻ.
+- Vẽ tay nếu hỗ trợ.
+
+Tính năng:
+
+- Tạo.
+- Chỉnh sửa.
+- Xóa.
+- Khôi phục.
+- Tìm kiếm.
+- Chia sẻ.
+- Khóa ghi chú.
+- Đồng bộ Cloud.
+
+==================================================
+PHẦN 14. FILE MANAGER – QUẢN LÝ TỆP
+
+Giao diện:
+
+- Recent.
+- Downloads.
+- Images.
+- Videos.
+- Audio.
+- Documents.
+- Favorites.
+- Trash.
+- Cloud Storage.
+
+Tính năng:
+
+- Xem tệp.
+- Tìm kiếm.
+- Tạo thư mục.
+- Đổi tên.
+- Di chuyển.
+- Sao chép.
+- Chia sẻ.
+- Xóa.
+- Tải xuống.
+- Upload.
+- Sắp xếp.
+- Xem dung lượng.
+- Xem thông tin tệp.
+- Nén/giải nén nếu có thư viện phù hợp.
+- Đọc PDF.
+- Preview hình ảnh.
+- Preview video.
+
+Tất cả thao tác phải dựa trên tệp thật mà ứng dụng được cấp quyền truy cập.
+
+==================================================
+PHẦN 15. CLOCK – ĐỒNG HỒ
+
+Các tab:
+
+- Alarm.
+- World Clock.
+- Stopwatch.
+- Timer.
+
+ALARM:
+
+- Tạo báo thức.
+- Sửa.
+- Xóa.
+- Lặp lại.
+- Chọn âm thanh.
+- Rung.
+- Nhãn báo thức.
+- Bật/tắt.
+
+WORLD CLOCK:
+
+- Thêm thành phố.
+- Xem múi giờ.
+- So sánh giờ.
+- Xóa thành phố.
+
+STOPWATCH:
+
+- Start.
+- Pause.
+- Resume.
+- Lap.
+- Reset.
+
+TIMER:
+
+- Đặt giờ.
+- Đặt phút.
+- Start.
+- Pause.
+- Reset.
+- Âm thanh kết thúc.
+
+==================================================
+PHẦN 16. CALCULATOR – MÁY TÍNH
+
+Các chế độ:
+
+- Basic Calculator.
+- Scientific Calculator.
+- Unit Converter.
+- Currency Converter.
+- Calculation History.
+
+Basic:
+
+- Cộng.
+- Trừ.
+- Nhân.
+- Chia.
+- Phần trăm.
+- Số âm.
+- Dấu thập phân.
+
+Scientific:
+
+- Sin.
+- Cos.
+- Tan.
+- Log.
+- Ln.
+- Căn bậc hai.
+- Lũy thừa.
+- Ngoặc.
+- Hằng số.
+
+Unit Converter:
+
+- Độ dài.
+- Khối lượng.
+- Nhiệt độ.
+- Diện tích.
+- Thể tích.
+- Tốc độ.
+- Dữ liệu.
+
+Currency Converter:
+
+- Chuyển đổi tiền tệ.
+- Hiển thị tỷ giá.
+- Thời gian cập nhật.
+- Không sử dụng tỷ giá giả khi hiển thị dữ liệu thực tế.
+
+==================================================
+PHẦN 17. WEATHER – THỜI TIẾT
+
+Giao diện:
+
+- Nhiệt độ hiện tại.
+- Tình trạng thời tiết.
+- Nhiệt độ cao/thấp.
+- Cảm giác như.
+- Độ ẩm.
+- Tốc độ gió.
+- Khả năng mưa.
+- Chỉ số UV nếu có dữ liệu.
+- Dự báo theo giờ.
+- Dự báo nhiều ngày.
+
+Tính năng:
+
+- Thêm địa điểm.
+- Chọn vị trí.
+- Lưu thành phố.
+- Chuyển đổi °C/°F.
+- Cảnh báo thời tiết.
+- Widget thời tiết.
+
+Phải lấy dữ liệu từ API thời tiết thực tế nếu muốn hiển thị thời tiết thật.
+
+==================================================
+PHẦN 18. MUSIC – ÂM NHẠC
+
+Giao diện:
+
+- Home.
+- Recently Played.
+- Playlists.
+- Albums.
+- Artists.
+- Favorites.
+- Search.
+- Now Playing.
+
+Tính năng:
+
+- Phát nhạc.
+- Tạm dừng.
+- Tiếp tục.
+- Chuyển bài.
+- Lùi bài.
+- Thanh tiến trình.
+- Điều chỉnh âm lượng.
+- Shuffle.
+- Repeat.
+- Playlist.
+- Queue.
+- Yêu thích.
+- Tìm kiếm.
+- Quản lý nhạc được cấp quyền.
+
+Now Playing:
+
+- Ảnh bìa.
+- Tên bài.
+- Nghệ sĩ.
+- Tiến trình.
+- Điều khiển.
+
+Chỉ phát nội dung người dùng có quyền truy cập hoặc nội dung được cấp phép.
+
+==================================================
+PHẦN 19. VIDEO PLAYER
+
+Tính năng:
+
+- Phát video.
+- Tạm dừng.
+- Tua.
+- Tua nhanh.
+- Điều chỉnh âm lượng.
+- Fullscreen.
+- Picture in Picture nếu hỗ trợ.
+- Phụ đề.
+- Tốc độ phát.
+- Danh sách video gần đây.
+- Lịch sử xem.
+- Tiếp tục phát.
+
+==================================================
+PHẦN 20. APP STORE – CỬA HÀNG ỨNG DỤNG
+
+Đây là cửa hàng ứng dụng nội bộ của PHONE OS.
+
+Trang chính:
+
+- Featured.
+- Top Apps.
+- Categories.
+- New Apps.
+- Recommended.
+- Updates.
+
+Mỗi ứng dụng có:
+
+- Icon.
+- Tên.
+- Mô tả.
+- Ảnh giới thiệu.
+- Phiên bản.
+- Dung lượng.
+- Tác giả.
+- Quyền truy cập.
+- Đánh giá.
+- Nút Install.
+
+Tính năng:
+
+- Cài đặt ứng dụng.
+- Mở ứng dụng.
+- Gỡ ứng dụng.
+- Cập nhật.
+- Xem lịch sử.
+- Quản lý ứng dụng.
+- Tìm kiếm.
+- Đánh giá.
+- Yêu thích.
+
+Chỉ cài ứng dụng tương thích với hệ sinh thái PHONE OS. Không tuyên bố cài được APK Android thông thường nếu không có cơ chế native phù hợp.
+
+==================================================
+PHẦN 21. SETTINGS – CÀI ĐẶT HỆ THỐNG
+
+21.1. PROFILE
+
+- Avatar.
+- Tên.
+- Username.
+- Email.
+- Ngày tham gia.
+- Tài khoản.
+- Đăng xuất.
+
+21.2. NETWORK
+
+- Wi-Fi giả lập hoặc trạng thái mạng thực.
+- Bluetooth trạng thái.
+- Trạng thái kết nối.
+- Chế độ máy bay giả lập.
+- Network Diagnostics.
+
+21.3. DISPLAY
+
+- Light Mode.
+- Dark Mode.
+- Auto Mode.
+- Brightness giao diện.
+- Font Size.
+- Wallpaper.
+- Icon Size.
+- Animation Scale.
+- Theme.
+
+21.4. SOUND
+
+- Ringtone.
+- Notification Sound.
+- Keyboard Sound.
+- Volume.
+- Vibration tùy khả năng thiết bị.
+
+21.5. PRIVACY
+
+- Quản lý quyền.
+- Camera Permission.
+- Microphone Permission.
+- Location Permission.
+- Notification Permission.
+- File Access.
+- Privacy Dashboard.
+- Chặn liên hệ.
+- Quản lý dữ liệu cá nhân.
+
+21.6. SECURITY
+
+- PIN.
+- Password.
+- App Lock.
+- Private Folder.
+- Session Management.
+- Login History.
+- Two-Factor Authentication nếu backend hỗ trợ.
+
+21.7. STORAGE
+
+- Dung lượng dữ liệu.
+- Ảnh.
+- Video.
+- Tệp.
+- Cache.
+- Lịch sử.
+- Dữ liệu AI.
+- Xóa cache.
+- Quản lý lưu trữ.
+
+21.8. ABOUT PHONE
+
+- PHONE OS Version.
+- Build Number.
+- Device Simulation.
+- Software Update.
+- Legal.
+- Privacy Policy.
+- Open Source Licenses.
+
+==================================================
+PHẦN 22. AI ANIME CHARACTER SYSTEM
+
+Đây là hệ thống đặc trưng của PHONE OS.
+
+Nhân vật AI phải xuất hiện xuyên suốt hệ điều hành như những người dùng thật trong một thế giới ảo.
+
+22.1. CHARACTER STORE
+
+- Danh sách nhân vật.
+- Tìm kiếm.
+- Lọc.
+- Trending.
+- Popular.
+- New.
+- Recommended.
+- Hồ sơ nhân vật.
+- Yêu thích.
+- Theo dõi.
+- Bắt đầu chat.
+
+22.2. CHARACTER PROFILE
+
+- Avatar.
+- Ảnh toàn thân.
+- Tên.
+- Tuổi phù hợp.
+- Tính cách.
+- Tiểu sử.
+- Sở thích.
+- Sở ghét.
+- Giọng nói.
+- Bối cảnh.
+- Lời chào.
+- Tác giả.
+- Số lượt tương tác.
+
+22.3. AI PERSONALITY
+
+Mỗi nhân vật có:
+
+- Danh tính.
+- Cách nói chuyện.
+- Cảm xúc.
+- Hành vi.
+- Sở thích.
+- Ký ức.
+- Mục tiêu.
+- Mối quan hệ.
+- Giới hạn nội dung.
+
+22.4. AI MEMORY
+
+Short-Term Memory:
+
+- Hội thoại gần đây.
+- Chủ đề đang nói.
+- Bối cảnh hiện tại.
+
+Long-Term Memory:
+
+- Thông tin người dùng.
+- Kỷ niệm.
+- Sở thích.
+- Những lời hứa.
+- Các sự kiện quan trọng.
+
+Relationship Memory:
+
+- Mức độ thân thiết.
+- Lịch sử quan hệ.
+- Cảm xúc.
+- Các mốc quan trọng.
+
+22.5. AI CHAT
+
+- Nhắn tin.
+- Gửi ảnh.
+- Sticker.
+- Voice Message.
+- Reply.
+- Reaction.
+- Group Chat.
+- Roleplay.
+- Story Mode.
+- Memory.
+- Relationship.
+
+22.6. AI VOICE CALL
+
+- Gọi thoại.
+- Nhận cuộc gọi.
+- TTS.
+- Speech-to-Text.
+- Voice Streaming.
+- Giọng riêng từng nhân vật.
+- Lịch sử cuộc gọi.
+
+22.7. AI VIDEO CALL
+
+- Avatar động.
+- Lip Sync.
+- Biểu cảm.
+- Phản hồi giọng nói.
+- Giao diện video call.
+
+Chỉ kích hoạt khi có hệ thống video avatar thực tế.
+
+==================================================
+PHẦN 23. ANIME SOCIAL – MẠNG XÃ HỘI
+
+Xây dựng mạng xã hội nội bộ.
+
+Các tab:
+
+- Home.
+- Explore.
+- Create.
+- Notifications.
+- Profile.
+
+Tính năng:
+
+- Đăng bài.
+- Đăng ảnh.
+- Đăng video.
+- Story.
+- Like.
+- Comment.
+- Reply.
+- Share.
+- Follow.
+- Unfollow.
+- Search.
+- Hashtags.
+- Profile.
+- Private Account.
+- Block.
+- Report.
+- Saved Posts.
+
+AI Character có thể:
+
+- Đăng bài.
+- Bình luận.
+- Trả lời.
+- Tương tác với nhân vật khác.
+- Tương tác với người dùng.
+
+Mọi tương tác phải lưu trong database.
+
+==================================================
+PHẦN 24. MAIL VÀ TIN NHẮN LIÊN ỨNG DỤNG
+
+Các ứng dụng phải có thể chia sẻ dữ liệu.
+
+Ví dụ:
+
+- Chia sẻ ảnh từ Gallery sang Messages.
+- Chia sẻ trang web từ Browser sang Messages.
+- Gửi tệp từ File Manager qua Mail.
+- Tạo sự kiện từ tin nhắn sang Calendar.
+- Tạo Reminder từ email.
+- Lưu liên hệ từ Phone vào Contacts.
+
+Xây dựng hệ thống Share Sheet dùng chung.
+
+==================================================
+PHẦN 25. HEALTH – SỨC KHỎE
+
+Các màn hình:
+
+- Dashboard.
+- Activity.
+- Sleep.
+- Heart Rate nếu có nguồn dữ liệu.
+- Steps.
+- Water.
+- Weight.
+- Goals.
+- History.
+
+Tính năng:
+
+- Ghi nhận số bước khi có quyền và cảm biến hỗ trợ.
+- Nhập dữ liệu thủ công.
+- Theo dõi giấc ngủ thủ công hoặc qua nguồn dữ liệu tương thích.
+- Theo dõi nước uống.
+- Theo dõi mục tiêu.
+- Biểu đồ.
+- Lịch sử.
+- Nhắc nhở.
+
+Không tự tạo dữ liệu sức khỏe giả rồi hiển thị như số đo thực tế.
+
+==================================================
+PHẦN 26. FITNESS – THỂ DỤC
+
+- Workout.
+- Running.
+- Walking.
+- Cycling.
+- Exercise Log.
+- Calories.
+- Duration.
+- Distance.
+- Goals.
+- Progress.
+- Workout History.
+
+Có thể tích hợp dữ liệu thiết bị nếu được cấp quyền.
+
+==================================================
+PHẦN 27. WALLET – VÍ
+
+Giao diện:
+
+- Thẻ thành viên.
+- Thẻ quà tặng.
+- Vé sự kiện.
+- Vé phương tiện.
+- Lịch sử sử dụng.
+
+Tính năng:
+
+- Thêm thẻ giả lập.
+- Quản lý thẻ.
+- Lưu vé.
+- Xem mã QR.
+- Xem mã vạch.
+- Thông báo thẻ sắp hết hạn.
+
+Không tự tuyên bố hỗ trợ thanh toán NFC hoặc ngân hàng thực nếu không có tích hợp được cấp phép.
+
+==================================================
+PHẦN 28. PASSWORD MANAGER – QUẢN LÝ MẬT KHẨU
+
+- Lưu tài khoản.
+- Username.
+- Password.
+- Website.
+- Ghi chú.
+- Tạo mật khẩu mạnh.
+- Kiểm tra độ mạnh.
+- Tìm kiếm.
+- Chỉnh sửa.
+- Xóa.
+- Khóa bằng xác thực.
+
+Dữ liệu phải mã hóa, không lưu mật khẩu dạng văn bản thuần.
+
+==================================================
+PHẦN 29. TRANSLATE – DỊCH THUẬT
+
+- Nhập văn bản.
+- Chọn ngôn ngữ nguồn.
+- Chọn ngôn ngữ đích.
+- Dịch.
+- Sao chép.
+- Lưu lịch sử.
+- Phát âm.
+- Dịch hội thoại nếu có API.
+- Dịch nội dung từ Messages thông qua thao tác chia sẻ.
+
+==================================================
+PHẦN 30. NEWS – TIN TỨC
+
+- Trang tin.
+- Danh mục.
+- Tìm kiếm.
+- Bài viết.
+- Hình ảnh.
+- Video.
+- Lưu bài.
+- Chia sẻ.
+- Lịch sử đọc.
+- Chủ đề yêu thích.
+
+Tin tức thật phải lấy từ nguồn dữ liệu có quyền sử dụng và ghi rõ nguồn.
+
+==================================================
+PHẦN 31. BOOKS – ĐỌC SÁCH
+
+- Thư viện.
+- Sách yêu thích.
+- Đọc PDF.
+- Đọc EPUB nếu hỗ trợ.
+- Bookmark.
+- Ghi chú.
+- Đánh dấu trang.
+- Lịch sử đọc.
+- Tìm kiếm nội dung.
+- Điều chỉnh font.
+- Chế độ tối.
+- Tiến độ đọc.
+
+==================================================
+PHẦN 32. VOICE RECORDER – GHI ÂM
+
+- Bắt đầu ghi âm.
+- Tạm dừng.
+- Tiếp tục.
+- Kết thúc.
+- Đặt tên.
+- Phát lại.
+- Đổi tên.
+- Xóa.
+- Chia sẻ.
+- Xem thời lượng.
+- Lưu tệp âm thanh.
+
+Yêu cầu quyền micro trước khi ghi âm.
+
+==================================================
+PHẦN 33. SCANNER – QUÉT TÀI LIỆU
+
+- Chụp tài liệu.
+- Nhận diện mép giấy.
+- Crop.
+- Xoay.
+- Chỉnh sáng.
+- Lưu PDF.
+- Nhiều trang.
+- OCR.
+- Tìm kiếm văn bản.
+- Chia sẻ.
+
+==================================================
+PHẦN 34. WEATHER, MAPS VÀ LOCATION SERVICES
+
+Các ứng dụng phải dùng chung hệ thống địa điểm khi được người dùng cho phép.
+
+Ví dụ:
+
+- Weather lấy thành phố từ Location.
+- Calendar lưu địa điểm sự kiện.
+- Maps mở địa điểm từ Calendar.
+- Messages chia sẻ vị trí.
+- Browser mở bản đồ từ liên kết.
+
+Phải có cơ chế xin quyền vị trí rõ ràng và cho phép người dùng tắt quyền.
+
+==================================================
+PHẦN 35. SHORTCUTS – TỰ ĐỘNG HÓA
+
+Tạo hệ thống tự động hóa nội bộ.
+
+Ví dụ:
+
+- Khi mở PHONE OS, hiển thị widget thời tiết.
+- Khi đến giờ ngủ, bật Do Not Disturb.
+- Khi có tin nhắn từ nhân vật yêu thích, hiển thị thông báo.
+- Khi hoàn thành nhiệm vụ, cập nhật Calendar.
+- Khi chụp ảnh, tự lưu vào Gallery.
+- Khi đến sinh nhật nhân vật, tạo thông báo.
+
+Cho phép:
+
+- Tạo quy tắc.
+- Chọn điều kiện.
+- Chọn hành động.
+- Bật/tắt.
+- Xem lịch sử.
+- Xóa quy tắc.
+
+Chỉ tự động hóa những hành động được hệ thống hỗ trợ và người dùng cho phép.
+
+==================================================
+PHẦN 36. GAME CENTER – GIẢI TRÍ
+
+- Danh sách mini game.
+- Thành tích.
+- Bảng xếp hạng.
+- Hồ sơ chơi.
+- Lịch sử.
+- Game với nhân vật AI.
+- Trò chơi nhóm.
+
+Có thể phát triển:
+
+- Quiz.
+- Đoán từ.
+- Cờ.
+- Puzzle.
+- Visual Novel.
+- Dating Simulation.
+
+==================================================
+PHẦN 37. AI ASSISTANT – TRỢ LÝ ĐIỆN THOẠI
+
+Một trợ lý AI có thể điều phối các chức năng nội bộ.
+
+Ví dụ:
+
+- Tạo ghi chú.
+- Tạo lịch.
+- Tạo Reminder.
+- Tìm tin nhắn.
+- Tìm nhân vật.
+- Tìm ảnh.
+- Mở ứng dụng.
+- Tóm tắt email.
+- Dịch văn bản.
+
+Các thao tác ghi hoặc xóa dữ liệu phải được xác nhận phù hợp.
+
+==================================================
+PHẦN 38. AI LIFE SIMULATION
+
+Nhân vật AI có lịch sinh hoạt riêng.
+
+Ví dụ:
+08:00 – Yuki gửi lời chào.
+10:00 – Sakura đăng ảnh.
+12:00 – Akira gửi tin nhắn.
+15:00 – Rin bình luận bài đăng.
+20:00 – Yuki gọi điện.
+22:00 – Nhân vật gửi lời chúc ngủ ngon.
+
+Hệ thống:
+
+- Character Schedule.
+- Event Generator.
+- Relationship State.
+- Social Activity.
+- Notification Scheduler.
+- Memory Update.
+
+Không được gửi thông báo vô hạn hoặc tạo sự kiện không có logic.
+
+==================================================
+PHẦN 39. DATA ARCHITECTURE – KIẾN TRÚC DỮ LIỆU
+
+Các nhóm bảng cơ sở dữ liệu:
+
+USER:
+
+- users.
+- profiles.
+- sessions.
+- user_settings.
+
+PHONE OS:
+
+- installed_apps.
+- home_screen_layouts.
+- app_folders.
+- widgets.
+- wallpapers.
+- notification_settings.
+- system_preferences.
+
+MESSAGING:
+
+- contacts.
+- conversations.
+- messages.
+- message_attachments.
+- message_reactions.
+- call_history.
+
+MEDIA:
+
+- media_assets.
+- albums.
+- album_items.
+- downloads.
+- recordings.
+
+PRODUCTIVITY:
+
+- notes.
+- note_folders.
+- calendar_events.
+- reminders.
+- tasks.
+- bookmarks.
+- browser_history.
+
+AI:
+
+- characters.
+- character_personalities.
+- character_memories.
+- character_relationships.
+- character_events.
+- ai_conversations.
+- ai_messages.
+- voice_profiles.
+
+SOCIAL:
+
+- social_profiles.
+- social_posts.
+- social_comments.
+- social_likes.
+- social_follows.
+- social_stories.
+
+SYSTEM:
+
+- app_permissions.
+- audit_logs.
+- user_devices.
+- sync_jobs.
+- subscriptions nếu có.
+
+Tất cả dữ liệu phải được phân quyền theo người dùng.
+
+Không để tài khoản này truy cập dữ liệu riêng tư của tài khoản khác.
+
+==================================================
+PHẦN 40. BACKEND VÀ CÔNG NGHỆ
+
+FRONTEND:
+
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Framer Motion.
+
+BACKEND:
+
+- Supabase.
+- PostgreSQL.
+- Supabase Auth.
+- Supabase Storage.
+- Supabase Realtime.
+- Edge Functions.
+
+AI:
+
+- Gemini API hoặc OpenAI API.
+- TTS.
+- Speech-to-Text.
+- Image Generation khi có nhu cầu.
+
+MOBILE:
+
+- PWA.
+- Capacitor nếu cần đóng gói Android.
+
+YÊU CẦU:
+
+- Không để API Key trong frontend.
+- Có backend bảo vệ API.
+- Có Rate Limit.
+- Có xác thực.
+- Có xử lý lỗi.
+- Có logging.
+- Có backup.
+- Có phân quyền.
+- Có kiểm tra dữ liệu đầu vào.
+- Có chống truy cập trái phép.
+
+==================================================
+PHẦN 41. APP-TO-APP INTEGRATION
+
+Đây là một yêu cầu cực kỳ quan trọng.
+
+Tất cả ứng dụng phải kết nối với nhau.
+
+Ví dụ 1:
+Camera chụp ảnh.
+Ảnh được lưu vào Photos.
+Photos có thể gửi ảnh sang Messages.
+Messages có thể chuyển ảnh sang Anime Social.
+
+Ví dụ 2:
+Người dùng nhận tin nhắn.
+Notification Center xuất hiện thông báo.
+Nhấn thông báo sẽ mở đúng hội thoại.
+Badge chưa đọc được cập nhật.
+
+Ví dụ 3:
+Nhân vật AI gửi lời mời đi chơi.
+Calendar nhận sự kiện.
+Maps có thể mở địa điểm.
+Reminders có thể nhắc trước giờ.
+
+Ví dụ 4:
+Người dùng nhận email có tài liệu.
+Có thể tải tệp vào File Manager.
+Mở tài liệu bằng PDF Reader.
+Chia sẻ tài liệu sang Messages.
+
+Ví dụ 5:
+Yuki gửi ảnh.
+Ảnh xuất hiện trong hội thoại.
+Có thể lưu vào Gallery.
+Có thể đặt làm hình nền.
+Có thể chia sẻ lên Anime Social.
+
+Mỗi dữ liệu phải có một nguồn lưu trữ nhất quán. Không tạo nhiều bản dữ liệu rời rạc không đồng bộ.
+
+==================================================
+PHẦN 42. GIAO DIỆN THIẾT KẾ CHI TIẾT
+
+42.1. DESIGN SYSTEM
+
+MÀU SÁNG:
+
+- Background: #F7F7FA.
+- Surface: #FFFFFF.
+- Primary: #A78BFA.
+- Secondary: #E9D5FF.
+- Accent: #F472B6.
+- Text: #18181B.
+- Muted: #71717A.
+- Border: #E4E4E7.
+
+MÀU TỐI:
+
+- Background: #101014.
+- Surface: #1A1A22.
+- Primary: #B69CFF.
+- Accent: #F08FC7.
+- Text: #F5F5F7.
+- Muted: #A1A1AA.
+- Border: #30303A.
+
+42.2. TYPOGRAPHY
+
+- Be Vietnam Pro.
+- Inter.
+- SF Pro Display hoặc font tương đương.
+
+42.3. ICON
+
+- Icon đồng nhất.
+- Cùng kích thước.
+- Cùng độ dày nét.
+- Có trạng thái Active và Inactive.
+- Mỗi app có màu nhận diện riêng.
+
+42.4. ANIMATION
+
+- Spring Animation.
+- Page Transition.
+- Modal Transition.
+- App Open Animation.
+- App Close Animation.
+- Button Feedback.
+- Loading.
+- Skeleton.
+- Toast.
+- Notification Animation.
+
+42.5. RESPONSIVE
+
+- Ưu tiên Android.
+- Hỗ trợ màn hình nhỏ.
+- Hỗ trợ màn hình lớn.
+- Hỗ trợ tablet.
+- Hỗ trợ desktop.
+- Không tràn giao diện.
+- Không che nội dung bởi bàn phím.
+- Có safe area.
+- Hỗ trợ thao tác cảm ứng.
+
+==================================================
+PHẦN 43. QUY TẮC TÍNH THẬT VÀ MÔ PHỎNG
+
+Mỗi ứng dụng phải được phân loại rõ ràng.
+
+LOẠI A – CHỨC NĂNG THỰC TẾ:
+
+- Camera thiết bị.
+- Micro.
+- Lưu tệp.
+- Gửi AI API.
+- Lưu dữ liệu cloud.
+- Duyệt web.
+- Gửi email khi có tích hợp.
+- Thời tiết qua API.
+- Bản đồ qua dịch vụ bản đồ.
+- Đăng nhập thật.
+
+LOẠI B – MÔ PHỎNG NỘI BỘ:
+
+- Pin giả lập.
+- Wi-Fi giả lập.
+- Bluetooth giả lập.
+- Cuộc gọi nội bộ với AI.
+- Danh bạ AI.
+- Mạng xã hội AI.
+- Cuộc sống nhân vật.
+- Cửa hàng ứng dụng nội bộ.
+- Hệ thống thành tích.
+
+LOẠI C – CẦN TÍCH HỢP NATIVE:
+
+- Cuộc gọi di động thật.
+- SMS thật.
+- NFC.
+- Sinh trắc học.
+- Chạy nền liên tục.
+- Thông báo hệ thống nâng cao.
+- Theo dõi sức khỏe bằng cảm biến.
+- Bluetooth phần cứng.
+- Điều khiển hệ thống Android.
+
+Không được tuyên bố LOẠI B là LOẠI A.
+
+==================================================
+PHẦN 44. BẢO MẬT VÀ QUYỀN RIÊNG TƯ
+
+- Mỗi người dùng có dữ liệu riêng.
+- Mã hóa thông tin nhạy cảm.
+- Không lưu mật khẩu dạng văn bản.
+- Không công khai API Key.
+- Có xác thực phiên.
+- Có kiểm soát quyền truy cập.
+- Có quyền xóa tài khoản.
+- Có quyền xuất dữ liệu.
+- Có quản lý lịch sử AI.
+- Có quản lý bộ nhớ AI.
+- Có báo cáo nội dung vi phạm.
+- Có chặn người dùng.
+- Có kiểm soát nội dung.
+- Có chính sách bảo mật rõ ràng.
+
+==================================================
+PHẦN 45. HIỆU NĂNG
+
+- Tải ứng dụng nhanh.
+- Lazy Loading.
+- Image Optimization.
+- Cache hợp lý.
+- Giảm số lần gọi API.
+- Pagination.
+- Virtualized Lists.
+- Debounce Search.
+- Background Sync khi được hỗ trợ.
+- Khôi phục trạng thái.
+- Xử lý mất kết nối.
+- Tối ưu bộ nhớ.
+- Tối ưu animation.
+- Không làm treo giao diện khi AI phản hồi chậm.
+
+==================================================
+PHẦN 46. LỘ TRÌNH PHÁT TRIỂN
+
+PHASE 1:
+Core Phone OS.
+Lock Screen.
+Home Screen.
+Status Bar.
+Control Center.
+Notification Center.
+Recent Apps.
+
+PHASE 2:
+Phone.
+Messages.
+Contacts.
+Camera.
+Photos.
+
+PHASE 3:
+Browser.
+Maps.
+Mail.
+Calendar.
+Reminders.
+Notes.
+File Manager.
+
+PHASE 4:
+Clock.
+Calculator.
+Weather.
+Music.
+Video Player.
+Scanner.
+Voice Recorder.
+
+PHASE 5:
+Settings.
+App Store.
+App Permissions.
+Global Search.
+Share Sheet.
+App Integration.
+
+PHASE 6:
+Character Store.
+Character Profile.
+AI Chat.
+Personality Engine.
+
+PHASE 7:
+Memory Engine.
+Relationship Engine.
+AI Voice Call.
+Group Chat.
+
+PHASE 8:
+Anime Social.
+Stories.
+AI Life Simulation.
+AI Events.
+
+PHASE 9:
+Health.
+Fitness.
+Wallet.
+Password Manager.
+Translate.
+News.
+Books.
+Shortcuts.
+
+PHASE 10:
+Backend Hardening.
+Security.
+Testing.
+Performance.
+PWA.
+Android Packaging.
+
+==================================================
+PHẦN 47. TIÊU CHUẨN NGHIỆM THU
+
+Một ứng dụng chỉ được xem là hoàn thành khi:
+
+1. Có giao diện hoàn chỉnh.
+2. Có đầy đủ màn hình con.
+3. Có nút thao tác thực tế.
+4. Có thể thêm dữ liệu.
+5. Có thể sửa dữ liệu.
+6. Có thể xóa dữ liệu.
+7. Có thể tìm kiếm.
+8. Có lưu trữ.
+9. Có khôi phục.
+10. Có trạng thái Loading.
+11. Có trạng thái Empty.
+12. Có xử lý Error.
+13. Có đồng bộ khi cần.
+14. Có bảo mật.
+15. Có responsive.
+16. Có kiểm thử.
+
+Không được đánh dấu ứng dụng hoàn thành chỉ vì đã tạo xong giao diện trang chủ.
+
+Mỗi ứng dụng cần có checklist kiểm thử riêng.
+
+==================================================
+PHẦN 48. YÊU CẦU TRIỂN KHAI CHO AI LẬP TRÌNH
+
+Hãy xây dựng PHONE OS như một hệ sinh thái smartphone thực sự.
+
+ĐIỀU QUAN TRỌNG NHẤT:
+
+1. Không biến PHONE OS thành website thông thường.
+2. Không làm giao diện sơ sài.
+3. Không chỉ tạo một trang Home Screen đẹp rồi dừng lại.
+4. Không tạo ứng dụng giả với các nút không hoạt động.
+5. Không dùng dữ liệu mẫu thay thế chức năng thật.
+6. Không bỏ qua màn hình con của từng ứng dụng.
+7. Không bỏ qua các thao tác thêm, sửa, xóa.
+8. Không làm các ứng dụng hoạt động độc lập, thiếu liên kết.
+9. Không thay đổi kiến trúc dữ liệu tùy tiện giữa các Phase.
+10. Không xóa tính năng đã hoàn thành khi bổ sung tính năng mới.
+
+QUY TẮC PHÁT TRIỂN:
+
+- Phân tích toàn bộ yêu cầu.
+- Thiết kế kiến trúc trước.
+- Thiết kế Design System.
+- Xây dựng Core OS.
+- Xây từng ứng dụng.
+- Kết nối dữ liệu.
+- Kiểm thử từng ứng dụng.
+- Kiểm thử liên ứng dụng.
+- Kiểm thử trên Android.
+- Hoàn thiện trước khi chuyển giai đoạn.
+
+Nếu một tính năng không thể thực hiện trong môi trường web, hãy ghi rõ giới hạn và cung cấp phương án native phù hợp. Không được âm thầm bỏ tính năng.
+
+Không được chỉ trả về bản kế hoạch hoặc hình ảnh minh họa. Hãy tạo mã nguồn thực tế, cấu trúc dự án, database, backend và các chức năng theo từng giai đoạn.
+
+==================================================
+KẾT THÚC ĐẶC TẢ
+
+PHONE OS
+YOUR PHONE. YOUR WORLD. YOUR ANIME LIFE.
+
+MỤC TIÊU CUỐI CÙNG:
+Tạo ra một chiếc smartphone ảo hoàn chỉnh, có hệ điều hành, các ứng dụng thiết yếu, khả năng tương tác thực tế, hệ sinh thái dữ liệu liên kết và những nhân vật Anime AI có cuộc sống riêng.
+
+Người dùng không chỉ mở PHONE OS để trò chuyện với AI.
+
+Người dùng mở PHONE OS để sử dụng một chiếc điện thoại của riêng mình.
